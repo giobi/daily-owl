@@ -1,0 +1,271 @@
+/* General Styles */
+:root {
+  --bg-color: #121212;
+  --text-color: #F0F0F0;
+  --accent-color: #FF00FF; /* Magenta */
+  --secondary-color: #00FFFF; /* Cyan */
+  --tertiary-color: #FFFF00; /* Yellow */
+  --link-color: #00FF00; /* Bright Green */
+  --link-hover-color: #FFFF00;
+  --font-family: 'Roboto Mono', monospace; /* Add this font to your HTML */
+  --font-size-base: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  text-shadow: 0 0 5px var(--secondary-color);
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-top: 0.5em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: 1em;
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover-color);
+  text-shadow: 0 0 3px var(--link-hover-color);
+}
+
+a:active {
+  color: var(--accent-color);
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+/* Header */
+header {
+  background-color: #000;
+  padding: 1em 0;
+  border-bottom: 2px solid var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Ensure header stays on top */
+}
+
+header h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 3em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+nav a {
+  display: block;
+  padding: 0.5em 1em;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+/* Sections */
+section {
+  padding: 2em 0;
+  border-bottom: 1px dashed var(--secondary-color);
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+/* Articles */
+article {
+  margin-bottom: 2em;
+  padding: 1em;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover,
+article:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+
+article h2 {
+  margin-top: 0;
+  font-size: 1.8em;
+}
+
+article .article-meta {
+  font-size: 0.8em;
+  color: #999;
+  margin-bottom: 0.5em;
+}
+
+article .article-meta span {
+  margin-right: 1em;
+}
+
+/* Call to action (e.g., read more button) */
+.cta-button {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background-color: var(--link-color);
+  color: var(--bg-color);
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  background-color: var(--link-hover-color);
+  color: var(--bg-color);
+}
+
+/* Footer */
+footer {
+  background-color: #000;
+  color: #777;
+  text-align: center;
+  padding: 1em 0;
+  border-top: 2px solid var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color);
+  font-size: 0.9em;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5em;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Additional Cyberpunk Touches */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) 1px, transparent 1px, transparent 2px);
+  pointer-events: none; /* Allow clicks through the overlay */
+  z-index: -1; /* Place behind everything */
+}
+
+code {
+    background-color: #222;
+    color: var(--tertiary-color);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: #222;
+    color: var(--tertiary-color);
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: monospace;
+}
