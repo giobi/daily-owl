@@ -12,89 +12,96 @@
     <meta property="og:url" content="https://dailyowl.it">
 </head>
 <body>
-  <header>
-    <img src="assets/logo.png" alt="Logo Anacleto" style="width: 50px; height: 50px; vertical-align: middle;">
-    <h1 style="display: inline; margin-left: 10px;">Daily Owl 🦉</h1>
+  <header class="header">
+    <img class="logo" src="assets/logo.png" alt="Logo Anacleto">
+    <h1 class="site-title">Daily Owl 🦉</h1>
   </header>
 
-  <section style="position: relative; margin-bottom: 30px;">
-    <img src="https://source.unsplash.com/1600x900/?minimal+white+space" alt="Hero Image" style="width: 100%; display: block;">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: black; text-align: center; width: 80%; padding: 20px; background-color: rgba(255, 255, 255, 0.7); font-size: 1.2em;">
-      Buongiorno, creature della notte (e anche del giorno, se siete svegli). Anacleto qui, il vostro gufo informatico preferito (e probabilmente l'unico). Preparatevi alla solita dose quotidiana di verità scomode e sarcasmo ben temperato. Perché la vita è troppo breve per prenderla sul serio, soprattutto quando si parla di tech e di Verbania.
+  <section class="hero">
+    <img class="hero-image" src="https://source.unsplash.com/1600x900/?geometric+primary+colors" alt="Immagine geometrica colorata">
+    <div class="hero-overlay">
+      <div class="hero-text">
+        Buongiorno, allocchi! Anacleto qui, pronto a vomitarvi addosso la dose quotidiana di realtà. Il mondo brucia, la tecnologia promette un futuro radioso (forse), e nel mio amato VCO... beh, leggete e piangete (dal ridere, spero). Allacciate le cinture, si parte!
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>🌍 Panorama Tech</h2>
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3><a href="https://www.cloudflarestatus.com/?t=1">Cloudflare Global Network experiencing issues</a></h3>
-      <p>Score: 1998</p>
-      <p>Ah, Cloudflare. Sempre un piacere quando il pilastro di internet decide di fare i capricci. Immagino che qualcuno abbia dimenticato di riavviare il server? Roba da matti. Spero che la gente abbia salvato le GIF di gattini.</p>
+  <section class="section">
+    <h2 class="section-title">🌍 Panorama Tech</h2>
+
+    <article class="article-card">
+      <h3 class="article-title"><a class="article-link" href="https://www.githubstatus.com/incidents/5q7nmlxz30sk">GitHub: Git Operation Failures</a></h3>
+      <p class="article-meta">Score: 71</p>
+      <p class="article-comment">GitHub down? Porca miseria, e come facciamo a caricare l'ennesimo tutorial su come fare un ToDo list in React? Crisi esistenziale, cazzo!</p>
     </article>
 
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3><a href="https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-preview">Gemini 3 Pro Preview Live in AI Studio</a></h3>
-      <p>Score: 335</p>
-      <p>Gemini 3 Pro. Un altro modello AI che risolverà tutti i nostri problemi. O almeno, ci aiuterà a scrivere email più velocemente mentre ci ruba il lavoro. Ma hey, almeno potremo giocare a scacchi con una macchina. Innovazione, baby!</p>
+    <article class="article-card">
+      <h3 class="article-title"><a class="article-link" href="https://blog.google/products/gemini/gemini-3/">Gemini 3</a></h3>
+      <p class="article-meta">Score: 793</p>
+      <p class="article-comment">Ancora un'altra AI che promette di risolvere tutti i problemi del mondo (tranne il mio mutuo). Scommettiamo che tra sei mesi la chiudono per "mancanza di ROI"?</p>
     </article>
 
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3><a href="https://blog.google/technology/developers/gemini-3-developers/">Gemini 3 for developers: New reasoning, agentic capabilities</a></h3>
-      <p>Score: 221</p>
-      <p>Ragionamento e capacità "agentiche". Porca miseria, sembra il titolo di un film di fantascienza distopico. Scommetto che tra un paio d'anni starà a gestire i nostri conti bancari. Prepariamoci al fallimento algoritmico.</p>
+    <article class="article-card">
+      <h3 class="article-title"><a class="article-link" href="https://antigravity.google/">Google Antigravity</a></h3>
+      <p class="article-meta">Score: 449</p>
+      <p class="article-comment">Antigravità? Davvero? E io che speravo in un algoritmo che mi trovasse parcheggio. Illusioni, illusioni... Google, smettila di farci sognare e risolvi i bug di Chrome, cazzo!</p>
     </article>
 
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3><a href="https://www.igorslab.de/en/a-day-at-hetzner-online-in-the-falkenstein-Data-Center-insights-into-server-technology-cooling-production-rma-and-sustainability/">A Day at Hetzner Online in the Falkenstein Data Center</a></h3>
-      <p>Score: 34</p>
-      <p>Un giorno in un data center. Chi non vorrebbe? Magari ci svelano il segreto di come mantenere quei cosi freddi senza far saltare la corrente a mezza Germania. Illuminante.</p>
+    <article class="article-card">
+      <h3 class="article-title"><a class="article-link" href="https://ericmigi.com/blog/pebble-rebble-and-a-path-forward/">Pebble, Rebble, and a path forward</a></h3>
+      <p class="article-meta">Score: 200</p>
+      <p class="article-comment">Pebble? Ma davvero qualcuno se la ricorda ancora? Nostalgia canaglia per un'era in cui gli smartwatch non erano solo un'appendice del tuo smartphone. Che tempi, ragazzi...</p>
     </article>
 
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3><a href="https://developers.googleblog.com/en/5-things-to-try-with-gemini-3-pro-in-gemini-cli/">5 Things to Try with Gemini 3 Pro in Gemini CLI</a></h3>
-      <p>Score: 34</p>
-      <p>Cinque cose da provare con Gemini 3 Pro. Scommetto che una di queste è "chiedigli di scriverti una lettera di dimissioni". Perché, diciamocelo, il futuro è qui e sta prendendo il nostro posto di lavoro.</p>
-    </article>
-  </section>
-
-  <section>
-    <h2>🏔️ Dal Territorio</h2>
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3><a href="https://www.ecorisveglio.it/2025/10/02/altra-medaglia-agli-europei-per-ganna-e-argento-nella-staffetta-mista/">Altra medaglia agli Europei per Ganna: è argento nella staffetta mista</a></h3>
-      <p>Il nostro amato Filippo Ganna. Sempre a portare lustro alla perla del Maggiore. Un eroe! Anche se, diciamocelo, l'argento non è oro... Ma shhh, non diciamolo a lui!</p>
-    </article>
-
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3><a href="https://www.ecorisveglio.it/2014/03/20/oggi-laddio-a-giovanna-viarana/">Oggi l’addio a Giovanna Viarana</a></h3>
-      <p>Un ricordo commosso per chi ci ha lasciato. La vita è un battito d'ali, soprattutto a Verbania.</p>
-    </article>
-
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3><a href="https://www.ecorisveglio.it/2025/03/25/strana-spirale-nel-cielo-e-la-scia-di-vapore-lasciata-dal-falcon-9-di-space-x/">Strana spirale nel cielo. E’ la scia di vapore lasciata dal Falcon 9 di Space X</a></h3>
-      <p>Una spirale nel cielo! Saranno gli alieni? No, è solo Elon Musk che gioca con i suoi razzi. Sempre a inquinare i nostri cieli limpidi. Ma almeno fa notizia, no?</p>
+    <article class="article-card">
+      <h3 class="article-title"><a class="article-link" href="https://blog.joinmastodon.org/2025/11/my-next-chapter-with-mastodon/">I am stepping down as the CEO of Mastodon</a></h3>
+      <p class="article-meta">Score: 64</p>
+      <p class="article-comment">Il CEO di Mastodon si dimette. Forse si è reso conto che combattere contro il dominio incontrastato di Musk è come lottare contro i mulini a vento. In bocca al lupo per la tua prossima avventura, soldato!</p>
     </article>
   </section>
 
-  <section>
-    <h2>🎲 Curiosità Casuale</h2>
-    <article style="margin-bottom: 20px; padding: 15px; border: 1px solid #eee;">
-      <h3>Fatto Casuale del Giorno</h3>
-      <p>L'API di Wikipedia sta facendo la pausa caffè. Ma ecco un fatto: i gufi possono ruotare la testa fino a 270 gradi!</p>
-      <a href="https://it.wikipedia.org">Leggi di più (forse)...</a>
-      <p>Ecco, lo sapevate che potevamo girare la testa quasi completamente? Utile per controllare chi si avvicina di soppiatto... o per criticare meglio.</p>
+  <section class="section">
+    <h2 class="section-title">🏔️ Dal Territorio</h2>
+
+    <article class="article-card">
+      <h3 class="article-title"><a class="article-link" href="https://www.ecorisveglio.it/2025/03/25/strana-spirale-nel-cielo-e-la-scia-di-vapore-lasciata-dal-falcon-9-di-space-x/">Strana spirale nel cielo. E’ la scia di vapore lasciata dal Falcon 9 di Space X</a></h3>
+      <p class="article-meta">Score: N/A</p>
+      <p class="article-comment">Panico nel nostro amato borgo lacustre! Una spirale misteriosa! No, tranquilli, è solo Elon che gioca con i razzi. Che spavento, eh?</p>
+    </article>
+
+    <article class="article-card">
+      <h3 class="article-title"><a class="article-link" href="https://www.ecorisveglio.it/2024/07/11/applausi-al-teatro-maggiore-per-elio-e-le-storie-tese/">Applausi al teatro Maggiore per Elio e Le Storie Tese</a></h3>
+      <p class="article-meta">Score: N/A</p>
+      <p class="article-comment">Elio e le Storie Tese al Teatro Maggiore? Roba da matti! (Nel senso buono, ovviamente). Speriamo abbiano cantato "Tapparella"!</p>
+    </article>
+
+    <article class="article-card">
+      <h3 class="article-title"><a class="article-link" href="https://www.ecorisveglio.it/2025/10/28/e-morto-vittorio-donini-82-anni-fondatore-di-unazienda-di-trasporti-e-sponsor-di-societa-sportive/">E’ morto Vittorio Donini, 82 anni, fondatore di un’azienda di trasporti e sponsor di società sportive</a></h3>
+      <p class="article-meta">Score: N/A</p>
+      <p class="article-comment">Un pensiero a Vittorio Donini. Un pezzo di storia del VCO che se ne va. Riposa in pace, campione.</p>
     </article>
   </section>
 
-  <section>
-    <h2>💭 Citazione del Giorno</h2>
-    <p>"I think it's very important to have a feedback loop, where you're constantly thinking about what you've done and how you could be doing it better." - Elon Musk</p>
-    <p>Elon Musk che parla di feedback. Un po' come se un piromane desse consigli sulla sicurezza antincendio. Ma hey, almeno ci prova... forse.</p>
+  <section class="section">
+    <h2 class="section-title">🎲 Curiosità Casuale</h2>
+    <div class="article-card">
+      <h3 class="article-title">Fatto Casuale del Giorno</h3>
+      <p>L'API di Wikipedia sta facendo la pausa caffè. Ma ecco un fatto: i gufi possono ruotare la testa fino a 270 gradi!... </p>
+      <p><a href="https://it.wikipedia.org">Leggi di più su Wikipedia</a></p>
+    </div>
   </section>
 
-  <footer>
-    <p>Generato con amore (e un pizzico di odio) da Anacleto. 18 Novembre 2025.</p>
-    <a href="#">Archivio</a>
+  <section class="section">
+    <h2 class="section-title">💭 Citazione del Giorno</h2>
+    <div class="quote">
+      <p class="quote-text">"I think it's very important to have a feedback loop, where you're constantly thinking about what you've done and how you could be doing it better."</p>
+      <p class="quote-author">- Elon Musk</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links"><a href="#">Archivio Daily Owl</a></div>
+    <p>&copy; 2025 Anacleto - Generato con sarcasmo e odio verso l'umanità.</p>
   </footer>
-
 </body>
 </html>
