@@ -1,271 +1,298 @@
-/* General Styles */
+/*
+  Foglio di Stile CSS - Digest Quotidiano di Notizie
+  Mood: Neo-Minimalismo, Monocromatico, Image-Driven
+  Requisiti: Moderno, Responsive, Accessibile (WCAG AA), PressLess Inspired
+*/
+
+/* Variabili Globali */
 :root {
-  --bg-color: #121212;
-  --text-color: #F0F0F0;
-  --accent-color: #FF00FF; /* Magenta */
-  --secondary-color: #00FFFF; /* Cyan */
-  --tertiary-color: #FFFF00; /* Yellow */
-  --link-color: #00FF00; /* Bright Green */
-  --link-hover-color: #FFFF00;
-  --font-family: 'Roboto Mono', monospace; /* Add this font to your HTML */
-  --font-size-base: 16px;
+  --color-text: #1a1a1a;
+  --color-background: #f9f9f9;
+  --color-accent: #333333;
+  --color-link: #007bff;
+  --color-link-hover: #0056b3;
+  --font-primary: sans-serif;
+  --font-secondary: serif;
+  --padding-small: 0.5rem;
+  --padding-medium: 1rem;
+  --padding-large: 2rem;
+  --border-radius: 0.25rem;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Reset CSS */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  line-height: 1.6;
-  background-color: var(--bg-color);
-  color: var(--text-color);
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--accent-color);
-  font-weight: bold;
-  margin-bottom: 0.5em;
-  text-shadow: 0 0 5px var(--secondary-color);
-}
-
-h1 {
-  font-size: 2.5em;
-  margin-top: 0.5em;
-}
-
-h2 {
-  font-size: 2em;
-  margin-top: 1em;
-}
-
-h3 {
-  font-size: 1.6em;
-}
-
-p {
-  margin-bottom: 1em;
-}
-
-/* Links */
-a {
-  color: var(--link-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover,
-a:focus {
-  color: var(--link-hover-color);
-  text-shadow: 0 0 3px var(--link-hover-color);
-}
-
-a:active {
-  color: var(--accent-color);
-}
-
-/* Layout */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1em;
+/* Body */
+body {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  padding: 0; /* Padding nullo sul body, gestito nei contenitori */
 }
 
 /* Header */
 header {
-  background-color: #000;
-  padding: 1em 0;
-  border-bottom: 2px solid var(--secondary-color);
-  box-shadow: 0 0 10px var(--secondary-color);
-  position: sticky;
-  top: 0;
-  z-index: 100; /* Ensure header stays on top */
+  padding: var(--padding-medium);
+  background-color: var(--color-background);
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header h1 {
-  margin: 0;
-  text-align: center;
-  font-size: 3em;
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--color-text);
 }
 
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-  justify-content: center;
-  gap: 2em;
+}
+
+nav li {
+  margin-left: var(--padding-medium);
 }
 
 nav a {
-  display: block;
-  padding: 0.5em 1em;
-  border: 1px solid var(--accent-color);
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  color: var(--color-text);
+  padding: var(--padding-small);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
 }
 
-nav a:hover,
-nav a:focus {
-  background-color: var(--accent-color);
-  color: var(--bg-color);
+nav a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: calc(var(--padding-large) * 2);
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 600px; /* Regola in base al design desiderato */
+}
+
+.hero-content {
+  position: absolute;
+  bottom: var(--padding-large);
+  left: var(--padding-large);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: var(--padding-medium);
+  background-color: rgba(0, 0, 0, 0.5); /* per la leggibilità su immagini chiare */
+  border-radius: var(--border-radius);
+  max-width: 80%; /* Controlla la larghezza del testo */
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--padding-small);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
 }
 
 /* Sections */
 section {
-  padding: 2em 0;
-  border-bottom: 1px dashed var(--secondary-color);
+  padding: var(--padding-large);
+  margin-bottom: var(--padding-large);
+  background-color: var(--color-background);
+  border-bottom: 1px solid #eee;
 }
 
-section:last-child {
-  border-bottom: none;
+section h2 {
+  font-size: 2rem;
+  margin-bottom: var(--padding-medium);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: var(--padding-small);
 }
 
 /* Articles */
 article {
-  margin-bottom: 2em;
-  padding: 1em;
-  border: 1px solid #333;
-  border-radius: 5px;
-  background-color: #1a1a1a;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: var(--padding-large);
 }
 
-article:hover,
-article:focus-within {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+article h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--padding-small);
 }
 
-article h2 {
-  margin-top: 0;
-  font-size: 1.8em;
+article p {
+  margin-bottom: var(--padding-small);
 }
 
-article .article-meta {
-  font-size: 0.8em;
-  color: #999;
-  margin-bottom: 0.5em;
+/* Cards */
+.card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--padding-medium);
+  margin-bottom: var(--padding-medium);
+  transition: transform 0.3s ease;
 }
 
-article .article-meta span {
-  margin-right: 1em;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-/* Call to action (e.g., read more button) */
-.cta-button {
-  display: inline-block;
-  padding: 0.75em 1.5em;
-  background-color: var(--link-color);
-  color: var(--bg-color);
-  border-radius: 5px;
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--padding-small);
+  object-fit: cover;
+  aspect-ratio: 16 / 9; /* Important for consistent card layout */
+}
+
+/* Links */
+a {
+  color: var(--color-link);
   text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: none;
-  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.cta-button:hover,
-.cta-button:focus {
-  background-color: var(--link-hover-color);
-  color: var(--bg-color);
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: var(--padding-small) var(--padding-medium);
+  background-color: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #222;
 }
 
 /* Footer */
 footer {
-  background-color: #000;
+  background-color: var(--color-accent);
+  color: white;
+  padding: var(--padding-large);
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+/* Ulteriori elementi e classi  */
+
+.container {
+  max-width: 1200px; /* Larghezza massima del contenuto */
+  margin: 0 auto; /* Centra il contenuto orizzontalmente */
+  padding: 0 var(--padding-medium); /* Padding laterale per respirare */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Griglia responsiva */
+  gap: var(--padding-medium);
+}
+
+.article-date {
+  font-size: 0.8rem;
   color: #777;
-  text-align: center;
-  padding: 1em 0;
-  border-top: 2px solid var(--secondary-color);
-  box-shadow: 0 0 10px var(--secondary-color);
-  font-size: 0.9em;
+  margin-bottom: var(--padding-small);
 }
 
-/* Utility classes */
-.text-center {
-  text-align: center;
+.category-badge {
+  background-color: #ccc;
+  color: var(--color-text);
+  padding: var(--padding-small);
+  border-radius: var(--border-radius);
+  font-size: 0.75rem;
+  margin-right: var(--padding-small);
 }
 
-.text-right {
-  text-align: right;
+/* Media Queries (Mobile-First) */
+
+@media (min-width: 768px) {
+  /* Aggiornamenti per schermi più grandi */
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.4rem;
+  }
+  /*Esempio di modifica di un elemento grid*/
+  /*
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+  */
+
 }
 
-.visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
+@media (min-width: 1024px) {
+  /* Aggiornamenti per schermi ancora più grandi */
+  header {
+    padding: var(--padding-large);
+  }
 
-/* Responsive Design */
-@media (max-width: 768px) {
   .container {
-    padding: 0.5em;
+    padding: 0 var(--padding-large);
   }
 
-  header h1 {
-    font-size: 2em;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5em;
-  }
-
-  nav a {
-    width: 100%;
-    text-align: center;
+  section {
+    padding: var(--padding-large);
   }
 }
 
-/* Additional Cyberpunk Touches */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) 1px, transparent 1px, transparent 2px);
-  pointer-events: none; /* Allow clicks through the overlay */
-  z-index: -1; /* Place behind everything */
+/* Accessibility Enhancements */
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
 }
 
-code {
-    background-color: #222;
-    color: var(--tertiary-color);
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-family: monospace;
-    font-size: 0.9em;
+/* Sufficient Color Contrast (WCAG AA) */
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
-pre {
-    background-color: #222;
-    color: var(--tertiary-color);
-    padding: 1em;
-    border-radius: 5px;
-    overflow-x: auto;
-    font-family: monospace;
+a {
+  color: var(--color-link);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-link-hover);
+}
+
+/* Alternative Text for Images */
+img:not([alt]) {
+  border: 3px solid red; /* Visual indication of missing alt text */
 }
