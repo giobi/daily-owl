@@ -1,214 +1,198 @@
-/* Reset e Font base */
-html, body {
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-  font-family: 'EB Garamond', serif; /* Font art deco elegante */
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333; /* Grigio scuro */
-  background: #f0ead6; /* Beige chiaro */
-}
-
-/* Link */
-a {
-  color: #a3734c; /* Oro opaco */
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #664d32; /* Marrone scuro */
+  color: #eee; /* Light text for contrast */
+  background: linear-gradient(135deg, #222 0%, #444 100%);
+  transition: background-color 0.3s ease;
 }
 
 /* Header */
-.header {
-  background: #333; /* Nero */
-  color: #fff;
+header {
+  background: linear-gradient(to right, #222, #333);
   padding: 20px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.logo {
-  max-width: 100px; /* Dimensione logo */
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.site-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+header h1 {
+  font-size: 2em;
+  margin: 0;
+  color: #eee;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Hero Section */
-.hero {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 40px;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  display: block; /* Rimuove gap in basso */
-  object-fit: cover;
-  object-position: center;
-  max-height: 600px; /* Altezza massima hero */
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Overlay scuro */
+.hero-section {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("hero-image.jpg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 100px 20px;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.hero-section h2 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* HN Stories Grid */
+.hn-stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   padding: 20px;
 }
 
-.hero-text {
-  font-size: 1.8rem;
-  font-weight: bold;
-  max-width: 800px;
-  margin: 0 auto;
-  letter-spacing: 1px;
+.hn-story {
+  background: linear-gradient(to bottom, #333, #444);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
-/* Content Sections */
-.section {
-  padding: 40px;
-  margin-bottom: 30px;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #8b4513; /* Marrone siena */
-}
-
-.section-image {
-  width: 100%;
-  height: auto;
-  max-width: 400px;
-  margin: 20px auto;
-  display: block;
-}
-
-/* Article Cards */
-.article-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 24px; /* Padding abbondante */
-  transition: transform 0.2s ease;
-}
-
-.article-card:hover {
+.hn-story:hover {
   transform: translateY(-5px);
 }
 
-.article-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.article-link {
-  display: block;
-  color: #a3734c;
+.hn-story a {
+  color: #eee;
   text-decoration: none;
-  font-weight: bold;
 }
 
-.article-link:hover {
+.hn-story a:hover {
   text-decoration: underline;
 }
 
-.article-meta {
-  font-size: 0.8rem;
-  color: #777;
+/* Eco Risveglio Card */
+.eco-risveglio-card {
+  background: linear-gradient(to right, #4CAF50, #2E7D32); /* Green gradient */
+  color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  margin: 20px;
+}
+
+.eco-risveglio-card h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.eco-risveglio-card p {
+  font-size: 1.1em;
+}
+
+/* Owl Fact Callout */
+.owl-fact-callout {
+  background: linear-gradient(to bottom, #FFA07A, #FF7F50); /* Coral gradient */
+  color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+}
+
+.owl-fact-callout h4 {
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-.article-comment {
+/* Quote Section */
+.quote-section {
+  background: linear-gradient(to bottom, #673AB7, #512DA8); /* Deep purple gradient */
+  color: #fff;
+  padding: 40px;
+  text-align: center;
   font-style: italic;
-  color: #555;
+  font-size: 1.3em;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 20px;
 }
 
-/* Quote */
-.quote {
-  background: #f5f5f5;
-  border-left: 5px solid #a3734c;
-  padding: 20px;
-  margin-bottom: 30px;
+.quote-section p {
+  margin-bottom: 15px;
 }
 
-.quote-text {
-  font-size: 1.2rem;
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-.quote-author {
-  font-weight: bold;
-  text-align: right;
-}
-
-.quote-image {
-  width: 100%;
-  height: auto;
-  max-width: 150px;
-  border-radius: 50%;
-  margin: 10px auto;
-  display: block;
+.quote-section cite {
+  font-style: normal;
+  font-size: 0.9em;
 }
 
 /* Footer */
-.footer {
-  background: #333;
-  color: #fff;
+footer {
+  background: linear-gradient(to right, #222, #333);
+  color: #eee;
   padding: 20px;
   text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.footer-links {
-  margin-top: 10px;
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.footer-links a {
-  color: #fff;
-  margin: 0 10px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hn-stories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  .hero-section h2 {
+    font-size: 2.5em;
+  }
+
+  .hero-section p {
+    font-size: 1.1em;
+  }
 }
 
-/* Mobile-First Responsive Design */
-@media (min-width: 768px) {
-  .section {
-    padding: 60px;
-  }
-
-  .article-card {
-    padding: 32px;
-  }
-
-  .hero-text {
-    font-size: 2.2rem;
-  }
+/* Specific Image Placements - Replace URLs */
+.image-placement-1 {
+  grid-column: 1 / span 2; /* Example placement in a grid */
+  grid-row: 1;
+  background: url('image1.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 300px; /* Ensure it has a height */
 }
 
-@media (min-width: 992px) {
-  .hero-text {
-    font-size: 2.5rem;
-  }
+.image-placement-2 {
+    grid-column: 3; /* Example placement in a grid */
+    grid-row: 1 / span 2;
+    background: url('image2.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 300px; /* Ensure it has a height */
+}
+
+.image-placement-3 {
+    grid-column: 1; /* Example placement in a grid */
+    grid-row: 2;
+    background: url('image3.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 300px; /* Ensure it has a height */
 }
