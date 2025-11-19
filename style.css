@@ -1,62 +1,57 @@
-/*
-  Bauhaus Daily Digest - CSS
-  By Bard
-*/
-
 /* Base Styles */
 html, body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif; /* Sostituisci con un font più specifico */
+  font-family: 'Playfair Display', serif; /* Imposta un font serif pesante */
   font-size: 16px;
   line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  color: #333; /* Testo grigio scuro per simulare inchiostro */
+  background-color: #f8f8f8; /* Sfondo leggermente sporco per effetto carta */
 }
 
 a {
-  color: #007bff; /* Primary Blue */
+  color: #0056b3; /* Blu scuro per i link */
   text-decoration: none;
 }
 
 a:hover {
+  color: #003366; /* Blu ancora più scuro al passaggio del mouse */
   text-decoration: underline;
-  color: #0056b3; /* Darker Blue */
 }
 
 /* Header */
 .header {
-  background-color: #fff;
   padding: 24px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  max-width: 100px;
+  max-width: 100px; /* Adatta alla larghezza dello schermo */
   height: auto;
 }
 
 .site-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000; /* Black */
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
 }
 
 /* Hero Section */
 .hero {
   position: relative;
-  overflow: hidden;
+  margin-bottom: 32px;
 }
 
 .hero-image {
   width: 100%;
   height: auto;
-  display: block;
-  object-fit: cover; /* Cover the entire area */
-  object-position: center; /* Center the image */
+  display: block; /* Elimina spazi vuoti sotto l'immagine */
+  object-fit: cover; /* Assicura che l'immagine riempia lo spazio mantenendo le proporzioni */
+  max-height: 600px; /* Altezza massima per l'immagine hero */
 }
 
 .hero-overlay {
@@ -65,93 +60,102 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  background-color: rgba(0, 0, 0, 0.4); /* Sovrapposizione scura per il testo */
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 24px;
   text-align: center;
+  padding: 24px;
 }
 
 .hero-text {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px; /* Space from the hero image*/
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra per leggibilità */
 }
 
 /* Content Sections */
 .section {
-  padding: 48px 24px;
+  padding: 24px;
+  margin-bottom: 32px;
   background-color: #fff;
-  margin-bottom: 24px; /* Space between sections */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .section-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 8px;
 }
 
 /* Article Cards */
 .article-card {
-  background-color: #f0f0f0; /* Light Gray */
   padding: 24px;
   margin-bottom: 24px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .article-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .article-link {
-  color: inherit; /* Inherit color from parent */
+  color: #333;
+  text-decoration: none;
+}
+
+.article-link:hover {
+  text-decoration: underline;
 }
 
 .article-meta {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: #777;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .article-comment {
   font-style: italic;
   color: #555;
+  margin-top: 16px;
+  border-top: 1px dashed #ccc;
+  padding-top: 8px;
 }
 
 /* Quote */
 .quote {
-  padding: 48px 24px;
-  background-color: #eee; /* Lighter Gray */
-  margin-bottom: 24px;
-  text-align: center;
+  padding: 24px;
+  margin-bottom: 32px;
+  background-color: #f0f0f0;
+  border-left: 5px solid #ccc;
 }
 
 .quote-text {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-style: italic;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .quote-author {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #555;
 }
 
 /* Footer */
 .footer {
+  padding: 24px;
   background-color: #333;
   color: #fff;
-  padding: 24px;
   text-align: center;
 }
 
@@ -161,42 +165,53 @@ a:hover {
   margin: 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
 }
 
-.footer-links li a {
+.footer-links li {
+  margin: 0 16px;
+}
+
+.footer-links a {
   color: #fff;
+  text-decoration: none;
 }
 
-.footer-links li a:hover {
+.footer-links a:hover {
   text-decoration: underline;
 }
 
-/* Mobile-First Responsive Design */
-@media (min-width: 768px) {
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-title {
+    margin-top: 16px;
+    text-align: center;
+  }
+
   .hero-text {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
-  .section {
-    padding: 60px 36px; /* Increased padding on larger screens*/
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .article-card {
-    padding: 36px;
+  .footer-links li {
+    margin: 8px 0;
   }
 }
 
-@media (min-width: 992px) {
-  .header {
-    padding: 36px 48px; /* Even more padding on larger screens*/
+@media (max-width: 480px) {
+  .hero-text {
+    font-size: 1.5rem;
   }
 
-  .section {
-    padding: 72px 48px;
-  }
-
-  .article-card {
-    padding: 48px; /* Max padding on largest screens */
+  .section-title {
+    font-size: 1.75rem;
   }
 }
