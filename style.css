@@ -1,217 +1,180 @@
-/* Base Styles */
+/* Reset e Font di base */
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Playfair Display', serif; /* Imposta un font serif pesante */
+  font-family: 'Arial', sans-serif; /* Un font sans-serif leggibile */
   font-size: 16px;
   line-height: 1.6;
-  color: #333; /* Testo grigio scuro per simulare inchiostro */
-  background-color: #f8f8f8; /* Sfondo leggermente sporco per effetto carta */
+  background-color: #f0f0f0; /* Grigio chiaro "cemento" */
+  color: #333; /* Grigio scuro testo */
 }
 
+/* Links */
 a {
-  color: #0056b3; /* Blu scuro per i link */
+  color: #007bff; /* Blu intenso */
   text-decoration: none;
 }
 
 a:hover {
-  color: #003366; /* Blu ancora più scuro al passaggio del mouse */
   text-decoration: underline;
 }
 
 /* Header */
 .header {
+  background-color: #222; /* Grigio molto scuro */
+  color: #fff;
   padding: 24px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
 }
 
 .logo {
-  max-width: 100px; /* Adatta alla larghezza dello schermo */
-  height: auto;
+  max-width: 100px; /* Adatta il logo alla larghezza */
+  margin-bottom: 10px;
 }
 
 .site-title {
   font-size: 2rem;
-  font-weight: 700;
-  color: #222;
+  font-weight: bold;
 }
 
 /* Hero Section */
 .hero {
   position: relative;
-  margin-bottom: 32px;
+  overflow: hidden;
+  margin-bottom: 48px;
 }
 
 .hero-image {
   width: 100%;
   height: auto;
-  display: block; /* Elimina spazi vuoti sotto l'immagine */
-  object-fit: cover; /* Assicura che l'immagine riempia lo spazio mantenendo le proporzioni */
-  max-height: 600px; /* Altezza massima per l'immagine hero */
+  display: block;
 }
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Sovrapposizione scura per il testo */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6); /* Sovrapposizione scura */
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 32px;
   text-align: center;
-  padding: 24px;
+  width: 80%;
+  box-sizing: border-box;
 }
 
 .hero-text {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra per leggibilità */
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 /* Content Sections */
 .section {
   padding: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
 }
 
 .section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 16px;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 8px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
 }
 
 /* Article Cards */
 .article-card {
-  padding: 24px;
-  margin-bottom: 24px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  margin-bottom: 24px;
+  padding: 32px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombra leggera */
 }
 
 .article-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 12px;
 }
 
 .article-link {
+  display: block; /* Per occupare tutta la larghezza */
   color: #333;
-  text-decoration: none;
 }
 
 .article-link:hover {
-  text-decoration: underline;
+    text-decoration: none;
+    color: #0056b3;
 }
 
 .article-meta {
   font-size: 0.8rem;
   color: #777;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .article-comment {
   font-style: italic;
   color: #555;
-  margin-top: 16px;
-  border-top: 1px dashed #ccc;
-  padding-top: 8px;
+  font-size: 0.9rem;
 }
 
 /* Quote */
 .quote {
-  padding: 24px;
-  margin-bottom: 32px;
-  background-color: #f0f0f0;
-  border-left: 5px solid #ccc;
+  background-color: #eee;
+  padding: 32px;
+  margin-bottom: 48px;
+  border-left: 5px solid #007bff; /* Evidenziazione laterale */
 }
 
 .quote-text {
   font-size: 1.2rem;
   font-style: italic;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .quote-author {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #555;
+  font-weight: bold;
+  text-align: right;
 }
 
 /* Footer */
 .footer {
-  padding: 24px;
-  background-color: #333;
+  background-color: #222;
   color: #fff;
+  padding: 24px;
   text-align: center;
 }
 
 .footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.footer-links li {
-  margin: 0 16px;
+  margin-top: 12px;
 }
 
 .footer-links a {
   color: #fff;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
+  margin: 0 10px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .site-title {
-    margin-top: 16px;
-    text-align: center;
+  .hero-overlay {
+    width: 90%;
+    padding: 24px;
   }
 
   .hero-text {
-    font-size: 2rem;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-links li {
-    margin: 8px 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
+  }
+
+  .article-card {
+    padding: 24px;
+  }
+
+  .article-title {
+    font-size: 1.5rem;
   }
 }
