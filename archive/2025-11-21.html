@@ -12,31 +12,46 @@
 }
 
 :root {
-  --neon-pink: #ff71ce;
-  --neon-blue: #01cdfe;
-  --neon-purple: #b967ff;
-  --dark: #1a1a1a;
+  --neon-green: #39ff14;
+  --neon-pink: #ff0099;
+  --dark-bg: #0a0a0f;
+  --grid-color: rgba(57, 255, 20, 0.1);
 }
 
 body {
-  background: linear-gradient(45deg, #1a1a1a, #2d1b2e);
-  color: white;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--dark-bg);
+  color: #fff;
+  font-family: "Courier New", monospace;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    transparent 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 100;
+  animation: scanlines 10s linear infinite;
 }
 
 .site-header {
   padding: 2rem;
-  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  border-bottom: 2px solid var(--neon-green);
+  background: rgba(10, 10, 15, 0.9);
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
-  z-index: 100;
-  backdrop-filter: blur(10px);
-  animation: headerGlow 8s infinite;
-}
-
-@keyframes headerGlow {
-  0%, 100% { box-shadow: 0 0 20px var(--neon-purple); }
-  50% { box-shadow: 0 0 40px var(--neon-pink); }
+  z-index: 10;
+  box-shadow: 0 0 20px var(--neon-green);
 }
 
 .hero-section {
@@ -49,14 +64,9 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: hue-rotate(45deg) saturate(1.5);
-  animation: glitch 5s infinite;
-}
-
-@keyframes glitch {
-  2% { transform: translate(2px, 0); }
-  4% { transform: translate(-2px, 0); }
-  6% { transform: translate(0, 0); }
+  filter: grayscale(50%) brightness(0.7);
+  transform: scale(1.1);
+  animation: pulse 4s ease-in-out infinite;
 }
 
 .grid-container {
@@ -64,65 +74,65 @@ body {
   grid-template-columns: repeat(12, 1fr);
   gap: 2rem;
   padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  background: linear-gradient(var(--grid-color) 1px, transparent 1px),
+              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
 }
 
 .stories-section {
-  grid-column: 1 / 8;
+  grid-column: 1 / 9;
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-}
-
-.story-card {
-  background: rgba(255,255,255,0.1);
-  padding: 1.5rem;
-  border: 1px solid var(--neon-blue);
-  transition: all 0.3s;
-}
-
-.story-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px var(--neon-blue);
 }
 
 .local-section {
-  grid-column: 8 / 13;
-  display: grid;
-  gap: 1.5rem;
+  grid-column: 9 / 13;
 }
 
-.news-card {
-  background: rgba(255,255,255,0.1);
+.story-card, .news-card {
+  background: rgba(255, 255, 255, 0.05);
   padding: 1.5rem;
-  border: 1px solid var(--neon-pink);
-  transition: all 0.3s;
+  border: 1px solid var(--neon-green);
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.news-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 20px var(--neon-pink);
+.story-card:hover, .news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px var(--neon-pink);
+  border-color: var(--neon-pink);
 }
 
 .owl-section {
   grid-column: 1 / 7;
-  background: linear-gradient(135deg, var(--neon-purple), transparent);
+  background: rgba(255, 0, 153, 0.1);
   padding: 2rem;
-  border-radius: 4px;
+  border: 1px solid var(--neon-pink);
 }
 
 .quote-section {
   grid-column: 7 / 13;
-  background: linear-gradient(225deg, var(--neon-pink), transparent);
+  background: rgba(57, 255, 20, 0.1);
   padding: 2rem;
-  border-radius: 4px;
+  border: 1px solid var(--neon-green);
 }
 
 .site-footer {
-  background: var(--dark);
+  background: var(--dark-bg);
   padding: 3rem;
-  margin-top: 4rem;
-  border-top: 2px solid var(--neon-blue);
+  border-top: 2px solid var(--neon-pink);
+  text-align: center;
+}
+
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1.1); }
+  50% { transform: scale(1.2); }
 }
 
 @media (max-width: 768px) {
@@ -136,30 +146,10 @@ body {
   .quote-section {
     grid-column: 1 / -1;
   }
-}
-
-::selection {
-  background: var(--neon-pink);
-  color: white;
-}
-
-/* Scanline effect */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  pointer-events: none;
-  z-index: 999;
+  
+  .stories-section {
+    grid-template-columns: 1fr;
+  }
 }
     </style>
 </head>
@@ -167,7 +157,7 @@ body::after {
     <header class="site-header">
         <h1 class="logo">🦉 Daily Owl</h1>
         <p class="date">2025-11-21</p>
-        <p class="mood-tag">VAPORWAVE</p>
+        <p class="mood-tag">CYBERPUNK</p>
     </header>
 
     <div class="hero-section">
@@ -179,28 +169,28 @@ body::after {
             <h2 class="section-title">📰 Hacker News</h2>
         <article class="story-card">
             <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-            <p class="score">⬆ 126 points</p>
-            <p class="comment">Ma va! E chi l'avrebbe mai detto? 🙄</p>
+            <p class="score">⬆ 127 points</p>
+            <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
         </article>
         <article class="story-card">
             <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
             <p class="score">⬆ 47 points</p>
-            <p class="comment">Buzzword bingo: completato! 🎰</p>
+            <p class="comment">Ancora con questa storia? Porca miseria! 🤦</p>
         </article>
         <article class="story-card">
             <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
-            <p class="score">⬆ 1060 points</p>
-            <p class="comment">L'ennesimo hype che morirà tra 6 mesi. ⚰️</p>
+            <p class="score">⬆ 1061 points</p>
+            <p class="comment">Buzzword bingo: completato! 🎰</p>
         </article>
         <article class="story-card">
             <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
-            <p class="score">⬆ 679 points</p>
-            <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
+            <p class="score">⬆ 680 points</p>
+            <p class="comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
         </article>
         <article class="story-card">
             <h3><a href="https://wasmgroundup.com/" target="_blank">WebAssembly from the Ground Up</a></h3>
             <p class="score">⬆ 115 points</p>
-            <p class="comment">Preparatevi all'apocalisse digitale! 🔥</p>
+            <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
         </article>
 
         </section>
@@ -221,14 +211,14 @@ body::after {
 
         <section class="owl-section">
             <h2 class="section-title">🦉 Owl Fact</h2>
-            <p class="fact-text">I gufi reali possono vivere fino a 60 anni in cattività!</p>
+            <p class="fact-text">Il volo silenzioso dei gufi è possibile grazie a piume seghettate che eliminano le turbolenze.</p>
             <img src="assets/generated/2025-11-21-2.png" alt="Owl" class="section-image">
         </section>
 
         <section class="quote-section">
             <h2 class="section-title">💭 Quote</h2>
-            <blockquote class="quote-text">"Within every desire is the mechanics of its fulfillment."</blockquote>
-            <cite class="quote-author">— Deepak Chopra</cite>
+            <blockquote class="quote-text">"Don't spend time beating on a wall, hoping to transform it into a door."</blockquote>
+            <cite class="quote-author">— Coco Chanel</cite>
             <img src="assets/generated/2025-11-21-3.png" alt="Pattern" class="section-image">
         </section>
     </div>
