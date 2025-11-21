@@ -13,7 +13,7 @@
 
 :root {
   --neon-green: #39ff14;
-  --neon-pink: #ff2d95;
+  --neon-pink: #ff2d55;
   --cyber-black: #0a0a0f;
   --cyber-dark: #1a1a2e;
 }
@@ -23,6 +23,7 @@ body {
   color: #fff;
   font-family: "Courier New", monospace;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .site-header {
@@ -42,30 +43,43 @@ body {
 
 .hero-section {
   position: relative;
-  overflow: hidden;
   height: 60vh;
+  overflow: hidden;
 }
 
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(120%) brightness(80%) hue-rotate(45deg);
-  transition: all 0.5s ease;
+  filter: brightness(0.7) contrast(1.2) saturate(1.4);
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
 }
 
 .hero-image:hover {
-  filter: contrast(150%) brightness(100%) hue-rotate(0deg);
-  transform: scale(1.05);
+  transform: scale(1);
+  filter: brightness(0.9) contrast(1.4) saturate(1.6);
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 2rem;
-  max-width: 1600px;
-  margin: 0 auto;
+  position: relative;
+}
+
+.grid-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 49%, var(--neon-green) 49%, var(--neon-green) 51%, transparent 51%);
+  background-size: 4px 4px;
+  opacity: 0.1;
+  pointer-events: none;
 }
 
 .stories-section {
@@ -85,7 +99,7 @@ body {
 
 .story-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
+  box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
 }
 
 .news-section {
@@ -94,28 +108,28 @@ body {
 
 .news-card {
   margin-bottom: 1.5rem;
-  background: rgba(26, 26, 46, 0.8);
-  border-left: 3px solid var(--neon-pink);
+  position: relative;
+  overflow: hidden;
 }
 
 .news-image {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16/9;
   object-fit: cover;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
   transition: all 0.3s ease;
 }
 
 .news-image:hover {
-  filter: saturate(200%) brightness(120%);
-  transform: scale(1.02);
+  transform: scale(1.05);
+  filter: hue-rotate(45deg) brightness(1.2);
 }
 
 .owl-section, .quote-section {
   grid-column: 1 / -1;
+  margin: 2rem 0;
   background: var(--cyber-dark);
   padding: 2rem;
-  margin: 2rem 0;
   border: 1px solid var(--neon-pink);
   position: relative;
 }
@@ -123,24 +137,22 @@ body {
 .section-image {
   max-width: 300px;
   border-radius: 50%;
-  border: 3px solid var(--neon-green);
-  box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+  box-shadow: 0 0 30px var(--neon-pink);
+  animation: pulse 4s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 30px var(--neon-pink); }
+  50% { box-shadow: 0 0 50px var(--neon-pink); }
 }
 
 .site-footer {
   background: var(--cyber-dark);
   padding: 2rem;
   text-align: center;
-  border-top: 2px solid var(--neon-pink);
+  border-top: 2px solid var(--neon-green);
 }
 
-/* Glowing text effect */
-h1, h2, h3 {
-  color: var(--neon-green);
-  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
   .grid-container {
     grid-template-columns: 1fr;
@@ -155,31 +167,29 @@ h1, h2, h3 {
   }
 }
 
-/* Scanline effect */
-.grid-container::before {
-  content: "";
-  position: fixed;
+/* Glowing text effect */
+h1, h2, h3 {
+  text-shadow: 0 0 10px var(--neon-green);
+  letter-spacing: 2px;
+}
+
+/* Animated border effect */
+.story-card::before {
+  content: '';
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    transparent 50%,
-    rgba(0, 0, 0, 0.05) 50%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
-  z-index: 999;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--neon-green);
+  clip-path: inset(0 100% 0 0);
+  animation: borderSlide 2s infinite;
 }
 
-/* Animated border */
-@keyframes borderGlow {
-  0%, 100% { border-color: var(--neon-green); }
-  50% { border-color: var(--neon-pink); }
-}
-
-.story-card, .news-card {
-  animation: borderGlow 4s infinite;
+@keyframes borderSlide {
+  0% { clip-path: inset(0 100% 0 0); }
+  50% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
 }
     </style>
 </head>
@@ -198,29 +208,29 @@ h1, h2, h3 {
         <section class="stories-section">
             <h2 class="section-title">📰 Hacker News</h2>
         <article class="story-card">
-            <h3><a href="https://martin.janiczek.cz/2025/11/21/fawk-llms-can-write-a-language-interpreter.html" target="_blank">FAWK: LLMs can write a language interpreter</a></h3>
-            <p class="score">⬆ 89 points</p>
-            <p class="comment">Ma va! E chi l'avrebbe mai detto? 🙄</p>
-        </article>
-        <article class="story-card">
             <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-            <p class="score">⬆ 200 points</p>
-            <p class="comment">Dev'essere per forza una cazzata, no? 😒</p>
-        </article>
-        <article class="story-card">
-            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's hard to build an oscillator</a></h3>
-            <p class="score">⬆ 106 points</p>
+            <p class="score">⬆ 231 points</p>
             <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
         </article>
         <article class="story-card">
             <h3><a href="https://xnacly.me/posts/2025/building-a-minimal-viable-armv7-emulator/" target="_blank">Building a Minimal Viable Armv7 Emulator from Scratch</a></h3>
-            <p class="score">⬆ 8 points</p>
-            <p class="comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
+            <p class="score">⬆ 17 points</p>
+            <p class="comment">Il futuro è qui! (Spoiler: fa schifo) 🚀</p>
         </article>
         <article class="story-card">
-            <h3><a href="https://portofcontext.com" target="_blank">Open Source and Local Code Mode MCP in Deno Sandboxes</a></h3>
-            <p class="score">⬆ 24 points</p>
-            <p class="comment">Buzzword bingo: completato! 🎰</p>
+            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's hard to build an oscillator</a></h3>
+            <p class="score">⬆ 129 points</p>
+            <p class="comment">Dev'essere per forza una cazzata, no? 😒</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://martin.janiczek.cz/2025/11/21/fawk-llms-can-write-a-language-interpreter.html" target="_blank">FAWK: LLMs can write a language interpreter</a></h3>
+            <p class="score">⬆ 117 points</p>
+            <p class="comment">Roba da matti, cazzo! 🤯</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1627423" target="_blank">EXIF orientation info in PNGs isn't used for image-orientation</a></h3>
+            <p class="score">⬆ 21 points</p>
+            <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
         </article>
 
         </section>
@@ -268,22 +278,22 @@ h1, h2, h3 {
             <h3 class="source-title">Wired Italia</h3>
             <article class="news-card">
                 
-                <a href="https://www.wired.it/gallery/black-friday-2025-cyber-monday-tablet-offerte/" target="_blank">Black Friday 2025, i migliori tablet che puoi trovare già in offerta</a>
+                <a href="https://www.wired.it/article/train-dreams-netflix-film-immensa-bellezza-trama-cast-recensione/" target="_blank">Train Dreams su Netflix è un malinconico e meraviglioso western, un film di immensa bellezza che non dimenticherete</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://www.wired.it/article/neo-oggetti-near-earth-esa-nuova-stima-rischi/" target="_blank">Neo, nelle vicinanze delle Terra orbitano 40mila tra asteroidi e comete. Per l'Esa sono solo la “punta dell'iceberg”</a>
+                <a href="https://www.wired.it/article/donna-vichinga-sepolta-con-due-conchiglie-di-capesante-sulla-bocca-norvegia/" target="_blank">Gli archeologi sono alle prese con l'enigma di una donna vichinga sepolta con due conchiglie di capesante sulla bocca</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">The Verge</h3>
             <article class="news-card">
                 
-                <a href="https://www.theverge.com/tech/825190/trump-mobile-service-customer-care-sim" target="_blank">I signed up for Trump Mobile two weeks ago and I still don’t have my SIM</a>
+                <a href="https://www.theverge.com/column/825219/optimizer-ai-nutrition-tracking-wellness" target="_blank">AI nutrition tracking stinks</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://www.theverge.com/tech/825696/pixel-10-pro-airdrop-quick-share-hands-on" target="_blank">AirDropping stuff from a Pixel phone rules so much</a>
+                <a href="https://www.theverge.com/gadgets/824372/asus-falcata-split-ergo-keyboard-hall-effect-deal-sale-black-friday" target="_blank">The Asus Falcata Hall effect split gaming keyboard is $140 off right now</a>
             </article>
         </div>
         <div class="source-group">
@@ -319,8 +329,8 @@ h1, h2, h3 {
 
         <section class="quote-section">
             <h2 class="section-title">💭 Quote</h2>
-            <blockquote class="quote-text">"Help others and give something back."</blockquote>
-            <cite class="quote-author">— Arnold Schwarzenegger</cite>
+            <blockquote class="quote-text">"The wisest men follow their own direction."</blockquote>
+            <cite class="quote-author">— Euripides</cite>
             <img src="assets/generated/2025-11-21-3.png" alt="Pattern" class="section-image">
         </section>
     </div>
