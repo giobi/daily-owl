@@ -12,53 +12,39 @@
 }
 
 :root {
-  --gold: #D4AF37;
-  --black: #1A1A1A;
-  --cream: #F5F5F5;
-  --accent: #B8860B;
+  --dark: #1a1a1a;
+  --accent: #ff3333;
+  --dirty: #d4d4d4;
+  --torn: #8b8b8b;
 }
 
 body {
-  background: var(--black);
-  color: var(--cream);
-  font-family: Georgia, serif;
+  background: var(--dark) url('data:image/png;base64,noise-texture') repeat;
+  font-family: Impact, Haettenschweiler, sans-serif;
+  color: var(--dirty);
   line-height: 1.6;
 }
 
 .site-header {
-  background: linear-gradient(45deg, var(--black), var(--accent));
   padding: 2rem;
-  border-bottom: 4px solid var(--gold);
-  position: relative;
-  overflow: hidden;
-}
-
-.site-header::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212,175,55,0.1) 10px, rgba(212,175,55,0.1) 20px);
-}
-
-.hero-section {
-  height: 60vh;
-  position: relative;
-  overflow: hidden;
+  border-bottom: 3px solid var(--accent);
+  background: linear-gradient(45deg, #000, #222);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: glitch 2s infinite;
 }
 
 .hero-image {
   width: 100%;
-  height: 100%;
+  height: 60vh;
   object-fit: cover;
-  filter: sepia(30%) contrast(120%);
-  transition: transform 0.5s ease;
+  filter: grayscale(80%) contrast(120%) brightness(0.8);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  transition: filter 0.3s;
 }
 
 .hero-image:hover {
-  transform: scale(1.05);
+  filter: grayscale(0%) contrast(100%);
 }
 
 .grid-container {
@@ -66,104 +52,108 @@ body {
   grid-template-columns: repeat(12, 1fr);
   gap: 2rem;
   padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  background: rgba(0,0,0,0.8);
 }
 
 .stories-section {
   grid-column: 1 / 9;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .story-card {
-  background: var(--black);
-  border: 1px solid var(--gold);
+  background: #222;
   padding: 1.5rem;
-  position: relative;
-  transition: transform 0.3s ease;
+  border: 1px solid var(--torn);
+  transform: rotate(-1deg);
+  transition: transform 0.3s;
 }
 
 .story-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(212,175,55,0.2);
-}
-
-.story-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--gold), var(--accent));
+  transform: rotate(0) scale(1.02);
+  border-color: var(--accent);
 }
 
 .news-section {
-  grid-column: 9 / 13;
-}
-
-.news-card {
-  margin-bottom: 1.5rem;
-  border-left: 2px solid var(--gold);
-  padding-left: 1rem;
+  grid-column: 9 / -1;
+  background: #111;
+  padding: 1.5rem;
 }
 
 .news-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
-  transition: clip-path 0.3s ease;
+  filter: grayscale(100%) sepia(20%);
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  transition: all 0.3s;
 }
 
 .news-image:hover {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  filter: none;
+  transform: scale(1.05) rotate(2deg);
 }
 
-.owl-section {
-  grid-column: 1 / 7;
-  background: linear-gradient(135deg, var(--black), var(--accent));
-  padding: 2rem;
-  border: 2px solid var(--gold);
-}
-
-.quote-section {
-  grid-column: 7 / 13;
+.news-card {
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
   position: relative;
-  padding: 2rem;
-  border: 2px solid var(--gold);
+  overflow: hidden;
 }
 
-.section-image {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border: 4px solid var(--gold);
-  transition: transform 0.3s ease;
-}
-
-.section-image:hover {
-  transform: scale(1.02) rotate(1deg);
-}
-
-.site-footer {
-  background: var(--black);
-  padding: 3rem;
-  border-top: 4px solid var(--gold);
-  text-align: center;
-  position: relative;
-}
-
-.site-footer::before {
+.news-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255,51,51,0.1));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.news-card:hover::before {
+  opacity: 1;
+}
+
+.owl-section, .quote-section {
+  grid-column: 1 / -1;
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #1a1a1a;
+  border: 2px solid var(--torn);
+  position: relative;
+}
+
+.section-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(120%);
+  mix-blend-mode: luminosity;
+  border: 5px solid var(--accent);
+  transform: rotate(3deg);
+}
+
+.site-footer {
+  background: #000;
+  padding: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-top: 1px solid var(--torn);
+}
+
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(2px, -2px) }
+  60% { transform: translate(-2px, -2px) }
+  80% { transform: translate(2px, 2px) }
+  100% { transform: translate(0) }
 }
 
 @media (max-width: 768px) {
@@ -171,10 +161,7 @@ body {
     grid-template-columns: 1fr;
   }
   
-  .stories-section,
-  .news-section,
-  .owl-section,
-  .quote-section {
+  .stories-section, .news-section {
     grid-column: 1 / -1;
   }
   
@@ -182,18 +169,13 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
-@keyframes shimmer {
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
-}
     </style>
 </head>
 <body>
     <header class="site-header">
         <h1 class="logo">🦉 Daily Owl</h1>
         <p class="date">2025-11-21</p>
-        <p class="mood-tag">ART DECO</p>
+        <p class="mood-tag">GRUNGE</p>
     </header>
 
     <div class="hero-section">
@@ -205,28 +187,28 @@ body {
             <h2 class="section-title">📰 Hacker News</h2>
         <article class="story-card">
             <h3><a href="https://martin.janiczek.cz/2025/11/21/fawk-llms-can-write-a-language-interpreter.html" target="_blank">FAWK: LLMs can write a language interpreter</a></h3>
-            <p class="score">⬆ 41 points</p>
-            <p class="comment">Buzzword bingo: completato! 🎰</p>
+            <p class="score">⬆ 67 points</p>
+            <p class="comment">Preparatevi all'apocalisse digitale! 🔥</p>
         </article>
         <article class="story-card">
             <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-            <p class="score">⬆ 155 points</p>
-            <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
+            <p class="score">⬆ 177 points</p>
+            <p class="comment">Innovazione? Chiamiamola 'feature già vista 10 anni fa'. 🕰️</p>
         </article>
         <article class="story-card">
-            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
-            <p class="score">⬆ 65 points</p>
-            <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
+            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's hard to build an oscillator</a></h3>
+            <p class="score">⬆ 87 points</p>
+            <p class="comment">Dev'essere per forza una cazzata, no? 😒</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://portofcontext.com" target="_blank">Open Source and Local Code Mode MCP in Deno Sandboxes</a></h3>
+            <p class="score">⬆ 9 points</p>
+            <p class="comment">Ennesima prova che l'umanità è condannata. 💀</p>
         </article>
         <article class="story-card">
             <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
-            <p class="score">⬆ 1081 points</p>
-            <p class="comment">Roba da matti, cazzo! 🤯</p>
-        </article>
-        <article class="story-card">
-            <h3><a href="https://www.stavros.io/posts/i-converted-a-rotary-phone-into-a-meeting-handset/" target="_blank">I converted a rotary phone into a meeting handset</a></h3>
-            <p class="score">⬆ 25 points</p>
-            <p class="comment">Solita minestra riscaldata degli americani. 🇺🇸</p>
+            <p class="score">⬆ 1097 points</p>
+            <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
         </article>
 
         </section>
@@ -274,22 +256,22 @@ body {
             <h3 class="source-title">Wired Italia</h3>
             <article class="news-card">
                 
-                <a href="https://www.wired.it/article/utenti-whatsapp-bug-falla-commento-cyber-guru/" target="_blank">Il bug WhatsApp che ha esposto 3,5 miliardi di utenti era piuttosto elementare, ma non per questo meno pericoloso</a>
+                <a href="https://www.wired.it/article/google-cambia-modo-chiede-utenti-italiani-consenso-uso-dati/" target="_blank">Perché Google deve cambiare il modo in cui chiede agli italiani di usare i loro dati</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://www.wired.it/article/mistero-naso-neanderthal-risolto-uomo-di-altamura-non-era-adattato-al-freddo/" target="_blank">Il mistero del grosso naso dei Neanderthal è stato risolto, l'uomo di Altamura ci dice che non era adattato al freddo</a>
+                <a href="https://www.wired.it/gallery/black-friday-2025-cyber-monday-sex-toy-offerte/" target="_blank">Black Friday 2025, tutti i sex toy per chi sul piacere (non) ammette sconti</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">The Verge</h3>
             <article class="news-card">
                 
-                <a href="https://www.theverge.com/features/825207/semiconductor-chip-manufacturing-new-silicon-valley" target="_blank">The new silicon valley (literally)</a>
+                <a href="https://www.theverge.com/tech/825696/pixel-10-pro-airdrop-quick-share-hands-on" target="_blank">AirDropping stuff from a Pixel phone rules so much</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://www.theverge.com/report/826003/googles-nano-banana-pro-generates-excellent-conspiracy-fuel" target="_blank">Google’s Nano Banana Pro generates excellent conspiracy fuel</a>
+                <a href="https://www.theverge.com/news/826081/apple-hikawa-iphone-grip-stand-accessibility-limited-edition" target="_blank">Apple’s new limited edition iPhone grip is all about accessibility</a>
             </article>
         </div>
         <div class="source-group">
@@ -306,12 +288,12 @@ body {
         <div class="source-group">
             <h3 class="source-title">Ars Technica</h3>
             <article class="news-card">
-                <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/11/GettyImages-1293225672-1152x648-1763676677.jpg" alt="HP and Dell disable HEVC support built into their laptops’ CPUs" class="news-image">
-                <a href="https://arstechnica.com/gadgets/2025/11/hp-and-dell-disable-hevc-support-built-into-their-laptops-cpus/" target="_blank">HP and Dell disable HEVC support built into their laptops’ CPUs</a>
+                <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/07/GettyImages-1137650996-1152x648.jpg" alt="Pornhub is urging tech giants to enact device-based age verification" class="news-image">
+                <a href="https://arstechnica.com/tech-policy/2025/11/pornhub-is-urging-tech-giants-to-enact-device-based-age-verification/" target="_blank">Pornhub is urging tech giants to enact device-based age verification</a>
             </article>
             <article class="news-card">
-                <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/11/Screen-Shot-2025-11-11-at-7.10.57-PM-1084x648.png" alt="Infant botulism outbreak doubles; ByHeart confirms bacteria in formula" class="news-image">
-                <a href="https://arstechnica.com/health/2025/11/from-defiant-to-contrite-formula-maker-confirms-bacteria-amid-botulism-outbreak/" target="_blank">Infant botulism outbreak doubles; ByHeart confirms bacteria in formula</a>
+                <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/11/G6N7W5tXYAANSJ--1152x648.jpg" alt="Newest Starship booster is significantly damaged during testing early Friday" class="news-image">
+                <a href="https://arstechnica.com/space/2025/11/newest-starship-booster-is-significantly-damaged-during-testing-early-friday/" target="_blank">Newest Starship booster is significantly damaged during testing early Friday</a>
             </article>
         </div>
 
@@ -319,14 +301,14 @@ body {
 
         <section class="owl-section">
             <h2 class="section-title">🦉 Owl Fact</h2>
-            <p class="fact-text">Il volo silenzioso dei gufi è possibile grazie a piume seghettate che eliminano le turbolenze.</p>
+            <p class="fact-text">Il gufo delle nevi può vedere una preda a 1 km di distanza anche con poca luce.</p>
             <img src="assets/generated/2025-11-21-2.png" alt="Owl" class="section-image">
         </section>
 
         <section class="quote-section">
             <h2 class="section-title">💭 Quote</h2>
-            <blockquote class="quote-text">"Though no one can go back and make a brand new start, anyone can start from now and make a brand new ending."</blockquote>
-            <cite class="quote-author">— Carl Bard</cite>
+            <blockquote class="quote-text">"Respect is earned by effort not age, all things age without effort."</blockquote>
+            <cite class="quote-author">— C. Sean McGee</cite>
             <img src="assets/generated/2025-11-21-3.png" alt="Pattern" class="section-image">
         </section>
     </div>
