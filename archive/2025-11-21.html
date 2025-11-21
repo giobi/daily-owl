@@ -4,181 +4,238 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Owl 🦉 - 2025-11-21</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital@0;1&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <style id="mood-css">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        body {
-            background-color: #1a1614;
-            color: #e6d5c9;
-            font-family: 'Lora', serif;
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+:root {
+  --neon-pink: #ff71ce;
+  --neon-blue: #01cdfe;
+  --neon-purple: #b967ff;
+  --dark: #1a1a1a;
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid #8b7355;
-            padding-bottom: 2rem;
-        }
+body {
+  background: linear-gradient(45deg, #1a1a1a, #2d1b2e);
+  color: white;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: #c9b18c;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+.site-header {
+  padding: 2rem;
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  animation: headerGlow 8s infinite;
+}
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            color: #8b7355;
-            font-size: 2rem;
-            margin: 2rem 0;
-            border-bottom: 1px solid #8b7355;
-        }
+@keyframes headerGlow {
+  0%, 100% { box-shadow: 0 0 20px var(--neon-purple); }
+  50% { box-shadow: 0 0 40px var(--neon-pink); }
+}
 
-        section {
-            background: #241f1c;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid #8b7355;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+.hero-section {
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
 
-        .hn-story, .eco-article {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #352c24;
-        }
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: hue-rotate(45deg) saturate(1.5);
+  animation: glitch 5s infinite;
+}
 
-        a {
-            color: #c9b18c;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+@keyframes glitch {
+  2% { transform: translate(2px, 0); }
+  4% { transform: translate(-2px, 0); }
+  6% { transform: translate(0, 0); }
+}
 
-        a:hover {
-            color: #e6d5c9;
-        }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
-        .score {
-            color: #8b7355;
-            font-style: italic;
-            margin: 0.5rem 0;
-        }
+.stories-section {
+  grid-column: 1 / 8;
+  display: grid;
+  gap: 1.5rem;
+}
 
-        .story-comment {
-            font-size: 0.9rem;
-            color: #a89683;
-        }
+.story-card {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border: 1px solid var(--neon-blue);
+  transition: all 0.3s;
+}
 
-        blockquote {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            color: #c9b18c;
-            margin: 2rem 0;
-            padding-left: 2rem;
-            border-left: 3px solid #8b7355;
-        }
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
 
-        cite {
-            display: block;
-            color: #8b7355;
-            margin-top: 1rem;
-        }
+.local-section {
+  grid-column: 8 / 13;
+  display: grid;
+  gap: 1.5rem;
+}
 
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 1rem 0;
-            border: 1px solid #8b7355;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
+.news-card {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border: 1px solid var(--neon-pink);
+  transition: all 0.3s;
+}
 
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 1rem;
-            }
-        }
+.news-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px var(--neon-pink);
+}
+
+.owl-section {
+  grid-column: 1 / 7;
+  background: linear-gradient(135deg, var(--neon-purple), transparent);
+  padding: 2rem;
+  border-radius: 4px;
+}
+
+.quote-section {
+  grid-column: 7 / 13;
+  background: linear-gradient(225deg, var(--neon-pink), transparent);
+  padding: 2rem;
+  border-radius: 4px;
+}
+
+.site-footer {
+  background: var(--dark);
+  padding: 3rem;
+  margin-top: 4rem;
+  border-top: 2px solid var(--neon-blue);
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .stories-section,
+  .local-section,
+  .owl-section,
+  .quote-section {
+    grid-column: 1 / -1;
+  }
+}
+
+::selection {
+  background: var(--neon-pink);
+  color: white;
+}
+
+/* Scanline effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 999;
+}
     </style>
 </head>
 <body>
-    <header>
-        <h1>🦉 Daily Owl</h1>
-        <p>2025-11-21</p>
+    <header class="site-header">
+        <h1 class="logo">🦉 Daily Owl</h1>
+        <p class="date">2025-11-21</p>
+        <p class="mood-tag">VAPORWAVE</p>
     </header>
 
-    <img src="assets/generated/2025-11-21-1.png" alt="Hero">
+    <div class="hero-section">
+        <img src="assets/generated/2025-11-21-1.png" alt="Hero" class="hero-image">
+    </div>
 
-    <section class="hacker-news">
-        <h2>📰 Hacker News Top 5</h2>
-        <div class="hn-story">
-    <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-    <p class="score">124 points</p>
-    <p class="story-comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
-</div>
-<div class="hn-story">
-    <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
-    <p class="score">47 points</p>
-    <p class="story-comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
-</div>
-<div class="hn-story">
-    <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
-    <p class="score">1060 points</p>
-    <p class="story-comment">Solita minestra riscaldata degli americani. 🇺🇸</p>
-</div>
-<div class="hn-story">
-    <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
-    <p class="score">677 points</p>
-    <p class="story-comment">Preparatevi all'apocalisse digitale! 🔥</p>
-</div>
-<div class="hn-story">
-    <h3><a href="https://wasmgroundup.com/" target="_blank">WebAssembly from the Ground Up</a></h3>
-    <p class="score">115 points</p>
-    <p class="story-comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
-</div>
-    </section>
+    <div class="grid-container">
+        <section class="stories-section">
+            <h2 class="section-title">📰 Hacker News</h2>
+        <article class="story-card">
+            <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
+            <p class="score">⬆ 126 points</p>
+            <p class="comment">Ma va! E chi l'avrebbe mai detto? 🙄</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
+            <p class="score">⬆ 47 points</p>
+            <p class="comment">Buzzword bingo: completato! 🎰</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
+            <p class="score">⬆ 1060 points</p>
+            <p class="comment">L'ennesimo hype che morirà tra 6 mesi. ⚰️</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
+            <p class="score">⬆ 679 points</p>
+            <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://wasmgroundup.com/" target="_blank">WebAssembly from the Ground Up</a></h3>
+            <p class="score">⬆ 115 points</p>
+            <p class="comment">Preparatevi all'apocalisse digitale! 🔥</p>
+        </article>
 
-    <section class="eco-news">
-        <h2>🏔️ Eco Risveglio VCO</h2>
-        <div class="eco-article">
-    <h3><a href="https://www.ecorisveglio.it/2021/02/10/annullata-la-traccia-bianca-2021/" target="_blank">Annullata la Traccia Bianca 2021</a></h3>
-</div>
-<div class="eco-article">
-    <h3><a href="https://www.ecorisveglio.it/2024/07/11/applausi-al-teatro-maggiore-per-elio-e-le-storie-tese/" target="_blank">Applausi al teatro Maggiore per Elio e Le Storie Tese</a></h3>
-</div>
-<div class="eco-article">
-    <h3><a href="https://www.ecorisveglio.it/2025/10/28/e-morto-vittorio-donini-82-anni-fondatore-di-unazienda-di-trasporti-e-sponsor-di-societa-sportive/" target="_blank">E' morto Vittorio Donini, 82 anni, fondatore di un'azienda di trasporti e sponsor di società sportive</a></h3>
-</div>
-    </section>
+        </section>
 
-    <section class="owl-fact">
-        <h2>🦉 Owl Fact</h2>
-        <p>I gufi possono ruotare la testa fino a 270 gradi grazie a vertebre cervicali speciali!</p>
-        <img src="assets/generated/2025-11-21-2.png" alt="Owl">
-    </section>
+        <section class="local-section">
+            <h2 class="section-title">🏔️ Eco Risveglio VCO</h2>
+        <article class="news-card">
+            <h3><a href="https://www.ecorisveglio.it/2021/02/10/annullata-la-traccia-bianca-2021/" target="_blank">Annullata la Traccia Bianca 2021</a></h3>
+        </article>
+        <article class="news-card">
+            <h3><a href="https://www.ecorisveglio.it/2024/07/11/applausi-al-teatro-maggiore-per-elio-e-le-storie-tese/" target="_blank">Applausi al teatro Maggiore per Elio e Le Storie Tese</a></h3>
+        </article>
+        <article class="news-card">
+            <h3><a href="https://www.ecorisveglio.it/2025/10/28/e-morto-vittorio-donini-82-anni-fondatore-di-unazienda-di-trasporti-e-sponsor-di-societa-sportive/" target="_blank">E’ morto Vittorio Donini, 82 anni, fondatore di un’azienda di trasporti e sponsor di società sportive</a></h3>
+        </article>
 
-    <section class="quote">
-        <blockquote>"I believe that one of life's greatest risks is never daring to risk."</blockquote>
-        <cite>— Oprah Winfrey</cite>
-        <img src="assets/generated/2025-11-21-3.png" alt="Pattern">
-    </section>
+        </section>
+
+        <section class="owl-section">
+            <h2 class="section-title">🦉 Owl Fact</h2>
+            <p class="fact-text">I gufi reali possono vivere fino a 60 anni in cattività!</p>
+            <img src="assets/generated/2025-11-21-2.png" alt="Owl" class="section-image">
+        </section>
+
+        <section class="quote-section">
+            <h2 class="section-title">💭 Quote</h2>
+            <blockquote class="quote-text">"Within every desire is the mechanics of its fulfillment."</blockquote>
+            <cite class="quote-author">— Deepak Chopra</cite>
+            <img src="assets/generated/2025-11-21-3.png" alt="Pattern" class="section-image">
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <p>Daily Owl 🦉 | AI-powered daily digest</p>
+        <p><a href="archive/">Archive</a></p>
+    </footer>
 </body>
 </html>
