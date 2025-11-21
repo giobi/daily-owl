@@ -12,57 +12,44 @@
 }
 
 :root {
-  --color-primary: #FF4B4B;
-  --color-secondary: #4DCCFF;
-  --color-accent: #FFE74C;
-  --color-bg: #ffffff;
-  --pattern-size: 20px;
+  --neon-pink: #ff2d95;
+  --neon-blue: #2de2e6;
+  --neon-purple: #9f2dff;
+  --dark-purple: #150b1f;
+  --grid-glow: 0 0 20px rgba(45, 226, 230, 0.3);
 }
 
 body {
-  background-color: var(--color-bg);
-  font-family: "Comic Sans MS", cursive;
-  position: relative;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: 
-    radial-gradient(circle at 100% 50%, var(--color-secondary) 10px, transparent 11px),
-    radial-gradient(circle at 0% 50%, var(--color-primary) 10px, transparent 11px);
-  background-size: var(--pattern-size) var(--pattern-size);
-  opacity: 0.1;
+  background: linear-gradient(180deg, #150b1f 0%, #2d1b3d 100%);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
 }
 
 .site-header {
   padding: 2rem;
-  background: var(--color-primary);
-  color: white;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  animation: headerSlide 0.8s ease-out;
+  background: rgba(21, 11, 31, 0.9);
+  border-bottom: 2px solid var(--neon-blue);
+  animation: borderGlow 3s infinite alternate;
 }
 
 .hero-section {
   position: relative;
-  margin: 2rem 0;
+  height: 60vh;
   overflow: hidden;
 }
 
 .hero-image {
   width: 100%;
-  transform: rotate(-2deg) scale(1.05);
-  transition: transform 0.3s ease;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.2) contrast(1.1);
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
 }
 
 .hero-image:hover {
-  transform: rotate(0) scale(1.1);
+  transform: scale(1);
 }
 
 .grid-container {
@@ -75,71 +62,67 @@ body::before {
 }
 
 .stories-section {
-  grid-column: 1 / 8;
+  grid-column: 1 / 9;
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
 .story-card {
-  background: var(--color-secondary);
+  background: rgba(255, 45, 149, 0.1);
   padding: 1.5rem;
-  border-radius: 0 2rem 0 2rem;
-  transform: rotate(-1deg);
-  transition: transform 0.3s ease;
+  border: 1px solid var(--neon-pink);
+  box-shadow: var(--grid-glow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .story-card:hover {
-  transform: rotate(1deg) translateY(-5px);
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(255, 45, 149, 0.4);
 }
 
 .local-section {
-  grid-column: 8 / -1;
-  background: var(--color-accent);
-  padding: 2rem;
-  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  grid-column: 9 / 13;
+  display: grid;
+  gap: 1.5rem;
 }
 
 .news-card {
-  background: white;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  border: 3px solid black;
-  transform: rotate(1deg);
-  transition: transform 0.3s ease;
-}
-
-.news-card:hover {
-  transform: rotate(-1deg) scale(1.02);
+  background: rgba(45, 226, 230, 0.1);
+  padding: 1.5rem;
+  border: 1px solid var(--neon-blue);
+  box-shadow: var(--grid-glow);
 }
 
 .owl-section {
-  grid-column: 1 / 6;
-  background: var(--color-primary);
+  grid-column: 1 / 7;
+  background: rgba(159, 45, 255, 0.1);
   padding: 2rem;
-  border-radius: 50% 0 50% 50%;
+  border: 1px solid var(--neon-purple);
+  box-shadow: var(--grid-glow);
 }
 
 .quote-section {
-  grid-column: 6 / -1;
-  background: #000;
-  color: var(--color-accent);
-  padding: 3rem;
-  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+  grid-column: 7 / 13;
+  background: rgba(255, 45, 149, 0.1);
+  padding: 2rem;
+  border: 1px solid var(--neon-pink);
+  box-shadow: var(--grid-glow);
 }
 
 .site-footer {
-  background: var(--color-secondary);
-  padding: 3rem;
   margin-top: 4rem;
-  transform: skewY(-2deg);
+  padding: 2rem;
+  background: rgba(21, 11, 31, 0.9);
+  border-top: 2px solid var(--neon-purple);
 }
 
-@keyframes headerSlide {
+@keyframes borderGlow {
   from {
-    transform: translateY(-100%);
+    box-shadow: 0 0 10px var(--neon-blue);
   }
   to {
-    transform: translateY(0);
+    box-shadow: 0 0 20px var(--neon-pink);
   }
 }
 
@@ -154,31 +137,32 @@ body::before {
   .quote-section {
     grid-column: 1 / -1;
   }
+  
+  .stories-section {
+    grid-template-columns: 1fr;
+  }
 }
 
-@media (hover: hover) {
-  .story-card,
-  .news-card {
-    position: relative;
-  }
+/* Synthwave grid lines */
+.grid-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 0%, rgba(45, 226, 230, 0.1) 100%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: scanlines 10s linear infinite;
+}
 
-  .story-card::after,
-  .news-card::after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(45deg, #000, #000 2px, transparent 2px, transparent 8px);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
   }
-
-  .story-card:hover::after,
-  .news-card:hover::after {
-    opacity: 0.1;
+  100% {
+    background-position: 0 100%;
   }
 }
     </style>
@@ -187,7 +171,7 @@ body::before {
     <header class="site-header">
         <h1 class="logo">🦉 Daily Owl</h1>
         <p class="date">2025-11-21</p>
-        <p class="mood-tag">MEMPHIS DESIGN</p>
+        <p class="mood-tag">SYNTHWAVE</p>
     </header>
 
     <div class="hero-section">
@@ -199,28 +183,28 @@ body::before {
             <h2 class="section-title">📰 Hacker News</h2>
         <article class="story-card">
             <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-            <p class="score">⬆ 132 points</p>
-            <p class="comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
+            <p class="score">⬆ 134 points</p>
+            <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
         </article>
         <article class="story-card">
             <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
-            <p class="score">⬆ 50 points</p>
-            <p class="comment">Buzzword bingo: completato! 🎰</p>
+            <p class="score">⬆ 51 points</p>
+            <p class="comment">Innovazione? Chiamiamola 'feature già vista 10 anni fa'. 🕰️</p>
         </article>
         <article class="story-card">
             <h3><a href="https://martin.janiczek.cz/2025/11/21/fawk-llms-can-write-a-language-interpreter.html" target="_blank">FAWK: LLMs can write a language interpreter</a></h3>
-            <p class="score">⬆ 4 points</p>
-            <p class="comment">Dev'essere per forza una cazzata, no? 😒</p>
+            <p class="score">⬆ 5 points</p>
+            <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
         </article>
         <article class="story-card">
             <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
-            <p class="score">⬆ 1061 points</p>
+            <p class="score">⬆ 1063 points</p>
             <p class="comment">Ma va! E chi l'avrebbe mai detto? 🙄</p>
         </article>
         <article class="story-card">
             <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
-            <p class="score">⬆ 682 points</p>
-            <p class="comment">Ancora con questa storia? Porca miseria! 🤦</p>
+            <p class="score">⬆ 683 points</p>
+            <p class="comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
         </article>
 
         </section>
@@ -298,14 +282,14 @@ body::before {
 
         <section class="owl-section">
             <h2 class="section-title">🦉 Owl Fact</h2>
-            <p class="fact-text">Gli occhi dei gufi sono fissi nelle orbite - devono ruotare tutta la testa per guardare altrove!</p>
+            <p class="fact-text">Alcuni gufi hanno orecchie asimmetriche per localizzare meglio le prede nell'oscurità.</p>
             <img src="assets/generated/2025-11-21-2.png" alt="Owl" class="section-image">
         </section>
 
         <section class="quote-section">
             <h2 class="section-title">💭 Quote</h2>
-            <blockquote class="quote-text">"One beam, no matter how big, cannot support an entire house on its own."</blockquote>
-            <cite class="quote-author">— Chinese Proverb</cite>
+            <blockquote class="quote-text">"The meaning of life is just to be alive. It is so plain and so obvious and so simple."</blockquote>
+            <cite class="quote-author">— Alan Watts</cite>
             <img src="assets/generated/2025-11-21-3.png" alt="Pattern" class="section-image">
         </section>
     </div>
