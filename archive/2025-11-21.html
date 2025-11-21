@@ -9,33 +9,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-:root {
-  --neon-pink: #ff2d95;
-  --neon-blue: #2de2e6;
-  --neon-purple: #9f2dff;
-  --dark-purple: #150b1f;
-  --grid-glow: 0 0 20px rgba(45, 226, 230, 0.3);
+  font-family: "Courier New", monospace;
 }
 
 body {
-  background: linear-gradient(180deg, #150b1f 0%, #2d1b3d 100%);
+  background: #111;
   color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .site-header {
   padding: 2rem;
-  background: rgba(21, 11, 31, 0.9);
-  border-bottom: 2px solid var(--neon-blue);
-  animation: borderGlow 3s infinite alternate;
+  background: #ff0033;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: glitch 2s infinite;
 }
 
 .hero-section {
-  position: relative;
   height: 60vh;
+  position: relative;
   overflow: hidden;
 }
 
@@ -43,13 +37,13 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.2) contrast(1.1);
-  transform: scale(1.05);
-  transition: transform 0.5s ease;
+  filter: grayscale(100%) contrast(150%);
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 
 .hero-image:hover {
-  transform: scale(1);
+  transform: scale(1) rotate(-1deg);
 }
 
 .grid-container {
@@ -57,73 +51,88 @@ body {
   grid-template-columns: repeat(12, 1fr);
   gap: 2rem;
   padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  background: #111;
 }
 
 .stories-section {
-  grid-column: 1 / 9;
+  grid-column: 1 / 8;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
 .story-card {
-  background: rgba(255, 45, 149, 0.1);
+  background: #222;
   padding: 1.5rem;
-  border: 1px solid var(--neon-pink);
-  box-shadow: var(--grid-glow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid #fff;
+  transition: transform 0.2s;
 }
 
 .story-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(255, 45, 149, 0.4);
+  transform: translateX(10px);
+  background: #ff0033;
 }
 
-.local-section {
-  grid-column: 9 / 13;
-  display: grid;
-  gap: 1.5rem;
+.news-section {
+  grid-column: 8 / -1;
+  border-left: 3px solid #ff0033;
+  padding-left: 2rem;
 }
 
 .news-card {
-  background: rgba(45, 226, 230, 0.1);
-  padding: 1.5rem;
-  border: 1px solid var(--neon-blue);
-  box-shadow: var(--grid-glow);
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  filter: grayscale(100%) brightness(90%);
+  transition: all 0.3s;
+}
+
+.news-image:hover {
+  filter: grayscale(0%) brightness(110%);
+  transform: scale(1.05) rotate(2deg);
 }
 
 .owl-section {
   grid-column: 1 / 7;
-  background: rgba(159, 45, 255, 0.1);
+  background: #222;
   padding: 2rem;
-  border: 1px solid var(--neon-purple);
-  box-shadow: var(--grid-glow);
+  border: 3px solid #fff;
 }
 
 .quote-section {
-  grid-column: 7 / 13;
-  background: rgba(255, 45, 149, 0.1);
+  grid-column: 7 / -1;
+  background: #ff0033;
   padding: 2rem;
-  border: 1px solid var(--neon-pink);
-  box-shadow: var(--grid-glow);
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.section-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  mix-blend-mode: luminosity;
+  border: 3px solid #fff;
 }
 
 .site-footer {
-  margin-top: 4rem;
-  padding: 2rem;
-  background: rgba(21, 11, 31, 0.9);
-  border-top: 2px solid var(--neon-purple);
+  background: #222;
+  padding: 3rem;
+  margin-top: 2rem;
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 }
 
-@keyframes borderGlow {
-  from {
-    box-shadow: 0 0 10px var(--neon-blue);
-  }
-  to {
-    box-shadow: 0 0 20px var(--neon-pink);
-  }
+@keyframes glitch {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(-2px) }
+  50% { transform: translateX(2px) }
+  75% { transform: translateX(-1px) }
+  100% { transform: translateX(0) }
 }
 
 @media (max-width: 768px) {
@@ -132,38 +141,23 @@ body {
   }
   
   .stories-section,
-  .local-section,
+  .news-section,
   .owl-section,
   .quote-section {
     grid-column: 1 / -1;
   }
   
-  .stories-section {
-    grid-template-columns: 1fr;
+  .news-section {
+    border-left: none;
+    border-top: 3px solid #ff0033;
+    padding-left: 0;
+    padding-top: 2rem;
   }
 }
 
-/* Synthwave grid lines */
-.grid-container::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(transparent 0%, rgba(45, 226, 230, 0.1) 100%);
-  background-size: 100% 4px;
-  pointer-events: none;
-  animation: scanlines 10s linear infinite;
-}
-
-@keyframes scanlines {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0 100%;
-  }
+::selection {
+  background: #ff0033;
+  color: #fff;
 }
     </style>
 </head>
@@ -171,7 +165,7 @@ body {
     <header class="site-header">
         <h1 class="logo">🦉 Daily Owl</h1>
         <p class="date">2025-11-21</p>
-        <p class="mood-tag">SYNTHWAVE</p>
+        <p class="mood-tag">BRUTALISM</p>
     </header>
 
     <div class="hero-section">
@@ -183,28 +177,28 @@ body {
             <h2 class="section-title">📰 Hacker News</h2>
         <article class="story-card">
             <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-            <p class="score">⬆ 134 points</p>
-            <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
-        </article>
-        <article class="story-card">
-            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
-            <p class="score">⬆ 51 points</p>
-            <p class="comment">Innovazione? Chiamiamola 'feature già vista 10 anni fa'. 🕰️</p>
+            <p class="score">⬆ 136 points</p>
+            <p class="comment">Ma perché continuano a farci perdere tempo? ⏰</p>
         </article>
         <article class="story-card">
             <h3><a href="https://martin.janiczek.cz/2025/11/21/fawk-llms-can-write-a-language-interpreter.html" target="_blank">FAWK: LLMs can write a language interpreter</a></h3>
-            <p class="score">⬆ 5 points</p>
+            <p class="score">⬆ 6 points</p>
+            <p class="comment">Roba da matti, cazzo! 🤯</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
+            <p class="score">⬆ 52 points</p>
             <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
         </article>
         <article class="story-card">
             <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
-            <p class="score">⬆ 1063 points</p>
-            <p class="comment">Ma va! E chi l'avrebbe mai detto? 🙄</p>
+            <p class="score">⬆ 1064 points</p>
+            <p class="comment">Buzzword bingo: completato! 🎰</p>
         </article>
         <article class="story-card">
             <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
-            <p class="score">⬆ 683 points</p>
-            <p class="comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
+            <p class="score">⬆ 684 points</p>
+            <p class="comment">Dev'essere per forza una cazzata, no? 😒</p>
         </article>
 
         </section>
@@ -214,66 +208,81 @@ body {
         <div class="source-group">
             <h3 class="source-title">ECO</h3>
             <article class="news-card">
+                
                 <a href="https://www.ecorisveglio.it/2021/02/10/annullata-la-traccia-bianca-2021/" target="_blank">Annullata la Traccia Bianca 2021</a>
             </article>
             <article class="news-card">
+                
                 <a href="https://www.ecorisveglio.it/2024/07/11/applausi-al-teatro-maggiore-per-elio-e-le-storie-tese/" target="_blank">Applausi al teatro Maggiore per Elio e Le Storie Tese</a>
             </article>
             <article class="news-card">
+                
                 <a href="https://www.ecorisveglio.it/2025/10/28/e-morto-vittorio-donini-82-anni-fondatore-di-unazienda-di-trasporti-e-sponsor-di-societa-sportive/" target="_blank">E’ morto Vittorio Donini, 82 anni, fondatore di un’azienda di trasporti e sponsor di società sportive</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">La Stampa VCO</h3>
             <article class="news-card">
+                <img src="http://www.gedistatic.it/content/gnn/img/lastampa/2025/11/14/211543041-1fa4cea1-2e2d-437f-9444-2d3b1b586871.jpg" alt="La seduzione senza gratitudine è inganno, la libertà senza fedeltà è vuoto" class="news-image">
                 <a href="https://www.lastampa.it/verbano-cusio-ossola/2025/11/15/news/sara_rubinelli_inganno_seduzione-15396876/" target="_blank">La seduzione senza gratitudine è inganno, la libertà senza fedeltà è vuoto</a>
             </article>
             <article class="news-card">
+                <img src="http://www.gedistatic.it/content/gnn/img/lastampa/2025/10/03/170851868-f1f508e7-3aee-4f10-8c7d-964088bb7dc7.jpg" alt="La domanda dei giovani: “E’ ancora giusto obbedire?”" class="news-image">
                 <a href="https://www.lastampa.it/verbano-cusio-ossola/2025/11/19/news/riccardo_ferrari_giovani_obbedienza-15402519/" target="_blank">La domanda dei giovani: “E’ ancora giusto obbedire?”</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">ANSA Tech</h3>
             <article class="news-card">
+                
                 <a href="https://www.ansa.it/sito/notizie/tecnologia/hitech/2023/05/30/apple-risarcira-proprietari-di-macbook-per-le-tastiere-difettose_ce9214c7-b68d-4d8e-ad5f-7bd5bd04ecbe.html" target="_blank">Apple risarcirà proprietari di MacBook per le tastiere difettose</a>
             </article>
             <article class="news-card">
+                
                 <a href="https://www.ansa.it/sito/notizie/tecnologia/internet_social/2023/05/30/linventore-di-internet-tim-berners-lee-alla-fiera-di-rimini_8d846c97-938c-40d3-a479-5100edfc4344.html" target="_blank">L'inventore di Internet Tim Berners-Lee alla Fiera di Rimini</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">Wired Italia</h3>
             <article class="news-card">
+                
                 <a href="https://www.wired.it/gallery/black-friday-2025-cyber-monday-migliori-offerte-cucina/" target="_blank">Black Friday 2025, i migliori sconti sugli elettrodomestici da cucina</a>
             </article>
             <article class="news-card">
+                
                 <a href="https://www.wired.it/article/orologio-casio-pescatori/" target="_blank">Orologio per pescatori, ecco il nuovo Casio AE-1700H con calendario lunare</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">The Verge</h3>
             <article class="news-card">
+                
                 <a href="https://www.theverge.com/report/826003/googles-nano-banana-pro-generates-excellent-conspiracy-fuel" target="_blank">Google’s Nano Banana Pro generates excellent conspiracy fuel</a>
             </article>
             <article class="news-card">
+                
                 <a href="https://www.theverge.com/ai-artificial-intelligence/825675/groks-elon-musk-worship-is-getting-weird" target="_blank">Grok’s Elon Musk worship is getting weird</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">TechCrunch</h3>
             <article class="news-card">
+                
                 <a href="https://techcrunch.com/2025/11/20/grok-says-elon-musk-is-better-than-basically-everyone-except-shohei-ohtani/" target="_blank">Grok says Elon Musk is better than basically everyone, except Shohei Ohtani</a>
             </article>
             <article class="news-card">
+                
                 <a href="https://techcrunch.com/2025/11/20/google-steps-up-ai-scam-protection-in-india-but-gaps-remain/" target="_blank">Google steps up AI scam protection in India, but gaps remain</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">Ars Technica</h3>
             <article class="news-card">
+                <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/11/GettyImages-1293225672-1152x648-1763676677.jpg" alt="HP and Dell disable HEVC support built into their laptops’ CPUs" class="news-image">
                 <a href="https://arstechnica.com/gadgets/2025/11/hp-and-dell-disable-hevc-support-built-into-their-laptops-cpus/" target="_blank">HP and Dell disable HEVC support built into their laptops’ CPUs</a>
             </article>
             <article class="news-card">
+                <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/11/Screen-Shot-2025-11-11-at-7.10.57-PM-1084x648.png" alt="Infant botulism outbreak doubles; ByHeart confirms bacteria in formula" class="news-image">
                 <a href="https://arstechnica.com/health/2025/11/from-defiant-to-contrite-formula-maker-confirms-bacteria-amid-botulism-outbreak/" target="_blank">Infant botulism outbreak doubles; ByHeart confirms bacteria in formula</a>
             </article>
         </div>
@@ -282,14 +291,14 @@ body {
 
         <section class="owl-section">
             <h2 class="section-title">🦉 Owl Fact</h2>
-            <p class="fact-text">Alcuni gufi hanno orecchie asimmetriche per localizzare meglio le prede nell'oscurità.</p>
+            <p class="fact-text">I gufi reali possono vivere fino a 60 anni in cattività!</p>
             <img src="assets/generated/2025-11-21-2.png" alt="Owl" class="section-image">
         </section>
 
         <section class="quote-section">
             <h2 class="section-title">💭 Quote</h2>
-            <blockquote class="quote-text">"The meaning of life is just to be alive. It is so plain and so obvious and so simple."</blockquote>
-            <cite class="quote-author">— Alan Watts</cite>
+            <blockquote class="quote-text">"Believe and you're halfway there."</blockquote>
+            <cite class="quote-author">— Harry S. Truman</cite>
             <img src="assets/generated/2025-11-21-3.png" alt="Pattern" class="section-image">
         </section>
     </div>
