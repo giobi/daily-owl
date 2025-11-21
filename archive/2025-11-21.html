@@ -9,99 +9,139 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Courier New", monospace;
         }
 
         body {
-            background: #000;
-            color: #fff;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            font-family: "Comic Sans MS", cursive;
+            background: #ffeb3b;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(255,0,0,0.1) 0px, rgba(255,0,0,0.1) 10px, transparent 10px, transparent 20px);
+            z-index: -1;
         }
 
         header {
-            border: 4px solid #fff;
-            padding: 20px;
-            margin-bottom: 40px;
-            background: #ff0000;
+            background: #ff4081;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 8px solid #00bcd4;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: repeating-linear-gradient(90deg, #ffeb3b, #ffeb3b 10px, #000 10px, #000 20px);
         }
 
         h1 {
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: -2px;
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 4px 4px 0 #000;
         }
 
         h2 {
             font-size: 2rem;
-            border-left: 4px solid #ff0000;
-            padding-left: 20px;
-            margin: 40px 0 20px;
-            text-transform: uppercase;
+            background: #00bcd4;
+            color: white;
+            padding: 1rem;
+            margin: 2rem 0;
+            transform: rotate(-2deg);
+            border: 4px solid #000;
         }
 
-        img {
-            width: 100%;
-            border: 4px solid #fff;
-            margin: 20px 0;
+        section {
+            margin: 2rem auto;
+            padding: 2rem;
+            max-width: 1200px;
+            background: white;
+            border: 4px solid #000;
+            position: relative;
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            background: repeating-radial-gradient(circle, #ff4081, #ff4081 10px, transparent 10px, transparent 20px);
+            z-index: -1;
         }
 
         .hn-story, .eco-article {
-            border: 2px solid #fff;
-            padding: 20px;
-            margin: 20px 0;
-            transition: transform 0.2s;
-        }
-
-        .hn-story:hover, .eco-article:hover {
-            transform: translateX(10px);
-            background: #ff0000;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #fff;
+            border: 3px solid #000;
+            box-shadow: 8px 8px 0 #00bcd4;
         }
 
         a {
-            color: #fff;
+            color: #ff4081;
             text-decoration: none;
-            border-bottom: 2px solid #ff0000;
+            font-weight: bold;
         }
 
         a:hover {
-            background: #ff0000;
+            background: #ffeb3b;
+            transform: skew(-5deg);
+            display: inline-block;
         }
 
-        .score {
-            color: #ff0000;
-            font-weight: bold;
-            margin: 10px 0;
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 4px solid #000;
+            transform: rotate(2deg);
+            margin: 2rem 0;
         }
 
-        .story-comment {
-            font-style: italic;
-            border-left: 2px solid #ff0000;
-            padding-left: 10px;
+        .owl-fact, .quote {
+            background: #00bcd4;
+            color: white;
+            padding: 2rem;
+            margin: 3rem auto;
+            transform: rotate(1deg);
+            border: 4px solid #000;
         }
 
         blockquote {
-            font-size: 2rem;
-            border: 4px solid #fff;
-            padding: 20px;
-            margin: 20px 0;
-            background: #ff0000;
-        }
-
-        cite {
-            display: block;
-            margin-top: 10px;
-            font-style: normal;
-            font-weight: bold;
+            font-size: 1.5rem;
+            font-style: italic;
+            border-left: 8px solid #ff4081;
+            padding-left: 1rem;
+            margin: 2rem 0;
         }
 
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
             }
+
+            section {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
             .hn-story, .eco-article {
-                padding: 10px;
+                margin: 1rem 0;
             }
         }
     </style>
@@ -119,27 +159,27 @@
         <div class="hn-story">
     <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
     <p class="score">124 points</p>
-    <p class="story-comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
+    <p class="story-comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
 </div>
 <div class="hn-story">
     <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
-    <p class="score">46 points</p>
-    <p class="story-comment">Solita minestra riscaldata degli americani. 🇺🇸</p>
+    <p class="score">47 points</p>
+    <p class="story-comment">Ma va! E chi l'avrebbe mai detto? 🙄</p>
 </div>
 <div class="hn-story">
     <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
-    <p class="score">1058 points</p>
-    <p class="story-comment">Ancora con questa storia? Porca miseria! 🤦</p>
-</div>
-<div class="hn-story">
-    <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
-    <p class="score">675 points</p>
+    <p class="score">1060 points</p>
     <p class="story-comment">Preparatevi all'apocalisse digitale! 🔥</p>
 </div>
 <div class="hn-story">
+    <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
+    <p class="score">677 points</p>
+    <p class="story-comment">Solita minestra riscaldata degli americani. 🇺🇸</p>
+</div>
+<div class="hn-story">
     <h3><a href="https://wasmgroundup.com/" target="_blank">WebAssembly from the Ground Up</a></h3>
-    <p class="score">113 points</p>
-    <p class="story-comment">Roba da matti, cazzo! 🤯</p>
+    <p class="score">115 points</p>
+    <p class="story-comment">Innovazione? Chiamiamola 'feature già vista 10 anni fa'. 🕰️</p>
 </div>
     </section>
 
@@ -158,13 +198,13 @@
 
     <section class="owl-fact">
         <h2>🦉 Owl Fact</h2>
-        <p>I gufi hanno tre palpebre: una per battere, una per dormire, una per pulire.</p>
+        <p>I gufi ingoiano le prede intere e rigurgitano boli di pelo e ossa!</p>
         <img src="assets/generated/2025-11-21-2.png" alt="Owl">
     </section>
 
     <section class="quote">
-        <blockquote>"Whatever your heart clings to and confides in, that is really your God."</blockquote>
-        <cite>— Martin Luther</cite>
+        <blockquote>"Live and act within the limit of your knowledge and keep expanding it to the limit of your life."</blockquote>
+        <cite>— Ayn Rand</cite>
         <img src="assets/generated/2025-11-21-3.png" alt="Pattern">
     </section>
 </body>
