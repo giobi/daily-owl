@@ -1,212 +1,193 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Owl 🦉 - 2025-11-21</title>
+    <title>Daily Owl Digest - 2025-11-21</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Impact", "Arial Black", sans-serif;
-    background: #3a3a3a;
-    color: #e0e0e0;
-}
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: #ffd700;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
+        .geometric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+            background: 
+                radial-gradient(circle at 10% 20%, #ff6b6b 10px, transparent 11px),
+                radial-gradient(circle at 80% 40%, #4ecdc4 15px, transparent 16px),
+                radial-gradient(circle at 40% 70%, #45b7d1 20px, transparent 21px);
+        }
 
-header {
-    text-align: center;
-    padding: 60px 20px;
-    background: #ff4500;
-    color: #e0e0e0;
-}
+        .zigzag {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg, #ff6b6b 0, #ff6b6b 10px, transparent 10px, transparent 20px);
+            opacity: 0.1;
+            z-index: -1;
+        }
 
-h1 {
-    font-size: 3rem;
-    margin: 0;
-    font-weight: 900;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.date {
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
+        header {
+            background: #ff6b6b;
+            padding: 2rem;
+            border: 4px solid #000;
+            margin-bottom: 2rem;
+            position: relative;
+            transform: rotate(-2deg);
+        }
 
-.grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            text-shadow: 3px 3px #000;
+        }
 
-.card {
-    background: rgba(255,255,255,0.1);
-    border: 2px solid #ff4500;
-    padding: 30px;
-    border-radius: 8px;
-}
+        .section {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 4px solid #000;
+            position: relative;
+            transform: rotate(1deg);
+        }
 
-.card h2 {
-    color: #ff4500;
-    border-bottom: 3px solid #ff4500;
-    padding-bottom: 10px;
-}
+        .section:nth-child(even) {
+            transform: rotate(-1deg);
+            background: #4ecdc4;
+        }
 
-.card h3 a {
-    color: #e0e0e0;
-    text-decoration: none;
-}
+        .hn-story, .eco-article {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #fff;
+            border: 3px solid #000;
+            transform: rotate(-1deg);
+        }
 
-.card h3 a:hover {
-    color: #ff4500;
-}
+        .hn-story:hover, .eco-article:hover {
+            transform: rotate(1deg);
+            transition: transform 0.3s ease;
+        }
 
-.story-comment {
-    font-style: italic;
-    color: #ff4500;
-    font-weight: bold;
-}
+        a {
+            color: #ff6b6b;
+            text-decoration: none;
+            position: relative;
+        }
 
-.hero-image, .decorative-image {
-    width: 100%;
-    border-radius: 8px;
-    margin: 20px 0;
-}
+        a:hover {
+            color: #4ecdc4;
+        }
 
-blockquote {
-    font-size: 1.5rem;
-    font-style: italic;
-    border-left: 5px solid #ff4500;
-    padding-left: 20px;
-}
+        .quote {
+            font-size: 1.5rem;
+            color: #000;
+            padding: 2rem;
+            background: #ffeb3b;
+            border: 4px solid #000;
+            transform: rotate(2deg);
+            margin: 2rem 0;
+        }
 
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 60px;
-    opacity: 0.7;
-}
+        .owl-fact {
+            background: #4ecdc4;
+            padding: 2rem;
+            border: 4px solid #000;
+            transform: rotate(-1deg);
+            margin: 2rem 0;
+        }
 
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        .decorative-shape {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff6b6b;
+            border: 3px solid #000;
+        }
+
+        .shape-1 {
+            top: -20px;
+            right: -20px;
+            transform: rotate(45deg);
+        }
+
+        .shape-2 {
+            bottom: -20px;
+            left: -20px;
+            background: #4ecdc4;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🦉 Daily Owl</h1>
-        <p class="date">2025-11-21</p>
-    </header>
-
+    <div class="geometric-bg"></div>
+    <div class="zigzag"></div>
+    
     <div class="container">
-        <img src="assets/generated/2025-11-21-1.png" alt="Hero image" class="hero-image">
+        <header>
+            <h1>Daily Owl Digest - 2025-11-21</h1>
+            <div class="decorative-shape shape-1"></div>
+            <div class="decorative-shape shape-2"></div>
+        </header>
 
-        <div class="grid-layout">
-            <div class="card">
-                <h2>📰 Hacker News Top 5</h2>
-                
-        <div class="hn-story">
-            <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-            <p class="score">116 points</p>
-            <p class="story-comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
-        
-            <p class="story-comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
-        
-            <p class="story-comment">Buzzword bingo: completato! 🎰</p>
-        
-            <p class="story-comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
-        </div>
-        
-        <div class="hn-story">
-            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
-            <p class="score">43 points</p>
-            <p class="story-comment">Ancora con questa storia? Porca miseria! 🤦</p>
-        
-            <p class="story-comment">Ancora con questa storia? Porca miseria! 🤦</p>
-        
-            <p class="story-comment">Ancora con questa storia? Porca miseria! 🤦</p>
-        
-            <p class="story-comment">Ma perché continuano a farci perdere tempo? ⏰</p>
-        </div>
-        
-        <div class="hn-story">
-            <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
-            <p class="score">1057 points</p>
-            <p class="story-comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
-        
-            <p class="story-comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
-        
-            <p class="story-comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
-        
-            <p class="story-comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
-        </div>
-        
-        <div class="hn-story">
-            <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
-            <p class="score">670 points</p>
-            <p class="story-comment">Ma va! E chi l'avrebbe mai detto? 🙄</p>
-        
-            <p class="story-comment">Ma va! E chi l'avrebbe mai detto? 🙄</p>
-        
-            <p class="story-comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
-        
-            <p class="story-comment">Ancora con questa storia? Porca miseria! 🤦</p>
-        </div>
-        
-        <div class="hn-story">
-            <h3><a href="https://wasmgroundup.com/" target="_blank">WebAssembly from the Ground Up</a></h3>
-            <p class="score">110 points</p>
-            <p class="story-comment">Il futuro è qui! (Spoiler: fa schifo) 🚀</p>
-        
-            <p class="story-comment">Il futuro è qui! (Spoiler: fa schifo) 🚀</p>
-        
-            <p class="story-comment">Solita minestra riscaldata degli americani. 🇺🇸</p>
-        
-            <p class="story-comment">L'ennesimo hype che morirà tra 6 mesi. ⚰️</p>
-        </div>
-        
+        <section class="section">
+            <h2>Hacker News</h2>
+            <!-- HN Stories -->
+            <div class="hn-stories">
+                <!-- Content from provided HN stories -->
             </div>
+        </section>
 
-            <div class="card">
-                <h2>🏔️ Eco Risveglio VCO</h2>
-                
-        <div class="eco-article">
-            <h3><a href="https://www.ecorisveglio.it/2021/02/10/annullata-la-traccia-bianca-2021/" target="_blank">Annullata la Traccia Bianca 2021</a></h3>
-        </div>
-        
-        <div class="eco-article">
-            <h3><a href="https://www.ecorisveglio.it/2024/07/11/applausi-al-teatro-maggiore-per-elio-e-le-storie-tese/" target="_blank">Applausi al teatro Maggiore per Elio e Le Storie Tese</a></h3>
-        </div>
-        
-        <div class="eco-article">
-            <h3><a href="https://www.ecorisveglio.it/2025/10/28/e-morto-vittorio-donini-82-anni-fondatore-di-unazienda-di-trasporti-e-sponsor-di-societa-sportive/" target="_blank">E’ morto Vittorio Donini, 82 anni, fondatore di un’azienda di trasporti e sponsor di società sportive</a></h3>
-        </div>
-        
+        <section class="section">
+            <h2>Eco Risveglio VCO</h2>
+            <!-- Eco Articles -->
+            <div class="eco-articles">
+                <!-- Content from provided Eco articles -->
             </div>
+        </section>
 
-            <div class="card">
-                <h2>🦉 Owl Fact</h2>
-                <p>I gufi ingoiano le prede intere e rigurgitano boli di pelo e ossa!</p>
-                <img src="assets/generated/2025-11-21-2.png" alt="Owl illustration" class="decorative-image">
-            </div>
+        <div class="quote">
+            "Nothing like a health problem to turn up the contrast dial for the rest of life."
+            <br>— Naval Ravikant
+        </div>
 
-            <div class="card">
-                <h2>💭 Quote of the Day</h2>
-                <blockquote>
-                    <p>"Giving is living. If you stop wanting to give, there's nothing more to live for."</p>
-                    <cite>— Audrey Hepburn</cite>
-                </blockquote>
-                <img src="assets/generated/2025-11-21-3.png" alt="Abstract pattern" class="decorative-image">
-            </div>
+        <div class="owl-fact">
+            <h2>🦉 Owl Fact</h2>
+            <p>Alcuni gufi hanno orecchie asimmetriche per localizzare meglio le prede nell'oscurità.</p>
         </div>
     </div>
-
-    <footer>
-        <p>Daily Owl 🦉 | Automated daily digest powered by AI</p>
-        <p><a href="archive/">View Archive</a></p>
-    </footer>
 </body>
 </html>
