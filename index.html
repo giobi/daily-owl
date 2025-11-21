@@ -12,145 +12,131 @@
 }
 
 :root {
-  --neon-green: #39ff14;
-  --neon-pink: #ff2d55;
-  --cyber-black: #0a0a0f;
-  --cyber-dark: #1a1a2e;
+  --neon-pink: #ff2b9d;
+  --neon-blue: #00f3ff;
+  --neon-purple: #b537f2;
+  --dark-purple: #120458;
+  --black: #0a0612;
 }
 
 body {
-  background: var(--cyber-black);
+  background: linear-gradient(180deg, var(--dark-purple), var(--black));
   color: #fff;
-  font-family: "Courier New", monospace;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 .site-header {
-  background: var(--cyber-dark);
-  padding: 1rem;
-  border-bottom: 2px solid var(--neon-green);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  animation: scanline 8s linear infinite;
-}
-
-@keyframes scanline {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 100%; }
-}
-
-.hero-section {
-  position: relative;
-  height: 60vh;
-  overflow: hidden;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.7) contrast(1.2) saturate(1.4);
-  transform: scale(1.02);
-  transition: transform 0.3s ease;
-}
-
-.hero-image:hover {
-  transform: scale(1);
-  filter: brightness(0.9) contrast(1.4) saturate(1.6);
+  padding: 2rem;
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  box-shadow: 0 0 2rem var(--neon-pink);
+  animation: glow 2s infinite alternate;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   padding: 2rem;
-  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.grid-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent 49%, var(--neon-green) 49%, var(--neon-green) 51%, transparent 51%);
-  background-size: 4px 4px;
-  opacity: 0.1;
-  pointer-events: none;
+.hero-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  filter: hue-rotate(45deg) contrast(1.2);
+  transform: perspective(1000px) rotateX(5deg);
+  transition: transform 0.3s;
 }
 
-.stories-section {
-  grid-column: 1 / 9;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+.hero-image:hover {
+  transform: perspective(1000px) rotateX(0deg) scale(1.02);
 }
 
 .story-card {
-  background: var(--cyber-dark);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
   padding: 1.5rem;
-  border: 1px solid var(--neon-green);
-  box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
-  transition: all 0.3s ease;
+  border: 1px solid var(--neon-blue);
+  border-radius: 8px;
+  transition: all 0.3s;
 }
 
 .story-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
-}
-
-.news-section {
-  grid-column: 9 / 13;
-}
-
-.news-card {
-  margin-bottom: 1.5rem;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 0 2rem var(--neon-blue);
 }
 
 .news-image {
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 200px;
   object-fit: cover;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
 .news-image:hover {
+  filter: hue-rotate(180deg) brightness(1.2);
   transform: scale(1.05);
-  filter: hue-rotate(45deg) brightness(1.2);
-}
-
-.owl-section, .quote-section {
-  grid-column: 1 / -1;
-  margin: 2rem 0;
-  background: var(--cyber-dark);
-  padding: 2rem;
-  border: 1px solid var(--neon-pink);
-  position: relative;
 }
 
 .section-image {
-  max-width: 300px;
+  border: 2px solid var(--neon-pink);
   border-radius: 50%;
-  box-shadow: 0 0 30px var(--neon-pink);
-  animation: pulse 4s ease infinite;
+  box-shadow: 0 0 2rem var(--neon-purple);
+  transition: all 0.3s;
 }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 30px var(--neon-pink); }
-  50% { box-shadow: 0 0 50px var(--neon-pink); }
+.section-image:hover {
+  transform: rotate(10deg);
+}
+
+a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  position: relative;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--neon-pink);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+.quote-section {
+  background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink));
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .site-footer {
-  background: var(--cyber-dark);
+  background: var(--black);
   padding: 2rem;
   text-align: center;
-  border-top: 2px solid var(--neon-green);
+  border-top: 2px solid var(--neon-blue);
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 1rem var(--neon-pink);
+  }
+  to {
+    box-shadow: 0 0 3rem var(--neon-purple);
+  }
 }
 
 @media (max-width: 768px) {
@@ -158,38 +144,9 @@ body {
     grid-template-columns: 1fr;
   }
   
-  .stories-section, .news-section {
-    grid-column: 1 / -1;
+  .hero-image {
+    height: 300px;
   }
-  
-  .hero-section {
-    height: 40vh;
-  }
-}
-
-/* Glowing text effect */
-h1, h2, h3 {
-  text-shadow: 0 0 10px var(--neon-green);
-  letter-spacing: 2px;
-}
-
-/* Animated border effect */
-.story-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 2px solid var(--neon-green);
-  clip-path: inset(0 100% 0 0);
-  animation: borderSlide 2s infinite;
-}
-
-@keyframes borderSlide {
-  0% { clip-path: inset(0 100% 0 0); }
-  50% { clip-path: inset(0 0 0 0); }
-  100% { clip-path: inset(0 0 0 100%); }
 }
     </style>
 </head>
@@ -197,7 +154,7 @@ h1, h2, h3 {
     <header class="site-header">
         <h1 class="logo">🦉 Daily Owl</h1>
         <p class="date">2025-11-21</p>
-        <p class="mood-tag">CYBERPUNK</p>
+        <p class="mood-tag">SYNTHWAVE</p>
     </header>
 
     <div class="hero-section">
@@ -209,28 +166,28 @@ h1, h2, h3 {
             <h2 class="section-title">📰 Hacker News</h2>
         <article class="story-card">
             <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-            <p class="score">⬆ 231 points</p>
+            <p class="score">⬆ 260 points</p>
             <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
         </article>
         <article class="story-card">
             <h3><a href="https://xnacly.me/posts/2025/building-a-minimal-viable-armv7-emulator/" target="_blank">Building a Minimal Viable Armv7 Emulator from Scratch</a></h3>
-            <p class="score">⬆ 17 points</p>
-            <p class="comment">Il futuro è qui! (Spoiler: fa schifo) 🚀</p>
-        </article>
-        <article class="story-card">
-            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's hard to build an oscillator</a></h3>
-            <p class="score">⬆ 129 points</p>
-            <p class="comment">Dev'essere per forza una cazzata, no? 😒</p>
+            <p class="score">⬆ 30 points</p>
+            <p class="comment">Innovazione? Chiamiamola 'feature già vista 10 anni fa'. 🕰️</p>
         </article>
         <article class="story-card">
             <h3><a href="https://martin.janiczek.cz/2025/11/21/fawk-llms-can-write-a-language-interpreter.html" target="_blank">FAWK: LLMs can write a language interpreter</a></h3>
-            <p class="score">⬆ 117 points</p>
-            <p class="comment">Roba da matti, cazzo! 🤯</p>
+            <p class="score">⬆ 135 points</p>
+            <p class="comment">L'hanno presentato come rivoluzionario. È banale. 🥱</p>
         </article>
         <article class="story-card">
-            <h3><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1627423" target="_blank">EXIF orientation info in PNGs isn't used for image-orientation</a></h3>
-            <p class="score">⬆ 21 points</p>
-            <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
+            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's hard to build an oscillator</a></h3>
+            <p class="score">⬆ 144 points</p>
+            <p class="comment">Ennesima prova che l'umanità è condannata. 💀</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://www.stavros.io/posts/i-converted-a-rotary-phone-into-a-meeting-handset/" target="_blank">I converted a rotary phone into a meeting handset</a></h3>
+            <p class="score">⬆ 91 points</p>
+            <p class="comment">Buzzword bingo: completato! 🎰</p>
         </article>
 
         </section>
@@ -278,44 +235,44 @@ h1, h2, h3 {
             <h3 class="source-title">Wired Italia</h3>
             <article class="news-card">
                 
-                <a href="https://www.wired.it/article/train-dreams-netflix-film-immensa-bellezza-trama-cast-recensione/" target="_blank">Train Dreams su Netflix è un malinconico e meraviglioso western, un film di immensa bellezza che non dimenticherete</a>
+                <a href="https://www.wired.it/article/fumetto-piu-costoso-della-storia-venduto-a-oltre-9-milioni-di-dollari-superman/" target="_blank">Il fumetto più costoso della storia è stato venduto a oltre 9 milioni di dollari (e ha avuto un percorso rocambolesco)</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://www.wired.it/article/donna-vichinga-sepolta-con-due-conchiglie-di-capesante-sulla-bocca-norvegia/" target="_blank">Gli archeologi sono alle prese con l'enigma di una donna vichinga sepolta con due conchiglie di capesante sulla bocca</a>
+                <a href="https://www.wired.it/gallery/black-friday-2025-cyber-monday-offerte-smartwatch-smartband/" target="_blank">Black Friday 2025, gli smartwatch e le smart band migliori che puoi trovare in offerta</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">The Verge</h3>
             <article class="news-card">
                 
-                <a href="https://www.theverge.com/column/825219/optimizer-ai-nutrition-tracking-wellness" target="_blank">AI nutrition tracking stinks</a>
+                <a href="https://www.theverge.com/gadgets/824326/playstation-5-ps5-pro-black-friday-deal-sale-2025" target="_blank">The PlayStation 5 Slim and Pro are on sale for Black Friday</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://www.theverge.com/gadgets/824372/asus-falcata-split-ergo-keyboard-hall-effect-deal-sale-black-friday" target="_blank">The Asus Falcata Hall effect split gaming keyboard is $140 off right now</a>
+                <a href="https://www.theverge.com/podcast/825979/ai-agents-are-invading-your-pc" target="_blank">AI agents are invading your PC</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">TechCrunch</h3>
             <article class="news-card">
                 
-                <a href="https://techcrunch.com/2025/11/21/despite-chinese-hacks-trumps-fcc-votes-to-scrap-cybersecurity-rules-for-phone-and-internet-companies/" target="_blank">Despite Chinese hacks, Trump’s FCC votes to scrap cybersecurity rules for phone and internet companies</a>
+                <a href="https://techcrunch.com/2025/11/21/spacexs-upgraded-starship-suffers-explosion-during-testing/" target="_blank">SpaceX’s upgraded Starship suffers explosion during testing</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://techcrunch.com/2025/11/21/australia-adds-twitch-to-teen-social-media-ban-pinterest-exempted/" target="_blank">Australia adds Twitch to teen social media ban, Pinterest exempted</a>
+                <a href="https://techcrunch.com/2025/11/21/despite-chinese-hacks-trumps-fcc-votes-to-scrap-cybersecurity-rules-for-phone-and-internet-companies/" target="_blank">Despite Chinese hacks, Trump’s FCC votes to scrap cybersecurity rules for phone and internet companies</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">Ars Technica</h3>
             <article class="news-card">
-                <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/11/GettyImages-2246883754-1152x648.jpg" alt="Rocket Report: SpaceX’s next-gen booster fails; Pegasus will fly again" class="news-image">
-                <a href="https://arstechnica.com/space/2025/11/rocket-report-spacexs-next-gen-booster-fails-pegasus-will-fly-again/" target="_blank">Rocket Report: SpaceX’s next-gen booster fails; Pegasus will fly again</a>
+                <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/11/bronze-axe-2-wow-780x648.jpg" alt="First revealed in spy photos, a Bronze Age city emerges from the steppe" class="news-image">
+                <a href="https://arstechnica.com/science/2025/11/archaeologists-find-ruins-of-a-bronze-age-city-on-the-kazakh-steppe/" target="_blank">First revealed in spy photos, a Bronze Age city emerges from the steppe</a>
             </article>
             <article class="news-card">
-                <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/07/GettyImages-1137650996-1152x648.jpg" alt="Pornhub is urging tech giants to enact device-based age verification" class="news-image">
-                <a href="https://arstechnica.com/tech-policy/2025/11/pornhub-is-urging-tech-giants-to-enact-device-based-age-verification/" target="_blank">Pornhub is urging tech giants to enact device-based age verification</a>
+                <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/11/GettyImages-2246883754-1152x648.jpg" alt="Rocket Report: SpaceX’s next-gen booster fails; Pegasus will fly again" class="news-image">
+                <a href="https://arstechnica.com/space/2025/11/rocket-report-spacexs-next-gen-booster-fails-pegasus-will-fly-again/" target="_blank">Rocket Report: SpaceX’s next-gen booster fails; Pegasus will fly again</a>
             </article>
         </div>
 
@@ -323,14 +280,14 @@ h1, h2, h3 {
 
         <section class="owl-section">
             <h2 class="section-title">🦉 Owl Fact</h2>
-            <p class="fact-text">Gli occhi dei gufi sono fissi nelle orbite - devono ruotare tutta la testa per guardare altrove!</p>
+            <p class="fact-text">Il volo silenzioso dei gufi è possibile grazie a piume seghettate che eliminano le turbolenze.</p>
             <img src="assets/generated/2025-11-21-2.png" alt="Owl" class="section-image">
         </section>
 
         <section class="quote-section">
             <h2 class="section-title">💭 Quote</h2>
-            <blockquote class="quote-text">"The wisest men follow their own direction."</blockquote>
-            <cite class="quote-author">— Euripides</cite>
+            <blockquote class="quote-text">"Be - don't try to become "</blockquote>
+            <cite class="quote-author">— Osho</cite>
             <img src="assets/generated/2025-11-21-3.png" alt="Pattern" class="section-image">
         </section>
     </div>
