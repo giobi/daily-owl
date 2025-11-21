@@ -9,22 +9,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Courier New", monospace;
+}
+
+:root {
+  --gold: #D4AF37;
+  --black: #1A1A1A;
+  --cream: #F5F5F5;
+  --accent: #B8860B;
 }
 
 body {
-  background: #111;
-  color: #fff;
-  overflow-x: hidden;
+  background: var(--black);
+  color: var(--cream);
+  font-family: Georgia, serif;
+  line-height: 1.6;
 }
 
 .site-header {
+  background: linear-gradient(45deg, var(--black), var(--accent));
   padding: 2rem;
-  background: #ff0033;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: glitch 2s infinite;
+  border-bottom: 4px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.site-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212,175,55,0.1) 10px, rgba(212,175,55,0.1) 20px);
 }
 
 .hero-section {
@@ -37,13 +53,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%) contrast(150%);
-  transform: scale(1.1);
-  transition: transform 0.3s;
+  filter: sepia(30%) contrast(120%);
+  transition: transform 0.5s ease;
 }
 
 .hero-image:hover {
-  transform: scale(1) rotate(-1deg);
+  transform: scale(1.05);
 }
 
 .grid-container {
@@ -51,88 +66,104 @@ body {
   grid-template-columns: repeat(12, 1fr);
   gap: 2rem;
   padding: 2rem;
-  background: #111;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .stories-section {
-  grid-column: 1 / 8;
+  grid-column: 1 / 9;
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
 .story-card {
-  background: #222;
+  background: var(--black);
+  border: 1px solid var(--gold);
   padding: 1.5rem;
-  border: 3px solid #fff;
-  transition: transform 0.2s;
+  position: relative;
+  transition: transform 0.3s ease;
 }
 
 .story-card:hover {
-  transform: translateX(10px);
-  background: #ff0033;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(212,175,55,0.2);
+}
+
+.story-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--accent));
 }
 
 .news-section {
-  grid-column: 8 / -1;
-  border-left: 3px solid #ff0033;
-  padding-left: 2rem;
+  grid-column: 9 / 13;
 }
 
 .news-card {
-  margin-bottom: 2rem;
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border-left: 2px solid var(--gold);
+  padding-left: 1rem;
 }
 
 .news-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  filter: grayscale(100%) brightness(90%);
-  transition: all 0.3s;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+  transition: clip-path 0.3s ease;
 }
 
 .news-image:hover {
-  filter: grayscale(0%) brightness(110%);
-  transform: scale(1.05) rotate(2deg);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .owl-section {
   grid-column: 1 / 7;
-  background: #222;
+  background: linear-gradient(135deg, var(--black), var(--accent));
   padding: 2rem;
-  border: 3px solid #fff;
+  border: 2px solid var(--gold);
 }
 
 .quote-section {
-  grid-column: 7 / -1;
-  background: #ff0033;
+  grid-column: 7 / 13;
+  position: relative;
   padding: 2rem;
-  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  border: 2px solid var(--gold);
 }
 
 .section-image {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  mix-blend-mode: luminosity;
-  border: 3px solid #fff;
+  border: 4px solid var(--gold);
+  transition: transform 0.3s ease;
+}
+
+.section-image:hover {
+  transform: scale(1.02) rotate(1deg);
 }
 
 .site-footer {
-  background: #222;
+  background: var(--black);
   padding: 3rem;
-  margin-top: 2rem;
-  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  border-top: 4px solid var(--gold);
+  text-align: center;
+  position: relative;
 }
 
-@keyframes glitch {
-  0% { transform: translateX(0) }
-  25% { transform: translateX(-2px) }
-  50% { transform: translateX(2px) }
-  75% { transform: translateX(-1px) }
-  100% { transform: translateX(0) }
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 @media (max-width: 768px) {
@@ -147,17 +178,14 @@ body {
     grid-column: 1 / -1;
   }
   
-  .news-section {
-    border-left: none;
-    border-top: 3px solid #ff0033;
-    padding-left: 0;
-    padding-top: 2rem;
+  .stories-section {
+    grid-template-columns: 1fr;
   }
 }
 
-::selection {
-  background: #ff0033;
-  color: #fff;
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
 }
     </style>
 </head>
@@ -165,7 +193,7 @@ body {
     <header class="site-header">
         <h1 class="logo">🦉 Daily Owl</h1>
         <p class="date">2025-11-21</p>
-        <p class="mood-tag">BRUTALISM</p>
+        <p class="mood-tag">ART DECO</p>
     </header>
 
     <div class="hero-section">
@@ -176,29 +204,29 @@ body {
         <section class="stories-section">
             <h2 class="section-title">📰 Hacker News</h2>
         <article class="story-card">
-            <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
-            <p class="score">⬆ 136 points</p>
-            <p class="comment">Ma perché continuano a farci perdere tempo? ⏰</p>
-        </article>
-        <article class="story-card">
             <h3><a href="https://martin.janiczek.cz/2025/11/21/fawk-llms-can-write-a-language-interpreter.html" target="_blank">FAWK: LLMs can write a language interpreter</a></h3>
-            <p class="score">⬆ 6 points</p>
-            <p class="comment">Roba da matti, cazzo! 🤯</p>
-        </article>
-        <article class="story-card">
-            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
-            <p class="score">⬆ 52 points</p>
-            <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
-        </article>
-        <article class="story-card">
-            <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
-            <p class="score">⬆ 1064 points</p>
+            <p class="score">⬆ 41 points</p>
             <p class="comment">Buzzword bingo: completato! 🎰</p>
         </article>
         <article class="story-card">
-            <h3><a href="https://blog.google/products/android/quick-share-airdrop/" target="_blank">Android and iPhone users can now share files, starting with the Pixel 10</a></h3>
-            <p class="score">⬆ 684 points</p>
-            <p class="comment">Dev'essere per forza una cazzata, no? 😒</p>
+            <h3><a href="https://allenai.org/blog/olmo3" target="_blank">Olmo 3: Charting a path through the model flow to lead open-source AI</a></h3>
+            <p class="score">⬆ 155 points</p>
+            <p class="comment">Suona figo ma probabilmente è solo fumo. 🤷</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://lcamtuf.substack.com/p/its-hard-to-build-an-oscillator" target="_blank">It's Hard to Build an Oscillator</a></h3>
+            <p class="score">⬆ 65 points</p>
+            <p class="comment">Quando fallirà metterò una bottiglia da parte. 🍾</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://blog.google/technology/ai/nano-banana-pro/" target="_blank">Nano Banana Pro</a></h3>
+            <p class="score">⬆ 1081 points</p>
+            <p class="comment">Roba da matti, cazzo! 🤯</p>
+        </article>
+        <article class="story-card">
+            <h3><a href="https://www.stavros.io/posts/i-converted-a-rotary-phone-into-a-meeting-handset/" target="_blank">I converted a rotary phone into a meeting handset</a></h3>
+            <p class="score">⬆ 25 points</p>
+            <p class="comment">Solita minestra riscaldata degli americani. 🇺🇸</p>
         </article>
 
         </section>
@@ -246,33 +274,33 @@ body {
             <h3 class="source-title">Wired Italia</h3>
             <article class="news-card">
                 
-                <a href="https://www.wired.it/gallery/black-friday-2025-cyber-monday-migliori-offerte-cucina/" target="_blank">Black Friday 2025, i migliori sconti sugli elettrodomestici da cucina</a>
+                <a href="https://www.wired.it/article/utenti-whatsapp-bug-falla-commento-cyber-guru/" target="_blank">Il bug WhatsApp che ha esposto 3,5 miliardi di utenti era piuttosto elementare, ma non per questo meno pericoloso</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://www.wired.it/article/orologio-casio-pescatori/" target="_blank">Orologio per pescatori, ecco il nuovo Casio AE-1700H con calendario lunare</a>
+                <a href="https://www.wired.it/article/mistero-naso-neanderthal-risolto-uomo-di-altamura-non-era-adattato-al-freddo/" target="_blank">Il mistero del grosso naso dei Neanderthal è stato risolto, l'uomo di Altamura ci dice che non era adattato al freddo</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">The Verge</h3>
             <article class="news-card">
                 
-                <a href="https://www.theverge.com/report/826003/googles-nano-banana-pro-generates-excellent-conspiracy-fuel" target="_blank">Google’s Nano Banana Pro generates excellent conspiracy fuel</a>
+                <a href="https://www.theverge.com/features/825207/semiconductor-chip-manufacturing-new-silicon-valley" target="_blank">The new silicon valley (literally)</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://www.theverge.com/ai-artificial-intelligence/825675/groks-elon-musk-worship-is-getting-weird" target="_blank">Grok’s Elon Musk worship is getting weird</a>
+                <a href="https://www.theverge.com/report/826003/googles-nano-banana-pro-generates-excellent-conspiracy-fuel" target="_blank">Google’s Nano Banana Pro generates excellent conspiracy fuel</a>
             </article>
         </div>
         <div class="source-group">
             <h3 class="source-title">TechCrunch</h3>
             <article class="news-card">
                 
-                <a href="https://techcrunch.com/2025/11/20/grok-says-elon-musk-is-better-than-basically-everyone-except-shohei-ohtani/" target="_blank">Grok says Elon Musk is better than basically everyone, except Shohei Ohtani</a>
+                <a href="https://techcrunch.com/2025/11/21/the-european-startup-market-is-ready-for-the-limelight/" target="_blank">The European startup market is ready for the limelight</a>
             </article>
             <article class="news-card">
                 
-                <a href="https://techcrunch.com/2025/11/20/google-steps-up-ai-scam-protection-in-india-but-gaps-remain/" target="_blank">Google steps up AI scam protection in India, but gaps remain</a>
+                <a href="https://techcrunch.com/2025/11/20/grok-says-elon-musk-is-better-than-basically-everyone-except-shohei-ohtani/" target="_blank">Grok says Elon Musk is better than basically everyone, except Shohei Ohtani</a>
             </article>
         </div>
         <div class="source-group">
@@ -291,14 +319,14 @@ body {
 
         <section class="owl-section">
             <h2 class="section-title">🦉 Owl Fact</h2>
-            <p class="fact-text">I gufi reali possono vivere fino a 60 anni in cattività!</p>
+            <p class="fact-text">Il volo silenzioso dei gufi è possibile grazie a piume seghettate che eliminano le turbolenze.</p>
             <img src="assets/generated/2025-11-21-2.png" alt="Owl" class="section-image">
         </section>
 
         <section class="quote-section">
             <h2 class="section-title">💭 Quote</h2>
-            <blockquote class="quote-text">"Believe and you're halfway there."</blockquote>
-            <cite class="quote-author">— Harry S. Truman</cite>
+            <blockquote class="quote-text">"Though no one can go back and make a brand new start, anyone can start from now and make a brand new ending."</blockquote>
+            <cite class="quote-author">— Carl Bard</cite>
             <img src="assets/generated/2025-11-21-3.png" alt="Pattern" class="section-image">
         </section>
     </div>
