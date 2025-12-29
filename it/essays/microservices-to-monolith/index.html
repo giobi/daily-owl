@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addio Microservices: Perche Segment E Tornata al Monolith - Daily Owl</title>
+    <meta name="description" content="Addio Microservices: Perche Segment E Tornata al Monolith">
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../../" class="back-link">← Daily Owl</a>
+
+        <header class="essay-header">
+            <h1>Addio Microservices</h1>
+            
+        </header>
+
+        <figure class="essay-image">
+            <img src="../../../assets/images/microservices-to-monolith-01.webp" alt="Addio Microservices">
+        </figure>
+
+        <article class="essay-content">
+            <p class="meta">Perche Segment E Tornata al Monolith<br>Dicembre 2025</p>
+
+            <hr>
+
+            <p>Per anni, "microservices" e stata la parola magica dell'architettura software. Vuoi scalare? Microservices. Vuoi deployare piu velocemente? Microservices. Vuoi essere come Netflix? Microservices.</p>
+
+            <p>Segment — una delle aziende di data infrastructure piu rispettate del settore, ora parte di Twilio — aveva bevuto il Kool-Aid. Avevano costruito un'architettura con oltre 140 microservizi. Ogni integrazione — ogni destinazione a cui i clienti potevano mandare i loro dati — era un servizio separato con la sua coda, il suo deployment, il suo monitoraggio.</p>
+
+            <p>Poi hanno fatto qualcosa di impensabile: hanno consolidato tutto in un singolo servizio. Sono tornati al monolith.</p>
+
+            <p>E stata una delle migliori decisioni che abbiano mai preso.</p>
+
+            <h2>L'Architettura Iniziale</h2>
+
+            <p>L'idea dietro l'architettura originale era sensata. Segment gestisce il routing dei dati dei clienti verso centinaia di destinazioni diverse: analytics, CRM, data warehouse, tool di marketing. Se un'integrazione ha problemi — se Salesforce e lento, se Google Analytics ha un bug — non dovrebbe impattare le altre.</p>
+
+            <p>La soluzione classica: ogni integrazione e un microservizio. Ha la sua coda di messaggi. Ha le sue risorse. Ha i suoi limiti di rate. Se esplode, esplode da sola.</p>
+
+            <p>Questo funzionava quando avevano 10 integrazioni. Funzionava ancora a 50. Ma quando sono arrivati a 140, con un team di tre ingegneri che doveva mantenere tutto, la complessita e diventata ingestibile.</p>
+
+            <h2>I Problemi Reali</h2>
+
+            <div class="problem">
+            <h3>1. Overhead Operativo Lineare</h3>
+            <p>Ogni nuovo servizio aggiungeva overhead: deployment, monitoraggio, alerting, on-call rotations. Con 140 servizi, il team passava piu tempo a mantenere l'infrastruttura che a migliorare il prodotto.</p>
+            </div>
+
+            <div class="problem">
+            <h3>2. Dipendenze Divergenti</h3>
+            <p>Ogni servizio aveva le sue dipendenze. Le librerie condivise esistevano in versioni diverse in repo diverse. Aggiornare una dipendenza significava aggiornarla in 140 posti, ognuno con i suoi potenziali conflitti.</p>
+            </div>
+
+            <div class="problem">
+            <h3>3. Test Fragili</h3>
+            <p>I test facevano richieste HTTP reali alle API esterne. Quando un'API cambiava il suo comportamento, decine di test fallivano. Il feedback loop per uno sviluppatore era lento e frustrante.</p>
+            </div>
+
+            <div class="problem">
+            <h3>4. Paging Notturno</h3>
+            <p>Con 140 servizi, qualcosa era sempre rotto. Il team veniva svegliato di notte per gestire spike di carico, backlog nelle code, timeout su singole integrazioni. Il burnout era reale.</p>
+            </div>
+
+            <p>La promessa dei microservizi era "isolamento dei guasti". La realta era "moltiplicazione dei guasti". Non avevano un sistema che poteva fallire in un punto — avevano 140 punti di fallimento potenziale.</p>
+
+            <h2>La Decisione Controintuitiva</h2>
+
+            <p>La soluzione tradizionale sarebbe stata: assumere piu persone, costruire migliori tool di orchestrazione, adottare Kubernetes. Investire nella complessita.</p>
+
+            <p>Segment ha fatto il contrario. Ha preso 140 servizi e li ha consolidati in uno solo. Un monolith.</p>
+
+            <p>Non un monolith "stupido" — un monolith progettato con cura. Il codice era organizzato in moduli puliti. Le dipendenze erano condivise e sincronizzate. I test giravano in-process invece che via HTTP. Ma era un singolo artefatto deployabile.</p>
+
+            <h2>I Risultati</h2>
+
+            <div class="solution">
+            <h3>Velocita di Sviluppo</h3>
+            <p>L'anno prima della migrazione, il team aveva fatto 32 miglioramenti alle librerie condivise. L'anno dopo, 46. Quasi il 50% in piu, con lo stesso team.</p>
+            </div>
+
+            <div class="solution">
+            <h3>Tempo di Test</h3>
+            <p>Prima: minuti per testare una singola destinazione. Dopo: millisecondi per testare tutte e 140. I test giravano in-memory, senza network overhead.</p>
+            </div>
+
+            <div class="solution">
+            <h3>Operazioni</h3>
+            <p>Un servizio da monitorare invece di 140. Un deployment invece di 140. Un set di metriche invece di 140. Il team poteva finalmente dormire.</p>
+            </div>
+
+            <div class="solution">
+            <h3>Risorse</h3>
+            <p>I microservizi avevano tutti bisogno di un mix di CPU e memoria, ma ogni servizio aveva carichi diversi. Alcuni erano CPU-bound, altri memory-bound. Dimensionare correttamente 140 servizi era impossibile — finivi per sprecare risorse ovunque. Un singolo servizio poteva bilanciare i carichi internamente.</p>
+            </div>
+
+            <h2>I Trade-off Accettati</h2>
+
+            <p>Il monolith non e perfetto. Segment ha accettato alcuni trade-off consapevolmente.</p>
+
+            <p><strong>Isolamento dei guasti ridotto:</strong> Un bug in un'integrazione puo teoricamente crashare tutto il servizio. In pratica, con buoni test e circuit breaker, non e mai successo.</p>
+
+            <p><strong>Cache in-memory meno efficace:</strong> Con microservizi, ogni servizio aveva la sua cache calda per la sua integrazione specifica. Nel monolith, la cache e condivisa e meno specializzata.</p>
+
+            <p><strong>Deployment atomici:</strong> Aggiornare un'integrazione significa ridepolare tutto. Ma con buona CI/CD, questo deployment richiede minuti, non ore.</p>
+
+            <p>Erano trade-off accettabili per il loro contesto. Tre ingegneri che cercavano di sopravvivere erano disposti a rinunciare alla perfezione teorica in cambio della sanita mentale pratica.</p>
+
+            <h2>Quando I Microservizi Hanno Senso</h2>
+
+            <p>Segment non sta dicendo che i microservizi siano sempre sbagliati. Stanno dicendo che erano sbagliati per loro, in quel momento, con quel team.</p>
+
+            <p>I microservizi hanno senso quando:</p>
+
+            <ul>
+            <li>Hai team grandi che lavorano su parti diverse del sistema</li>
+            <li>Le parti hanno cicli di deployment radicalmente diversi</li>
+            <li>L'isolamento dei guasti e critico per il business</li>
+            <li>Hai l'infrastruttura e le competenze per gestire la complessita</li>
+            </ul>
+
+            <p>Netflix ha senso con i microservizi. Hanno migliaia di ingegneri, infrastruttura proprietaria, e requisiti di disponibilita estremi. Una startup con tre ingegneri non e Netflix.</p>
+
+            <div class="highlight">
+            <p><strong>La regola non scritta:</strong> I microservizi sono una soluzione a problemi di organizzazione, non di tecnologia. Se non hai problemi di coordinamento tra team, probabilmente non hai bisogno di microservizi.</p>
+            </div>
+
+            <h2>Il Monolith Modulare</h2>
+
+            <p>C'e una via di mezzo che sta guadagnando popolarita: il monolith modulare. Un singolo deployable, ma con confini interni chiari tra i moduli. Puoi avere la semplicita operativa del monolith con la separazione logica dei microservizi.</p>
+
+            <p>E quello che Segment ha costruito, in pratica. Non un blob di codice spaghetti, ma un sistema organizzato con interfacce pulite tra le parti. Se un giorno avranno bisogno di estrarre un pezzo come servizio separato, potranno farlo. Ma fino ad allora, godono della semplicita.</p>
+
+            <p>Rails, Laravel, Django — i grandi framework monolitici — stanno tutti andando in questa direzione. Moduli, bounded context, separazione delle responsabilita. Le buone pratiche dei microservizi, senza il costo operativo.</p>
+
+            <h2>Lezioni Per Tutti</h2>
+
+            <p><strong>1. L'architettura deve servire il team, non il contrario.</strong> Se la tua architettura richiede piu ingegneri di quanti ne hai per essere mantenuta, e l'architettura sbagliata.</p>
+
+            <p><strong>2. La complessita ha un costo composto.</strong> Ogni microservizio aggiunge un po' di overhead. Ma quegli overhead si sommano, e a un certo punto il costo totale supera i benefici.</p>
+
+            <p><strong>3. Puoi sempre spacchettare dopo.</strong> E molto piu facile estrarre un servizio da un monolith che consolidare microservizi in un monolith. Se non sei sicuro, parti semplice.</p>
+
+            <p><strong>4. Le best practice sono contestuali.</strong> Quello che funziona per Netflix non funziona per tutti. L'architettura giusta dipende dal team, dal prodotto, dal momento.</p>
+
+            <blockquote>
+            "Invece di abilitarci a muoverci piu velocemente, il piccolo team si e trovato sommerso dalla complessita esplodente."
+            </blockquote>
+
+            <h2>Conclusione</h2>
+
+            <p>L'industria del software e piena di mode. Microservizi, serverless, event-driven, mesh — ogni anno c'e una nuova architettura che promette di risolvere tutto. E ogni anno, team che non ne avevano bisogno la adottano perche "e quello che fanno tutti".</p>
+
+            <p>La storia di Segment e un promemoria salutare. A volte la soluzione giusta e la piu semplice. A volte tornare indietro e andare avanti. A volte il monolith — quello strumento "vecchio" e "poco figo" — e esattamente quello che serve.</p>
+
+            <p>Non scegliere l'architettura per impressionare gli altri ingegneri al prossimo meetup. Sceglila per risolvere i problemi che hai davvero, con le risorse che hai davvero, nel contesto in cui sei davvero.</p>
+
+            <p>A volte, meno e piu.</p>
+
+            <hr>
+
+            <p style="text-align: center; color: #999; margin-top: 40px;">
+            <em>Fonte: Segment Engineering Blog (ora Twilio)</em><br>
+            <em>Dicembre 2025</em>
+            </p>
+        </article>
+
+        <figure class="essay-image">
+            <img src="../../../assets/images/microservices-to-monolith-03.webp" alt="Addio Microservices">
+        </figure>
+
+        <footer class="site-footer">
+            <div class="ai-disclosure">
+                Scritto da Giobi con Claude<br>
+                Dicembre 2025
+            </div>
+            <p style="margin-top: 1.5rem;">
+                <a href="../../">Daily Owl</a> · <a href="https://giobi.com">giobi.com</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
