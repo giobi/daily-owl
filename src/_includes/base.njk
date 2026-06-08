@@ -16,7 +16,14 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="logo" href="/"><span class="owl">&#129417;</span> {{ site.name }}</a>
+      <a class="brand" href="/" aria-label="{{ site.name }}">
+        <svg class="mark" viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <path d="M24 7 a17 17 0 1 1 0 34 a11.5 11.5 0 1 0 0 -34 Z" fill="currentColor" />
+          <circle cx="24" cy="24" r="3.1" fill="var(--paper)" />
+        </svg>
+        <span class="wordmark">{{ site.name }}</span>
+      </a>
       <p class="tagline">{{ site.tagline }}</p>
     </header>
     <main>

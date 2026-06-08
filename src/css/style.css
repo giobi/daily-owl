@@ -37,16 +37,28 @@ a { color: var(--accent); }
   text-align: center;
   border-bottom: 2px solid var(--ink);
 }
-.logo {
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.mark {
+  width: clamp(40px, 7vw, 54px);
+  height: clamp(40px, 7vw, 54px);
+  color: var(--ink);
+  display: block;
+}
+.wordmark {
   font-family: Fraunces, serif;
   font-weight: 900;
   font-size: clamp(2.1rem, 5vw, 3.2rem);
   letter-spacing: -0.01em;
-  color: var(--ink);
-  text-decoration: none;
-  display: inline-block;
+  line-height: 1;
 }
-.logo .owl { -webkit-text-fill-color: initial; }
+.brand:hover .mark { color: var(--accent); }
 .tagline {
   margin: 0.4rem 0 0;
   font-style: italic;
