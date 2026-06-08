@@ -2,6 +2,10 @@ module.exports = function (eleventyConfig) {
   // Static assets
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon-32.png");
+  eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
   // Collections: published / drafts, by frontmatter `stato`
   eleventyConfig.addCollection("published", (c) =>

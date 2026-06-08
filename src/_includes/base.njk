@@ -11,16 +11,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="/" aria-label="{{ site.name }}">
-        <svg class="mark" viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false">
-          <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2.5" />
-          <path d="M24 7 a17 17 0 1 1 0 34 a11.5 11.5 0 1 0 0 -34 Z" fill="currentColor" />
-          <circle cx="24" cy="24" r="3.1" fill="var(--paper)" />
+        <svg class="mark" viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false"
+             fill="none" stroke="currentColor" stroke-linecap="round">
+          <path d="M16 5 C34 17, 34 31, 16 43" stroke-width="2.6" />
+          <path d="M32 5 C14 17, 14 31, 32 43" stroke-width="2.4" stroke-dasharray="0.2 4.2" />
         </svg>
         <span class="wordmark">{{ site.name }}</span>
       </a>
