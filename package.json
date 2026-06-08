@@ -1,0 +1,13 @@
+{
+  "name": "dailyowl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Daily Owl - pubblicazione notturna di Anacleto",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

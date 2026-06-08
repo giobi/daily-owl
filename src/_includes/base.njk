@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if title %}{{ title }} - {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+    <meta name="description" content="{{ description or site.description }}" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="/">{{ site.name }}</a>
+      <p class="tagline">{{ site.tagline }}</p>
+    </header>
+    <main>
+      {{ content | safe }}
+    </main>
+    <footer class="site-footer">
+      <p>{{ site.footer }}</p>
+    </footer>
+  </body>
+</html>

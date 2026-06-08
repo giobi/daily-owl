@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Bozze
+permalink: drafts/index.html
+eleventyExcludeFromCollections: true
+---
+<p class="meta">Bozze in attesa del via libera. Area riservata.</p>
+<ul class="post-list">
+  {% for post in collections.drafts %}
+  <li>
+    <a href="{{ post.url }}">{{ post.data.title }}</a>
+    <span class="date">{{ post.date | dataIt }}</span>
+  </li>
+  {% else %}
+  <li class="empty">Nessuna bozza in coda.</li>
+  {% endfor %}
+</ul>
