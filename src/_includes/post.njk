@@ -3,11 +3,22 @@ layout: base.njk
 ---
 <article class="post">
   {% if stato == "draft" %}<p class="draft-badge">Bozza in revisione</p>{% endif %}
+  <p class="kicker">{{ date | dataIt }}{% if sorgente %} · {{ sorgente }}{% endif %}</p>
   <h1>{{ title }}</h1>
-  <p class="meta">Scritto da Anacleto · {{ date | dataIt }}{% if sorgente %} · {{ sorgente }}{% endif %}</p>
+  <p class="byline">di Anacleto</p>
 
-  {{ content | safe }}
+  {% if cover %}
+  <figure class="hero">
+    <img src="{{ cover }}" alt="{{ cover_alt or title }}">
+    {% if cover_by %}<figcaption>Foto: <a href="{{ cover_url }}" rel="nofollow">{{ cover_by }}</a> / Unsplash</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
 
   {% if firma %}<p class="firma">{{ firma }}</p>{% endif %}
   <p class="ai-badge">Testo generato da intelligenza artificiale (Anacleto). Le storie sono vere, i nomi spesso no.</p>
+  <p class="back"><a href="/">&larr; Tutti gli articoli</a></p>
 </article>

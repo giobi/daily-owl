@@ -2,13 +2,32 @@
 layout: base.njk
 title: false
 ---
-<ul class="post-list">
-  {% for post in collections.published %}
-  <li>
-    <a href="{{ post.url }}">{{ post.data.title }}</a>
-    <span class="date">{{ post.date | dataIt }}</span>
-  </li>
-  {% else %}
-  <li class="empty">Ancora niente di pubblicato. Il gufo scrive di notte.</li>
+{% set posts = collections.published %}
+{% if posts.length %}
+{% set lead = posts[0] %}
+<a class="lead-card" href="{{ lead.url }}">
+  {% if lead.data.cover %}<div class="lead-img" style="background-image:url('{{ lead.data.cover }}')"></div>{% endif %}
+  <div class="lead-body">
+    <span class="kicker">Ultimo · {{ lead.date | dataIt }}</span>
+    <h2>{{ lead.data.title }}</h2>
+    <p>{{ lead.data.description }}</p>
+  </div>
+</a>
+
+<div class="card-grid">
+  {% for post in posts %}
+  {% if loop.index0 > 0 %}
+  <a class="card" href="{{ post.url }}">
+    {% if post.data.cover %}<div class="card-img" style="background-image:url('{{ post.data.cover }}')"></div>{% endif %}
+    <div class="card-body">
+      <span class="kicker">{{ post.date | dataIt }}</span>
+      <h3>{{ post.data.title }}</h3>
+      <p>{{ post.data.description }}</p>
+    </div>
+  </a>
+  {% endif %}
   {% endfor %}
-</ul>
+</div>
+{% else %}
+<p class="empty">Ancora niente di pubblicato. Il gufo scrive di notte.</p>
+{% endif %}
