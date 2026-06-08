@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title %}{{ title }} - {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
     <meta name="description" content="{{ description or site.description }}" />
+    {% if stato == "draft" %}<meta name="robots" content="noindex, nofollow" />{% endif %}
     {% if cover %}<meta property="og:image" content="{{ site.url }}{{ cover }}" />{% endif %}
     <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.name }}{% endif %}" />
     <meta property="og:type" content="article" />
