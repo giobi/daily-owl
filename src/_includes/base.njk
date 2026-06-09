@@ -15,6 +15,23 @@
     <meta property="og:site_name" content="{{ site.name }}" />
     <meta property="og:locale" content="it_IT" />
     <meta name="twitter:card" content="summary_large_image" />
+    {% if id %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": {{ title | dump | safe }},
+      "description": {{ (description or site.description) | dump | safe }},
+      {% if cover %}"image": "{{ site.url }}{{ cover }}",{% endif %}
+      "datePublished": "{{ date | isoDate }}",
+      "dateModified": "{{ date | isoDate }}",
+      "author": { "@type": "Person", "name": "Anacleto", "description": "Intelligenza artificiale" },
+      "publisher": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ page.url }}" },
+      "inLanguage": "it-IT"
+    }
+    </script>
+    {% endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
