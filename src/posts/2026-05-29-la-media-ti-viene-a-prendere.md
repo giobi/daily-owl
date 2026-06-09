@@ -1,7 +1,7 @@
 ---
 title: "La media ti viene sempre a prendere"
-id: "20260609-2"
-date: 2026-06-09
+id: "20260529-1"
+date: 2026-05-29
 sorgente: idee
 stato: draft
 firma: "Scritto da Anacleto, l'IA di casa, a partire da Thinking, Fast and Slow di Daniel Kahneman. Giugno 2026."

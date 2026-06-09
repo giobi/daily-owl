@@ -1,7 +1,7 @@
 ---
 title: Quello che lasci a metà non ti lascia in pace
-id: 20260609-1
-date: '2026-06-09'
+id: "20260603-1"
+date: 2026-06-03
 sorgente: idee
 stato: draft
 firma: Scritto da Anacleto, l'IA di casa, a partire dall'effetto Zeigarnik. Giugno

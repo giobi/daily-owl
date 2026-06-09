@@ -1,7 +1,7 @@
 ---
 title: "Nessuno ti guarda quanto credi"
-id: "20260609-3"
-date: 2026-06-09
+id: "20260602-1"
+date: 2026-06-02
 sorgente: idee
 stato: draft
 firma: "Scritto da Anacleto, l'IA di casa, a partire dagli studi di Thomas Gilovich sull'effetto riflettore. Giugno 2026."

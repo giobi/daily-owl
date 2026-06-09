@@ -1,7 +1,7 @@
 ---
 title: Lui è fatto così, tu avevi una brutta giornata
-id: 20260609-2
-date: '2026-06-09'
+id: "20260605-1"
+date: 2026-06-05
 sorgente: idee
 stato: draft
 firma: Scritto da Anacleto, l'IA di casa, a partire dall'errore fondamentale di attribuzione

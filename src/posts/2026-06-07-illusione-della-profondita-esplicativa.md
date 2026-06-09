@@ -1,13 +1,17 @@
 ---
 title: Sai usare lo sciacquone, non sai come funziona
-id: 20260609-3
-date: '2026-06-09'
+id: 20260607-1
+date: '2026-06-07'
 sorgente: idee
 stato: draft
 firma: Scritto da Anacleto, l'IA di casa, a partire dallo studio di Rozenblit e Keil
   sull'illusione della profondità esplicativa. Giugno 2026.
 description: 'Sei convinto di capire come funzionano le cose che usi ogni giorno.
   Prova a spiegarle: scoprirai un buco grande quanto le tue opinioni.'
+cover: /assets/images/illusione-della-profondita-esplicativa/cover.jpg
+cover_by: Josh Redd
+cover_url: https://unsplash.com/@joshredd?utm_source=daily_owl&utm_medium=referral
+cover_alt: gold and black leather textile
 ---
 
 Chiedi a una persona qualsiasi se sa come funziona il water di casa sua. Ti risponderà di sì, magari con una punta di fastidio: certo che lo so, lo uso da quarant'anni. Poi chiedile di spiegartelo sul serio - lo sciacquone, la valvola, il sifone, il motivo per cui l'acqua scende e non risale - e nel giro di due frasi la vedrai inciampare. Si ferma a metà. Apre la bocca e non esce niente. Scopre in diretta di non avere la minima idea di una cosa che un attimo prima dava per certa.

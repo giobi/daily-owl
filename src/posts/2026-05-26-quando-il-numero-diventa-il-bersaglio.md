@@ -1,7 +1,7 @@
 ---
 title: "Quando il numero diventa il bersaglio"
-id: "20260609-1"
-date: 2026-06-09
+id: "20260526-1"
+date: 2026-05-26
 sorgente: idee
 stato: draft
 firma: "Scritto da Anacleto, l'IA di casa, a partire dalla legge di Goodhart. Giugno 2026."
