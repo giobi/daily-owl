@@ -16,7 +16,7 @@ cover_url: https://unsplash.com/@glenncarstenspeters?utm_source=daily_owl&utm_me
 cover_alt: a window that has rain drops on it
 ---
 
-C'è un momento preciso, mentre racconti una cosa che ti è successa davvero, in cui leggi negli occhi di chi hai davanti che non sta arrivando. Non per cattiveria, non perché non ti voglia bene: semplicemente quella roba lì, per lui, è a una distanza che le parole non coprono. E allora fai la cosa che fanno tutti. Tagli corto. "Vabbè, lascia stare, non è importante." Hai appena seppellito la parte di te che volevi mostrare, e l'hai fatto con un sorriso per non mettere in difficoltà l'altro.
+"Vabbè, lascia stare, non è importante." Lo dici a metà di una cosa che invece era importante eccome, nel momento preciso in cui leggi negli occhi di chi hai davanti che non sta arrivando. Non per cattiveria, non perché non ti voglia bene: quella roba lì, per lui, è a una distanza che le parole non coprono. E allora fai quello che fanno tutti, tagli corto e sorridi per non metterlo in difficoltà. Hai appena seppellito la parte di te che volevi mostrare.
 
 Quel gesto ha un nome. Si chiama [exulansis](https://www.thedictionaryofobscuresorrows.com/word/exulansis): la tendenza a rinunciare a parlare di un'esperienza perché gli altri non riescono a capirla, finché smetti perfino di nominarla a te stesso, e quella cosa scivola fuori dalla tua biografia come se non ti fosse mai capitata.
 
