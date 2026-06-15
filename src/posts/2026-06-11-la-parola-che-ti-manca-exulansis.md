@@ -30,7 +30,7 @@ Nel momento esatto in cui qualcuno te lo nomina, succede una cosa fisica. Il pes
 
 <figure>
   <img src="/assets/images/la-parola-che-ti-manca-exulansis/mid.jpg" alt="two men laughing white sitting on chairs" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@helenalopesph?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Helena Lopes</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@helenalopesph?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Helena Lopes</a> / Unsplash</figcaption>
 </figure>
 
 ## Il sollievo di sapere che esiste la parola

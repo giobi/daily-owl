@@ -18,7 +18,7 @@ A metterci un numero sopra è stato [Robin Dunbar](https://en.wikipedia.org/wiki
 
 <figure>
   <img src="/assets/images/quanti-amici-puoi-avere-davvero/mid.jpg" alt="Persone che attraversano una strada in un timelapse" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@mauromora?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Mauro Mora</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@mauromora?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Mauro Mora</a> / Unsplash</figcaption>
 </figure>
 
 Circa centocinquanta. Tanti sono, in media, i rapporti stabili e significativi che una persona riesce a mantenere: gente che conosci davvero, di cui sai la storia, con cui esiste un rapporto a doppio senso e non solo un nome salvato. Il [numero di Dunbar](https://it.wikipedia.org/wiki/Numero_di_Dunbar) spunta in posti che non c'entrano niente tra loro, ed è questo a renderlo inquietante: la dimensione media dei villaggi nella storia, la grandezza di una compagnia militare, il numero di persone a cui la gente mandava davvero gli auguri di Natale prima che lo facesse un'app al posto loro. Comunità diversissime, secoli diversi, e quel tetto che torna sempre lì intorno.
@@ -27,7 +27,7 @@ E non è un muro liscio, ha dei gironi. Dentro i centocinquanta ci sono cerchi p
 
 <figure>
   <img src="/assets/images/quanti-amici-puoi-avere-davvero/bottom.jpg" alt="Un gruppo di persone radunate insieme" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@llamastudios?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Owen Cannon</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@llamastudios?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Owen Cannon</a> / Unsplash</figcaption>
 </figure>
 
 È qui che le reti sociali fanno il loro scherzo più riuscito. Ti danno un numero gigantesco accanto al nome - amici, follower, collegamenti - e quel numero ti convince di avere una vita sociale enorme. Ma il cervello dietro lo schermo è sempre lo stesso di quando vivevamo nei villaggi, con lo stesso tetto di sempre. I duemila contatti non allargano la stanza, la riempiono solo di gente in piedi sul fondo che non conosci. Anzi, l'energia che spendi a tenere tiepidi mille rapporti finti è energia che togli ai dieci veri. Puoi avere una rubrica da megalopoli e una vita affettiva da monolocale, ed è più comune di quanto sembri.

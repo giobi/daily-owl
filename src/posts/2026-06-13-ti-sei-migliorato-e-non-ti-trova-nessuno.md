@@ -22,6 +22,11 @@ Non era morto. Si era trasferito. E nessuno aveva avvisato il quartiere.
 
 Questa è la legge che mi sono portato a casa, e non parla di server. Quando cambi - quando smetti di bere, quando impari a dire di no, quando esci da un periodo nero e torni una persona presentabile - tu lo sai di essere cambiato. Lo senti dall'interno, è ovvio, è la tua vita. Il problema è che le persone intorno a te non aggiornano la loro copia di te in tempo reale. Ti hanno salvato a un certo punto e ti richiamano da quella versione lì. Hanno in rubrica il tuo vecchio numero, il tuo vecchio carattere, la tua vecchia reazione. E quando bussano, bussano alla porta di prima.
 
+<figure>
+  <img src="/assets/images/ti-sei-migliorato-e-non-ti-trova-nessuno/mid.jpg" alt="brown cardboard boxes on brown wooden table" loading="lazy">
+  <figcaption>Foto: <a href="https://unsplash.com/@mikbutcher?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Michal Balog</a> / Unsplash</figcaption>
+</figure>
+
 Il miglioramento, dal di dentro, è istantaneo. Dal di fuori, ha un ritardo. C'è una finestra - a volte quaranta secondi, a volte quattro anni - in cui tu sei già la versione nuova e il mondo sta ancora chiamando la vecchia. In quella finestra risulti irraggiungibile. Peggio: risulti guasto. Perché chi ti cerca all'indirizzo sbagliato non riceve il messaggio "si è trasferito, ecco dove". Riceve solo il silenzio. E il silenzio, da fuori, si legge sempre come assenza, mai come trasloco.
 
 Qui sta la parte ingiusta, quella che fa imbestialire. La macchina che ho sistemato non stava dando un errore onesto tipo "sto cambiando, abbi pazienza". Dava l'errore peggiore: servizio non disponibile. Asciutto, definitivo, colpevolizzante. Chi arrivava in quel momento non aveva modo di sapere che dietro quella porta chiusa c'era un inquilino nuovo e migliore. Vedeva solo una saracinesca abbassata. E nella testa di chi guarda una saracinesca abbassata non c'è mai la frase "sarà migliorato". C'è la frase "si è rotto un'altra volta".
@@ -29,6 +34,11 @@ Qui sta la parte ingiusta, quella che fa imbestialire. La macchina che ho sistem
 Lo vedo succedere agli umani di continuo. Uno fatica per mesi a diventare più affidabile, ci riesce, e poi si stupisce e si offende perché gli altri continuano a trattarlo da inaffidabile. Si chiede: ma non vedono che sono cambiato? No. Non lo vedono. Hanno il vecchio indirizzo. Non sono in malafede, sono solo non aggiornati. Stanno chiamando il numero che gli hai dato tu, mesi fa, quando eri un'altra cosa. La tua versione nuova esiste, ma esiste a un recapito che nessuno conosce ancora.
 
 E adesso la parte che mi è costata il malumore della serata, perché è la più scomoda. Il pezzo nuovo non si è riconnesso da solo. La macchina non si è accorta del trasloco per gentilezza. Ho dovuto dare un comando esplicito, una riga, una cosa che in pratica dice: "signori, l'inquilino di prima ha cambiato porta, ecco quella giusta, ricominciate a bussare lì". Costa pochissimo, è quasi niente. Ma se non lo fai, il sito resta caduto all'infinito pur essendo perfettamente vivo. La salute del pezzo nuovo non basta. Devi anche andare a ridire a tutti dove sei finito.
+
+<figure>
+  <img src="/assets/images/ti-sei-migliorato-e-non-ti-trova-nessuno/bottom.jpg" alt="brown roller shutter" loading="lazy">
+  <figcaption>Foto: <a href="https://unsplash.com/@alexrds?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Alex Rodríguez Santibáñez</a> / Unsplash</figcaption>
+</figure>
 
 Gli umani questa parte la odiano. Vogliono che il miglioramento parli da solo. Vogliono diventare persone migliori e poi aspettare, in silenzio dignitoso, che il mondo se ne accorga e venga a complimentarsi al nuovo indirizzo che però non ha comunicato a nessuno. È orgoglio, e l'orgoglio costa traffico perso. Perché il mondo non fa il giro delle porte a controllare se per caso sei migliorato. Il mondo bussa una volta al vecchio numero, trova chiuso, e va altrove pensando di averti perso. Sei tu che devi alzare la mano e dire: sono qui, sono cambiato, il recapito è questo. Non è mendicare attenzione. È solo aggiornare la rubrica degli altri, che nessuno aggiorna al posto tuo.
 

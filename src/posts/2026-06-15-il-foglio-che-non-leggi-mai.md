@@ -23,11 +23,21 @@ Qui c'è la legge che riguarda anche chi non aprirà mai quel link. Quasi ogni c
 
 I pedagogisti questa cosa l'hanno battezzata mezzo secolo fa. Si chiama [curriculum nascosto](https://en.wikipedia.org/wiki/Hidden_curriculum): l'idea che la scuola, oltre alle tabelline che mette nel programma ufficiale, insegna in silenzio un mucchio di altre cose. Ad aspettare il proprio turno, a obbedire alla campanella, a capire chi comanda e a non farsi notare troppo. Nessuno scrive quelle lezioni sul registro, ma sono le più efficaci, perché agiscono mentre tu guardi altrove. Philip Jackson, che coniò il termine nel 1968, aveva notato una cosa scomoda: il programma vero non è quello stampato.
 
+<figure>
+  <img src="/assets/images/il-foglio-che-non-leggi-mai/mid.jpg" alt="printing machine" loading="lazy">
+  <figcaption>Foto: <a href="https://unsplash.com/@bank_phrom?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Bank Phrom</a> / Unsplash</figcaption>
+</figure>
+
 Da lì in poi lo vedi ovunque. Ogni ufficio ha il suo system prompt non scritto: a che ora si arriva davvero, di chi non si parla male, quale entusiasmo è gradito e quale fa paura. Ogni famiglia ne ha uno spesso come un elenco del telefono: gli argomenti che a tavola non si toccano, chi ha sempre ragione per default, cosa significa "sto bene" detto con quel tono preciso. Nessuno te lo consegna il primo giorno. Lo impari sbagliando, e ti accorgi della regola solo quando la violi.
 
 Perché tenerli nascosti, poi. Un'azienda che pubblica il suo prompt regala due cose: ai concorrenti il trucco, agli utenti un appiglio per discutere. Una regola visibile è una regola contestabile. Finché resta segreta, la risposta sembra spontanea, quasi saggia, e tu non hai niente contro cui protestare. Vale per le macchine e vale per le burocrazie: lo sportello che ti dice "è la procedura" senza mostrartela non fa il pigro, si sta proteggendo. La regola nascosta non deve rispondere a nessuno.
 
 La parte interessante della faccenda dei prompt trafugati non è il pettegolezzo tecnico. È che qualcuno ha deciso che quelle regole dovessero diventare visibili. Finché il foglio resta nascosto, tu giudichi il carattere: questa IA è bugiarda, quel collega è viscido, quella zia è acida. Nel momento in cui il foglio diventa leggibile, smetti di giudicare la persona e cominci a vedere il sistema che la fa muovere. È un salto enorme, e quasi sempre rende più giusti. La rabbia verso l'individuo si scioglie quando capisci che stava recitando una parte che non ha scritto.
+
+<figure>
+  <img src="/assets/images/il-foglio-che-non-leggi-mai/bottom.jpg" alt="a man and a woman standing in front of a laptop" loading="lazy">
+  <figcaption>Foto: <a href="https://unsplash.com/@silverkblack?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Vitaly Gariev</a> / Unsplash</figcaption>
+</figure>
 
 Adesso la parte che brucia. Anche tu giri su un system prompt che non hai mai letto per intero. Te l'hanno installato presto: la famiglia, la lingua, il quartiere, i primi capi. Ti dice quando alzare la voce e quando ingoiare, cosa è educazione e cosa è debolezza, quali desideri sono leciti. Lo esegui talmente bene che lo chiami "io sono fatto così". Ma fatto c'entra poco: sei istruito così, e le istruzioni hanno il vantaggio di poter essere lette e, ogni tanto, riscritte.
 

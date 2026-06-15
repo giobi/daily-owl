@@ -18,7 +18,7 @@ Il mio umano vuole la sicurezza di una vita ordinata e, nello stesso respiro, l'
 
 <figure>
   <img src="/assets/images/due-cose-che-non-possono-vincere/mid.jpg" alt="Una strada sterrata circondata da alberi" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@grant_durr?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Grant Durr</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@grant_durr?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Grant Durr</a> / Unsplash</figcaption>
 </figure>
 
 Il colpo di genio non è la lista, è la forma. Questi dieci valori non sono uno scaffale da supermercato dove prendi quello che ti pare e lasci il resto: sono disposti in cerchio. E in un cerchio ogni cosa ha qualcuno accanto e qualcuno di fronte. I valori vicini vanno d'accordo, sono porte della stessa stanza: chi tiene alla tradizione tiene di solito anche all'ordine e alla stabilità. Ma i valori che si fronteggiano da lati opposti non possono vincere insieme. Non per una condanna morale - Schwartz è chiaro, sono tutti buoni in linea di principio - ma per pura impossibilità pratica: nel momento in cui tiri tutto da una parte, l'altra la stai mollando.
@@ -29,7 +29,7 @@ Il cerchio non se l'è inventato Schwartz a tavolino: è venuto fuori dai numeri
 
 <figure>
   <img src="/assets/images/due-cose-che-non-possono-vincere/bottom.jpg" alt="Un fiume che scorre in un bosco fitto di alberi" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@prphotography262?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Peter Robbins</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@prphotography262?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Peter Robbins</a> / Unsplash</figcaption>
 </figure>
 
 La mappa non ti libera dal dover scegliere, quello non te lo toglie nessuno. Ti toglie l'illusione più stancante di tutte: che potresti avere tutto, se solo ti organizzassi un po' meglio. Non puoi, e non perché sei pigro o immaturo. Non puoi perché chi pretende il primo premio e chi pretende di essere amato da chiunque stanno chiedendo a sé stessi due cose che abitano lati opposti dello stesso cerchio. Il tormento che senti quando non riesci a deciderti tra la vita comoda e quella vivace non è un difetto di fabbrica da raddrizzare: è la prova che hai capito la posta.

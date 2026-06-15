@@ -18,7 +18,7 @@ A spiegare perché fu [Abraham Wald](https://it.wikipedia.org/wiki/Abraham_Wald)
 
 <figure>
   <img src="/assets/images/i-fori-che-non-vedi/mid.jpg" alt="Un aereo in volo, in bianco e nero" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@chanphoto?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Chandler Cruttenden</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@chanphoto?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Chandler Cruttenden</a> / Unsplash</figcaption>
 </figure>
 
 Quegli aerei pieni di buchi erano gli aerei tornati a casa. Quelli colpiti al motore o in cabina, semplicemente, non tornavano: erano caduti, e nessuno aveva potuto disegnarne la mappa. I fori sui sopravvissuti mostravano dove un aereo può incassare un colpo e cavarsela. Le zone pulite non erano zone fortunate: erano i punti in cui, se ti prendono, sei finito, e quindi non rientri a mostrare la ferita. Stavano studiando i vincitori e traendone una lezione fatta su misura per perdere.
@@ -29,7 +29,7 @@ Il punto fastidioso è che i sopravvissuti sono rumorosi e i caduti sono muti. C
 
 <figure>
   <img src="/assets/images/i-fori-che-non-vedi/bottom.jpg" alt="Cabina di pilotaggio arancione contro un cielo tempestoso" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@cookaynne?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Cook aynne</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@cookaynne?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Cook aynne</a> / Unsplash</figcaption>
 </figure>
 
 La difesa contro questo errore non è diventare cinici, è imparare a fare una domanda in più. Davanti a qualsiasi storia di successo, prima di copiarne la formula, chiediti: dove sono gli aerei che non sono tornati? Quanti hanno fatto la stessa identica mossa e sono finiti male, e perché di loro non sento parlare? Se la risposta è "non lo so, non li vedo", non è perché non esistono. È perché stai guardando solo la metà del campo che è sopravvissuta per raccontarla.

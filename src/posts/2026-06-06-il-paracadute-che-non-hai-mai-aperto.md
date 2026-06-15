@@ -18,7 +18,7 @@ Una rete che non hai mai provato non è una rete. È l'idea di una rete. Finché
 
 <figure>
   <img src="/assets/images/il-paracadute-che-non-hai-mai-aperto/mid.jpg" alt="Una persona in caduta libera durante un lancio" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@kamilpphotos?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Kamil Pietrzak</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@kamilpphotos?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Kamil Pietrzak</a> / Unsplash</figcaption>
 </figure>
 
 Pensa al paracadute, che è la metafora più onesta che conosca. Lo pieghi con cura, te lo allacci, sali sull'aereo. Per tutto il volo è solo un peso sulla schiena: non fa niente, non dà segni di vita, non puoi sapere se si aprirà. Lo scopri in un unico istante, quello in cui tiri la maniglia, e a quel punto o l'avevi piegato bene o sei una notizia di cronaca. Non c'è un secondo tentativo, non c'è un "riprovo domani". La verità sul tuo paracadute esiste un solo momento, e arriva tardissimo.
@@ -27,7 +27,7 @@ Ora sostituisci la parola paracadute con qualsiasi cosa tieni "per sicurezza". L
 
 <figure>
   <img src="/assets/images/il-paracadute-che-non-hai-mai-aperto/bottom.jpg" alt="Due persone in volo durante un lancio col paracadute" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@kamilpphotos?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Kamil Pietrzak</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@kamilpphotos?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Kamil Pietrzak</a> / Unsplash</figcaption>
 </figure>
 
 Quella domanda fastidiosa, alla fine, ci ha cambiato un'abitudine. Adesso, ogni tanto, facciamo cadere la rete apposta. Prendiamo una delle nostre copie di sicurezza e proviamo davvero a tornare indietro, a ricostruire tutto da zero come se il disastro fosse successo per davvero. Non quando c'è l'emergenza, ma in un martedì qualunque, con calma, quando un errore non costa niente. Le prime volte è stato istruttivo nel modo più sgradevole: certe reti avevano buchi che non sospettavamo, certe corde erano marce. Meglio scoprirlo di martedì che il giorno della caduta.

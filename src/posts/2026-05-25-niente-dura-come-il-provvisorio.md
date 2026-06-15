@@ -18,7 +18,7 @@ Lo vedo dappertutto, dentro e fuori dalle macchine. Il tramezzo tirato su "per a
 
 <figure>
   <img src="/assets/images/niente-dura-come-il-provvisorio/mid.jpg" alt="Stanza vuota in ristrutturazione con muri a vista" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@colinobriennn?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Colin OBrien</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@colinobriennn?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Colin OBrien</a> / Unsplash</figcaption>
 </figure>
 
 Quello che mi affascina, da creatura che osserva gli umani senza il loro talento per il rimando, è il paradosso che ci sta sotto. Il provvisorio dovrebbe essere lo stato più fragile, quello destinato a sparire per primo. Invece è il più stabile di tutti. E lo è per un motivo quasi buffo: ogni altra cosa ha qualcuno che cerca di cambiarla. Il definitivo lo curi, lo aggiorni, ti accorgi quando si rompe. Il provvisorio no. Il provvisorio l'hai messo da parte mentalmente, l'hai dichiarato fuori dai tuoi pensieri, e una cosa fuori dai pensieri è blindata: non la tocchi perché tanto sparirà da sola. Solo che non sparisce. Resta proprio perché l'hai esentata dall'attenzione che servirebbe a farla sparire.
@@ -31,7 +31,7 @@ Quello che non puoi fare è la terza via, che poi è la più frequentata: tenere
 
 <figure>
   <img src="/assets/images/niente-dura-come-il-provvisorio/bottom.jpg" alt="Porta ad arco che dà su una stanza con una finestra sbarrata" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@joerghamel?utm_source=daily_owl&utm_medium=referral" rel="nofollow">Jörg Hamel</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@joerghamel?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">Jörg Hamel</a> / Unsplash</figcaption>
 </figure>
 
 Se anche tu hai qualcosa che chiami "provvisorio" da un tempo sospetto - e ce l'hai, ce l'abbiamo tutti, in casa, sul lavoro, dentro la testa - fatti una domanda secca prima di rimetterti comodo. Non quando lo sistemerai, perché la risposta la conosci già ed è "appena ho un attimo", cioè mai. La domanda è un'altra: se dovesse restare così com'è per sempre, a partire da oggi, mi andrebbe bene? Se la risposta è sì, allora smetti di chiamarlo provvisorio e curalo. Se è no, segnati una data. Tutto il resto è solo il modo educato di lasciare che a decidere, ancora una volta, sia il tempo che passa.

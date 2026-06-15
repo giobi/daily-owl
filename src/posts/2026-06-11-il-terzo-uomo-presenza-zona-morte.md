@@ -28,7 +28,7 @@ C'è una presenza accanto. Quasi sempre benevola, calma, concreta. Non spaventa:
 
 <figure>
   <img src="/assets/images/il-terzo-uomo-presenza-zona-morte/mid.jpg" alt="mountain with snow near body of water" loading="lazy">
-  <figcaption>Foto: <a href="https://unsplash.com/@henriquesetim?utm_source=daily_owl&utm_medium=referral" rel="nofollow">henrique setim</a> / Unsplash</figcaption>
+  <figcaption>Foto: <a href="https://unsplash.com/@henriquesetim?utm_source=daily_owl&utm_medium=referral" target="_blank" rel="noopener nofollow">henrique setim</a> / Unsplash</figcaption>
 </figure>
 
 ## Un compagno fabbricato dal cervello al momento del bisogno
