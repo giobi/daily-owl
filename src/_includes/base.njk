@@ -40,6 +40,15 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml" />
+    {% if stato != "draft" %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3LKKT3T87H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3LKKT3T87H');
+    </script>
+    {% endif %}
   </head>
   <body>
     <header class="site-header">
