@@ -144,7 +144,7 @@ def make_plate(slug, crop, out, width=1400):
 
 def nav(active, prefix):
     out = ['<details class="taxon-nav" id="taxon-nav">',
-           '  <summary class="taxon-nav-title">Dragon Digest</summary>',
+           '  <summary class="taxon-nav-title">' + MARK + 'Dragon Digest</summary>',
            f'  <a href="{prefix}" class="taxon-index-link{" active" if active is None else ""}">&larr; Indice delle tavole</a>']
     for label, items in GROUPS:
         out.append(f'  <div class="taxon-group">\n    <p class="taxon-group-label">{label}</p>')
@@ -155,6 +155,12 @@ def nav(active, prefix):
     out.append("</details>")
     return "\n".join(out)
 
+
+MARK = ('<svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="12 5 34 38" aria-hidden="true">'
+        '<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M35 40 C20 39, 17 31, 24 25 C31 19, 29 11, 18 9" stroke-width="3"/>'
+        '<path d="M24 25 C27 15, 34 10, 42 10" stroke-width="2"/>'
+        '<path d="M42 10 C42 17, 38 23, 30 27" stroke-width="2.6" stroke-dasharray="0.2 4.4"/></g></svg>')
 
 NAV_JS = """<script>
   (function(){var n=document.getElementById('taxon-nav');
@@ -170,6 +176,7 @@ def head(title, desc, css):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="Dragon Digest" href="/feed.xml">
 {FONTS}
 <link rel="stylesheet" href="{css}">
@@ -281,6 +288,7 @@ def build_index():
     </figure>
 
     <p class="plate-number">Frontespizio &middot; <em>Draco volans</em></p>
+    <div class="masthead-mark">{MARK}</div>
     <h1>Dragon Digest</h1>
     <p class="common-name">essays by Giobi &times; AI</p>
 
@@ -317,6 +325,7 @@ def main():
     for i in (1, 2, 3):
         subprocess.run(["convert", str(PLATES / f"paper-{i}.png"), "-resize", "900x", "-quality", "80",
                         str(DST / "assets" / "plates" / f"paper-{i}.webp")], check=True)
+    (DST / "favicon.svg").write_text((HERE / "logo.svg").read_text())
     (DST / "assets" / "lightbox.js").write_text((HERE / "lightbox.js").read_text())
     n = 0
     for _label, items in GROUPS:

@@ -701,3 +701,9 @@ figure.plate-frame img:focus-visible { outline: 2px solid var(--accent); outline
 }
 
 @media (max-width: 560px) { .plate-frame.hung { margin: 0 6px; } }
+
+/* ---- marchio ---- */
+
+.mark { width: 1.5em; height: 1.7em; vertical-align: -0.55em; margin-right: 0.5em; }
+.masthead-mark { margin: 14px 0 2px; text-align: center; color: var(--accent); }
+.masthead-mark .mark { width: 40px; height: 45px; margin: 0; }
