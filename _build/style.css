@@ -323,46 +323,87 @@ h1 {
 /* ---- fonti ---- */
 
 .sources {
-  margin: 0 auto clamp(30px, 5vh, 44px);
-  padding: 20px 24px 18px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  position: relative;
+  margin: 28px auto clamp(34px, 5vh, 48px);
+  padding: 30px 28px 24px;
+  border: 1px solid var(--line);
+  box-shadow: 0 0 0 5px var(--paper), 0 0 0 6px var(--line-faint);
+  background: rgba(255, 252, 240, 0.32);
   text-align: center;
 }
 
+/* l'etichetta siede sul filetto superiore, come il titolo di un cartiglio */
 .sources-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 0.72rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 14px;
+  background: var(--paper);
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: var(--accent);
 }
 
 .essay-content .sources p { margin: 0; }
-.essay-content .sources-lead { font-size: 0.92rem; color: var(--ink-soft); }
+.essay-content .sources p.sources-title { margin: 12px 0 20px; }
+
+.essay-content .sources-lead {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
 
 .essay-content .sources-title {
-  margin: 4px 0 8px;
+  margin: 12px 0 20px;
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 600;
-  font-size: 1.4rem;
-  line-height: 1.25;
+  font-weight: 500;
+  font-size: clamp(1.45rem, 4.2vw, 1.8rem);
+  line-height: 1.2;
   text-wrap: balance;
 }
 
 .sources-title a {
   color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
 }
 
 .sources-title a:hover { color: var(--accent); }
-.essay-content .sources-by { font-size: 0.82rem; letter-spacing: 0.02em; color: var(--ink-soft); }
+
+.essay-content .sources-by {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.sources-author {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.sources-by em { font-family: var(--font-display); font-size: 1.05rem; }
+
+@media (max-width: 560px) {
+  .sources { padding: 26px 16px 20px; }
+  .sources-label { letter-spacing: 0.22em; }
+  .essay-content .sources-lead { letter-spacing: 0.14em; }
+}
 
 .essay-content hr {
   width: 120px;
@@ -511,3 +552,152 @@ footer a { color: inherit; }
 }
 
 .sources + hr { display: none; }
+
+/* ---- lightbox ---- */
+
+figure.plate-frame img { cursor: zoom-in; }
+figure.plate-frame img:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 3vw, 40px);
+  background: rgba(43, 32, 19, 0.82);
+  cursor: zoom-out;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox .plate-frame {
+  max-width: min(1400px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 5px var(--paper), 0 0 0 6px var(--line-faint), 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox img {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 2 * clamp(12px, 3vw, 40px) - 80px);
+  object-fit: contain;
+  cursor: zoom-out;
+}
+
+.lightbox figcaption {
+  padding-top: 10px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+/* ---- fogli appesi (indice) ---- */
+
+.index-grid { gap: 34px 26px; }
+
+.index-card {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.index-card:hover { border: none; }
+
+.index-card .thumb-frame {
+  position: relative;
+  aspect-ratio: auto;
+  overflow: visible;
+  border: none;
+  background: none;
+  margin: 6px 4px 18px;
+  transform: rotate(var(--tilt, -1.1deg));
+  transform-origin: 50% 0;
+  filter: drop-shadow(0 1px 1px rgba(43, 32, 19, 0.35)) drop-shadow(0 9px 12px rgba(43, 32, 19, 0.22));
+  transition: transform 0.35s cubic-bezier(.3, 1.4, .5, 1);
+}
+
+.index-card:nth-child(4n+2) .thumb-frame { --tilt: 1.3deg; }
+.index-card:nth-child(4n+3) .thumb-frame { --tilt: 0.6deg; }
+.index-card:nth-child(4n)   .thumb-frame { --tilt: -1.7deg; }
+.index-card:nth-child(3n)   .sheet { background-image: url(assets/plates/paper-3.webp); }
+.index-card:nth-child(3n+1) .sheet { background-image: url(assets/plates/paper-1.webp); }
+
+.index-card:hover .thumb-frame { transform: rotate(0deg) translateY(-2px); }
+
+/* il foglio: carta ingiallita, bordo irregolare, la tavola stampata sopra */
+.sheet {
+  padding: 9% 7% 10%;
+  background: #ecdcb0 url(assets/plates/paper-2.webp) center / 100% 100% no-repeat;
+  clip-path: polygon(
+    0.4% 1.2%, 12% 0.2%, 27% 0.9%, 41% 0%, 58% 0.7%, 73% 0.1%, 88% 0.8%, 99.5% 0.3%,
+    100% 14%, 99.3% 31%, 99.9% 49%, 99.2% 66%, 100% 84%, 99.4% 99.2%,
+    86% 100%, 71% 99.1%, 55% 99.8%, 39% 99%, 24% 99.9%, 10% 99.2%, 0.5% 99.7%,
+    0% 83%, 0.8% 65%, 0.1% 47%, 0.7% 30%, 0% 13%);
+}
+
+.index-card:nth-child(2n) .sheet { transform: scaleX(-1); }
+.index-card:nth-child(2n) .sheet img { transform: scaleX(-1); }
+
+.index-card .sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  filter: sepia(14%) saturate(88%) contrast(98%);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
+    linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
+    linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+  mask-composite: intersect;
+}
+
+/* lo spillo */
+.index-card .thumb-frame::after,
+.plate-frame.hung::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e9b9a8 0 12%, #a8402e 38%, #6a2016 78%);
+  box-shadow: 1px 3px 3px rgba(43, 32, 19, 0.45);
+}
+
+.index-card:nth-child(3n+2) .thumb-frame::after { left: calc(50% + 9px); }
+.index-card:nth-child(3n)   .thumb-frame::after { left: calc(50% - 21px); }
+
+.plate-frame.hung {
+  position: relative;
+  transform: rotate(-0.8deg);
+  border: none;
+  padding: 5% 4%;
+  background: #ecdcb0 url(assets/plates/paper-2.webp) center / 100% 100% no-repeat;
+  box-shadow: 0 1px 1px rgba(43, 32, 19, 0.35), 0 12px 18px rgba(43, 32, 19, 0.2);
+}
+
+.plate-frame.hung img {
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
+    linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
+    linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+  mask-composite: intersect;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .index-card .thumb-frame { transition: none; }
+}
+
+@media (max-width: 560px) { .plate-frame.hung { margin: 0 6px; } }

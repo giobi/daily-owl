@@ -64,7 +64,7 @@ INLINE = {
     "aiws-syndrome-03": ("Libellula ad ali aperte, vista dorsale", (2, 88)),
     "amanda-askell-ai-philosophy-03": ("Pappagallo cenerino su un posatoio", (4, 79)),
     "block-universe-03": ("Libellula fossile in una lastra di calcare", None),
-    "bourdieu-gusto-02": ("Uccello accanto al nido con uova azzurre", (8, 85)),
+    "bourdieu-gusto-02": ("Uccello accanto al nido con uova azzurre", (8, 80)),
     "bourdieu-gusto-03": ("Un passeriforme imbecca un pulcino più grande di lui nel nido", (10, 76)),
     "calm-tech-indieweb-03": ("Felce con una fronda che si srotola", None),
     "decss-illegal-prime-03": ("Capolino di girasole con le spirali dei semi", None),
@@ -81,39 +81,39 @@ INLINE = {
     "tim-ferriss-fame-03": ("Paguro che si ritira nella conchiglia", (8, 75)),
 }
 
-# source url -> (lead, title, byline)
+# source url -> (lead, title, (author, venue))
 SOURCES = {
     "https://neilthanedar.com/youre-not-burnt-out-youre-existentially-starving/": (
         "Questo saggio nasce dalle riflessioni su",
         "You’re Not Burnt Out. You’re Existentially Starving.",
-        "Neil Thanedar &middot; neilthanedar.com &middot; 21 dicembre 2025 &middot; in inglese"),
+        ("Neil Thanedar", "<em>neilthanedar.com</em> &middot; 21 dicembre 2025 &middot; in inglese")),
     "https://tim.blog/2020/02/02/reasons-to-not-become-famous/": (
         "Questo saggio nasce dalle riflessioni su",
         "11 Reasons Not to Become Famous (or “A Few Lessons Learned Since 2007”)",
-        "Tim Ferriss &middot; tim.blog &middot; 2 febbraio 2020 &middot; in inglese"),
+        ("Tim Ferriss", "<em>The Blog of Author Tim Ferriss</em> &middot; 2 febbraio 2020 &middot; in inglese")),
     "https://alexsci.com/blog/calm-tech-discover/": (
         "Questo saggio nasce dalle riflessioni su",
         "Discovering the indieweb with calm tech",
-        "Robert Alexander &middot; alexsci.com &middot; in inglese"),
+        ("Robert Alexander", "<em>Built on Shards of Silicon</em>, alexsci.com &middot; in inglese")),
     "https://arxiv.org/abs/2504.01538": (
         "Questo saggio nasce dalle riflessioni su",
         "AI-Newton: A Concept-Driven Physical Law Discovery System without Prior Physical Knowledge",
-        "You-Le Fang, Dong-Shan Jian, Xiang Li, Yan-Qing Ma &middot; arXiv:2504.01538 &middot; 2 aprile 2025 &middot; in inglese"),
+        ("You-Le Fang, Dong-Shan Jian, Xiang Li, Yan-Qing Ma", "<em>arXiv</em> 2504.01538 &middot; 2 aprile 2025 &middot; in inglese")),
     "https://www.youtube.com/watch?v=BKO8ePwqWm8": (
         "Questa seconda parte nasce da",
         "La coevoluzione di umani e intelligenza artificiale",
-        "Telmo Pievani &middot; editoriale per Lucy sui mondi &middot; video su YouTube"),
+        ("Telmo Pievani", "editoriale per <em>Lucy sui mondi</em> &middot; video su YouTube")),
 }
 
 
 def source_block(m):
     url = m.group(1)
-    lead, title, byline = SOURCES[url]
+    lead, title, (author, venue) = SOURCES[url]
     return f"""<aside class="sources">
               <span class="sources-label">Fonte</span>
               <p class="sources-lead">{lead}</p>
               <p class="sources-title"><a href="{url}" rel="noopener">{title}</a></p>
-              <p class="sources-by">{byline}</p>
+              <p class="sources-by"><span class="sources-author">{author}</span>{venue}</p>
             </aside>"""
 
 
@@ -230,6 +230,7 @@ def build_essay(slug, short, species, common, crop, number):
   </main>
 </div>
 {NAV_JS}
+<script src="../../assets/lightbox.js" defer></script>
 </body>
 </html>
 """
@@ -253,7 +254,7 @@ def build_index():
         cards = []
         for slug, _short, species, common, _crop in items:
             cards.append(f"""      <a href="{slug}/" class="index-card">
-        <div class="thumb-frame"><img src="../assets/plates/{slug}.webp" alt="{species}, {common}"></div>
+        <div class="thumb-frame"><div class="sheet"><img src="../assets/plates/{slug}.webp" alt="{species}, {common}"></div></div>
         <p class="card-plate-no">Tavola {ROMAN[n]} &middot; <em>{species}</em></p>
         <h3>{titles[slug]}</h3>
         <p class="card-blurb">{excerpts[slug]}</p>
@@ -275,7 +276,7 @@ def build_index():
       <span>Indice delle tavole</span>
     </div>
 
-    <figure class="plate-frame frontispiece">
+    <figure class="plate-frame frontispiece hung">
       <img src="../assets/plates/dragon.webp" alt="Tavola naturalistica: Draco volans, il drago volante." width="1400">
     </figure>
 
@@ -303,6 +304,7 @@ def build_index():
   </main>
 </div>
 {NAV_JS}
+<script src="../assets/lightbox.js" defer></script>
 </body>
 </html>
 """
@@ -312,6 +314,10 @@ def build_index():
 def main():
     (DST / "assets" / "plates").mkdir(parents=True, exist_ok=True)
     (DST / "style.css").write_text((HERE / "style.css").read_text())
+    for i in (1, 2, 3):
+        subprocess.run(["convert", str(PLATES / f"paper-{i}.png"), "-resize", "900x", "-quality", "80",
+                        str(DST / "assets" / "plates" / f"paper-{i}.webp")], check=True)
+    (DST / "assets" / "lightbox.js").write_text((HERE / "lightbox.js").read_text())
     n = 0
     for _label, items in GROUPS:
         for slug, short, species, common, crop in items:
