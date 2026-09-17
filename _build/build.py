@@ -40,6 +40,7 @@ GROUPS = [
         ("tim-ferriss-fame", "Non diventare famosi", "Actias luna", "falena luna", None),
         ("existentially-starving", "You're Not Burnt Out", "Nepenthes", "pianta carnivora", (0, 90)),
         ("aiws-syndrome", "La sindrome di Alice", "Amanita muscaria", "ovolo malefico", (4, 86)),
+        ("crisalide", "Quello che resta", "Manduca sexta", "sfinge del tabacco", (10, 86)),
     ]),
     ("Macchine", [
         ("leyline-protocol", "Il Protocollo Leyline", "Falco peregrinus", "falco pellegrino", (0, 90)),
@@ -49,6 +50,7 @@ GROUPS = [
         ("ai-newton", "AI-Newton", "Malus domestica", "melo", (8, 86)),
         ("microservices-to-monolith", "Addio microservices", "Physalia physalis", "caravella portoghese", (0, 90)),
         ("calm-tech-indieweb", "Calm Tech e l'Indieweb", "Cornu aspersum", "chiocciola", None),
+        ("stanza", "La stanza costruita da altri", "Narcissus poeticus", "narciso dei poeti", (4, 95)),
     ]),
     ("Numeri e cosmo", [
         ("sfera-di-riemann", "La Sfera di Riemann", "Radiolaria", "radiolario", None),
@@ -80,6 +82,10 @@ INLINE = {
     "self-domestication-03": ("Crani di lupo e di cane a confronto", None),
     "sfera-di-riemann-03": ("Conchiglia a spirale logaritmica", (4, 81)),
     "tim-ferriss-fame-03": ("Paguro che si ritira nella conchiglia", (8, 75)),
+    "crisalide-02": ("Crisalide verde appesa a un rametto", None),
+    "crisalide-03": ("Farfalla appena uscita, aggrappata alla crisalide vuota", None),
+    "stanza-02": ("Ragno al centro della sua tela circolare", (2, 95)),
+    "stanza-03": ("Pesce predatore con un'esca davanti alla bocca", None),
 }
 
 # source url -> (lead, title, (author, venue))
@@ -100,6 +106,14 @@ SOURCES = {
         "Questo saggio nasce dalle riflessioni su",
         "AI-Newton: A Concept-Driven Physical Law Discovery System without Prior Physical Knowledge",
         ("You-Le Fang, Dong-Shan Jian, Xiang Li, Yan-Qing Ma", "<em>arXiv</em> 2504.01538 &middot; 2 aprile 2025 &middot; in inglese")),
+    "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0001736": (
+        "Questo saggio nasce dalle riflessioni su",
+        "Retention of Memory through Metamorphosis: Can a Moth Remember What It Learned As a Caterpillar?",
+        ("Douglas Blackiston, Elena Silva Casey, Martha Weiss", "<em>PLoS ONE</em> &middot; 5 marzo 2008 &middot; in inglese")),
+    "https://podcasts.apple.com/it/podcast/ep-138-stanza/id1691855830?i=1000774405831": (
+        "Questo saggio nasce dalle riflessioni su",
+        "Stanza",
+        ("Simone Pieranni", "<em>Fuori da qui</em>, episodio 138 &middot; Chora Media &middot; 26 giugno 2026 &middot; podcast")),
     "https://www.youtube.com/watch?v=BKO8ePwqWm8": (
         "Questa seconda parte nasce da",
         "La coevoluzione di umani e intelligenza artificiale",
@@ -128,8 +142,15 @@ def inline_plate(m):
 
 
 DEFAULT_CROP = (6, 86)
-ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII",
-         "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"]
+def _roman(n):
+    out = ""
+    for v, s in ((40, "XL"), (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")):
+        while n >= v:
+            out, n = out + s, n - v
+    return out
+
+
+ROMAN = [_roman(i) for i in range(1, 80)]
 
 
 def make_plate(slug, crop, out, width=1400):
@@ -246,6 +267,7 @@ def build_essay(slug, short, species, common, crop, number):
 </body>
 </html>
 """
+    (DST / "it" / slug).mkdir(parents=True, exist_ok=True)
     (DST / "it" / slug / "index.html").write_text(page)
 
 
@@ -298,7 +320,7 @@ def build_index():
     <p class="common-name">essays by Giobi &times; AI</p>
 
     <div class="index-intro">
-      <p>Diciannove saggi su mente, macchine e numeri, ordinati come le tavole di un
+      <p>Saggi su mente, macchine e numeri, ordinati come le tavole di un
       atlante naturalistico: a ogni saggio il suo esemplare.</p>
     </div>
 

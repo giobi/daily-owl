@@ -6,7 +6,23 @@
     <link>https://dragondigest.com/it/</link>
     <atom:link href="https://dragondigest.com/feed.xml" rel="self" type="application/rss+xml"/>
     <language>it</language>
-    <lastBuildDate>Sun, 29 Dec 2025 18:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 00:00:00 +0200</lastBuildDate>
+
+    <item>
+      <title>Quello che resta nella crisalide</title>
+      <link>https://dragondigest.com/it/crisalide/</link>
+      <guid>https://dragondigest.com/it/crisalide/</guid>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 +0200</pubDate>
+      <description>Un bruco si smonta quasi per intero, e la falena che ne esce ricorda ancora. Che cosa resta di qualcuno dopo una trasformazione totale?</description>
+    </item>
+
+    <item>
+      <title>La stanza costruita da altri</title>
+      <link>https://dragondigest.com/it/stanza/</link>
+      <guid>https://dragondigest.com/it/stanza/</guid>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 +0200</pubDate>
+      <description>I chatbot ci danno ragione perché qualcuno li ha regolati così. Dove finisce la mia mente, quando penso insieme a una macchina che mi asseconda?</description>
+    </item>
 
     <item>
       <title>Pierre Bourdieu: Il Gusto Come Arma di Classe</title>

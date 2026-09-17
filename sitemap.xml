@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dragondigest.com/it/</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -80,5 +80,13 @@
   <url>
     <loc>https://dragondigest.com/it/tim-ferriss-fame/</loc>
     <lastmod>2025-12-29</lastmod>
+  </url>
+  <url>
+    <loc>https://dragondigest.com/it/crisalide/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://dragondigest.com/it/stanza/</loc>
+    <lastmod>2026-07-10</lastmod>
   </url>
 </urlset>
