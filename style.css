@@ -318,9 +318,59 @@ h1 {
 .essay-content .author, .essay-content .subtitle { text-align: center; font-style: italic; color: var(--ink-soft); }
 .essay-content .footnote { font-size: 0.84rem; color: var(--ink-soft); }
 
-/* le immagini interne originali, virate per stare sulla carta */
 .essay-image { margin: clamp(32px, 5vh, 48px) auto; max-width: 560px; }
-.essay-image img { filter: sepia(38%) saturate(72%) contrast(96%); }
+
+/* ---- fonti ---- */
+
+.sources {
+  margin: 0 auto clamp(30px, 5vh, 44px);
+  padding: 20px 24px 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.sources-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.essay-content .sources p { margin: 0; }
+.essay-content .sources-lead { font-size: 0.92rem; color: var(--ink-soft); }
+
+.essay-content .sources-title {
+  margin: 4px 0 8px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.sources-title a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.sources-title a:hover { color: var(--accent); }
+.essay-content .sources-by { font-size: 0.82rem; letter-spacing: 0.02em; color: var(--ink-soft); }
+
+.essay-content hr {
+  width: 120px;
+  height: 1px;
+  border: none;
+  background: var(--line);
+  margin: clamp(28px, 4vh, 40px) auto;
+}
 
 .callout {
   max-width: var(--prose);
@@ -459,3 +509,5 @@ footer a { color: inherit; }
   .plate-frame { padding: 8px; }
   .plate-number { letter-spacing: 0.1em; }
 }
+
+.sources + hr { display: none; }

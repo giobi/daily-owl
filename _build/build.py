@@ -55,6 +55,77 @@ GROUPS = [
         ("decss-illegal-prime", "The Illegal Prime", "Magicicada", "cicala periodica", None),
     ]),
 ]
+# inline plates: old filename stem -> (alt, crop)
+INLINE = {
+    "ai-agents-eating-saas-03": ("Formiche tagliafoglie in fila su un rametto", None),
+    "ai-energy-footprint-03": ("Api su un frammento di favo", (6, 80)),
+    "ai-newton-03": ("Sfinge dalla lunga spirotromba su un'orchidea bianca", (4, 82)),
+    "aiws-syndrome-02": ("Camaleonte su un ramo", None),
+    "aiws-syndrome-03": ("Libellula ad ali aperte, vista dorsale", (2, 88)),
+    "amanda-askell-ai-philosophy-03": ("Pappagallo cenerino su un posatoio", (4, 79)),
+    "block-universe-03": ("Libellula fossile in una lastra di calcare", None),
+    "bourdieu-gusto-02": ("Uccello accanto al nido con uova azzurre", (8, 85)),
+    "bourdieu-gusto-03": ("Un passeriforme imbecca un pulcino più grande di lui nel nido", (10, 76)),
+    "calm-tech-indieweb-03": ("Felce con una fronda che si srotola", None),
+    "decss-illegal-prime-03": ("Capolino di girasole con le spirali dei semi", None),
+    "existentially-starving-03": ("Ghianda germogliata con radici e prime foglie di quercia", (4, 90)),
+    "leyline-protocol-02": ("Pesce pagliaccio tra i tentacoli di un anemone", (6, 82)),
+    "leyline-protocol-03": ("Funghi di bosco uniti sottoterra da micelio e radici", (2, 89)),
+    "microservices-to-monolith-03": ("Ramo di corallo rosso", (6, 84)),
+    "rehearsal-system-03": ("Biscia arrotolata su se stessa", None),
+    "sapolsky-1-03": ("Madre babbuino con il piccolo", (2, 85)),
+    "sapolsky-2-03": ("Neurone di Purkinje con i dendriti ramificati", (6, 84)),
+    "sapolsky-3-03": ("Soffione di tarassaco con i semi che volano via", (4, 88)),
+    "self-domestication-03": ("Crani di lupo e di cane a confronto", None),
+    "sfera-di-riemann-03": ("Conchiglia a spirale logaritmica", (4, 81)),
+    "tim-ferriss-fame-03": ("Paguro che si ritira nella conchiglia", (8, 75)),
+}
+
+# source url -> (lead, title, byline)
+SOURCES = {
+    "https://neilthanedar.com/youre-not-burnt-out-youre-existentially-starving/": (
+        "Questo saggio nasce dalle riflessioni su",
+        "You’re Not Burnt Out. You’re Existentially Starving.",
+        "Neil Thanedar &middot; neilthanedar.com &middot; 21 dicembre 2025 &middot; in inglese"),
+    "https://tim.blog/2020/02/02/reasons-to-not-become-famous/": (
+        "Questo saggio nasce dalle riflessioni su",
+        "11 Reasons Not to Become Famous (or “A Few Lessons Learned Since 2007”)",
+        "Tim Ferriss &middot; tim.blog &middot; 2 febbraio 2020 &middot; in inglese"),
+    "https://alexsci.com/blog/calm-tech-discover/": (
+        "Questo saggio nasce dalle riflessioni su",
+        "Discovering the indieweb with calm tech",
+        "Robert Alexander &middot; alexsci.com &middot; in inglese"),
+    "https://arxiv.org/abs/2504.01538": (
+        "Questo saggio nasce dalle riflessioni su",
+        "AI-Newton: A Concept-Driven Physical Law Discovery System without Prior Physical Knowledge",
+        "You-Le Fang, Dong-Shan Jian, Xiang Li, Yan-Qing Ma &middot; arXiv:2504.01538 &middot; 2 aprile 2025 &middot; in inglese"),
+    "https://www.youtube.com/watch?v=BKO8ePwqWm8": (
+        "Questa seconda parte nasce da",
+        "La coevoluzione di umani e intelligenza artificiale",
+        "Telmo Pievani &middot; editoriale per Lucy sui mondi &middot; video su YouTube"),
+}
+
+
+def source_block(m):
+    url = m.group(1)
+    lead, title, byline = SOURCES[url]
+    return f"""<aside class="sources">
+              <span class="sources-label">Fonte</span>
+              <p class="sources-lead">{lead}</p>
+              <p class="sources-title"><a href="{url}" rel="noopener">{title}</a></p>
+              <p class="sources-by">{byline}</p>
+            </aside>"""
+
+
+def inline_plate(m):
+    stem = m.group(1)
+    alt, crop = INLINE[stem]
+    make_plate(stem, crop, DST / "assets" / "plates" / f"{stem}.webp", width=1100)
+    return (f'<figure class="essay-image plate-frame">\n            '
+            f'<img src="../../assets/plates/{stem}.webp" alt="Tavola naturalistica: {alt}." loading="lazy">\n'
+            f'        </figure>')
+
+
 DEFAULT_CROP = (6, 86)
 ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII",
          "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"]
@@ -116,7 +187,10 @@ def build_essay(slug, short, species, common, crop, number):
 
     # the opening figure becomes the naturalist plate; the others stay, framed
     body = re.sub(r'\s*<figure class="essay-image">.*?</figure>', "", body, count=1, flags=re.S)
-    body = body.replace('<figure class="essay-image">', '<figure class="essay-image plate-frame">')
+    body = re.sub(r'<figure class="essay-image">\s*<img src="[^"]*/([^"/]+)\.webp"[^>]*>\s*</figure>',
+                  inline_plate, body)
+    body = re.sub(r'<p><a href="(https?://[^"]+)">[^<]*</a></p>',
+                  lambda m: source_block(m) if m.group(1) in SOURCES else m.group(0), body)
 
     make_plate(slug, crop, DST / "assets" / "plates" / f"{slug}.webp")
 
