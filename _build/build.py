@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Dragon Digest — rebuild in "atlante naturalistico" layout.
 
-Reads the pristine site (SRC), writes the restyled one (DST). Idempotent:
-always starts from SRC, never from its own output.
+Reads the source essays (_build/src), writes the published site (repo root).
+Idempotent: always starts from the sources, never from its own output.
+Run: python3 _build/build.py
 """
 import html
 import re
@@ -10,10 +11,10 @@ import subprocess
 import sys
 from pathlib import Path
 
-SRC = Path("/home/web/daily-owl")
 HERE = Path(__file__).resolve().parent
-DST = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "site"
-PLATES = HERE / "plates"
+SRC = HERE / "src"            # essays as plain HTML fragments-in-pages (pre-restyle markup)
+DST = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE.parent
+PLATES = HERE / "plates"      # raw PNG plates: not in git, archived on S3 (giobi-archive/dragondigest/plates/)
 
 GA = """<script async src="https://www.googletagmanager.com/gtag/js?id=G-38HZZ4H6KR"></script>
 <script>
@@ -135,6 +136,10 @@ def make_plate(slug, crop, out, width=1400):
     # crop away the fake captions Flux prints along the bottom edge of the sheet
     top, bottom = crop or DEFAULT_CROP
     src = PLATES / f"{slug}.png"
+    if not src.exists():
+        if out.exists():
+            return  # raw plate not checked out: keep the published webp
+        raise SystemExit(f"missing plate {src} and no published {out}")
     w, h = map(int, subprocess.check_output(
         ["identify", "-format", "%w %h", str(src)]).split())
     box = f"{int(w * .96)}x{int(h * (bottom - top) / 100)}+{int(w * .02)}+{int(h * top / 100)}"
@@ -321,8 +326,10 @@ def build_index():
 
 def main():
     (DST / "assets" / "plates").mkdir(parents=True, exist_ok=True)
-    (DST / "style.css").write_text((HERE / "style.css").read_text())
+    (DST / "style.css").write_text((HERE / "style.css").read_text())  # _build/style.css is the source
     for i in (1, 2, 3):
+        if not (PLATES / f"paper-{i}.png").exists():
+            continue
         subprocess.run(["convert", str(PLATES / f"paper-{i}.png"), "-resize", "900x", "-quality", "80",
                         str(DST / "assets" / "plates" / f"paper-{i}.webp")], check=True)
     (DST / "favicon.svg").write_text((HERE / "logo.svg").read_text())

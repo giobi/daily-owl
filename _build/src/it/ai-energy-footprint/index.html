@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quanto Consuma ChatGPT? La Verita sui Numeri - Dragon Digest</title>
+    <meta name="description" content="Quanto Consuma ChatGPT? La Verita sui Numeri">
+    <link rel="stylesheet" href="../../style.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-38HZZ4H6KR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-38HZZ4H6KR');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="back-link">← Dragon Digest</a>
+
+        <header class="essay-header">
+            <h1>Quanto Consuma ChatGPT?</h1>
+            
+        </header>
+
+        <figure class="essay-image">
+            <img src="../../assets/images/ai-energy-footprint-01.webp" alt="Quanto Consuma ChatGPT?">
+        </figure>
+
+        <article class="essay-content">
+            <p class="meta">La verita sui numeri, oltre l'allarmismo<br>Dicembre 2025</p>
+
+            <hr>
+
+            <p>Ogni settimana esce un nuovo articolo allarmista sul consumo energetico dell'intelligenza artificiale. "ChatGPT consuma quanto una citta!" "L'AI sta bollendo il pianeta!" "Una query equivale a dieci ricerche Google!"</p>
+
+            <p>I numeri che circolano sono spesso sbagliati, a volte di un ordine di grandezza. E la narrativa oscilla tra due estremi ugualmente fuorvianti: l'apocalisse climatica imminente da una parte, il "non e niente" dall'altra.</p>
+
+            <p>La realta e piu interessante. E piu sfumata.</p>
+
+            <h2>Il Numero Che Tutti Citano (E Che E Sbagliato)</h2>
+
+            <p>Nel 2023 uno studio stimava che una singola query a GPT-4 consumasse circa 3 watt-ora. Questo numero e stato ripetuto ovunque, moltiplicato per miliardi di query, e usato per dipingere scenari catastrofici.</p>
+
+            <p>Il problema e che quella stima era basata su assunzioni obsolete: hardware vecchio (A100 invece di H100), token generati sovrastimati (2000 invece di 500), utilizzo delle GPU al 100% invece del realistico 10%.</p>
+
+            <div class="data">
+            <h3>La stima aggiornata (Epoch AI, 2024)</h3>
+            <p><strong>0.3 watt-ora</strong> per query tipica a GPT-4o</p>
+            <p>Dieci volte meno della stima precedente. Equivale a tenere accesa una lampadina LED per pochi minuti.</p>
+            </div>
+
+            <p>Ma anche questo numero nasconde complessita. Non tutte le query sono uguali.</p>
+
+            <h2>La Matematica Dietro i Numeri</h2>
+
+            <p>Il consumo energetico di un LLM dipende da tre fattori principali: il numero di parametri attivi, il numero di token processati, e l'efficienza dell'hardware.</p>
+
+            <p>GPT-4o ha circa 100 miliardi di parametri attivi (usa una tecnica chiamata Mixture of Experts che attiva solo una parte del modello). Per ogni token generato, servono circa 2 operazioni floating-point per parametro. Una risposta tipica di 500 token richiede quindi circa 100 trilioni di operazioni.</p>
+
+            <p>Una GPU H100 di NVIDIA puo eseguire circa 2000 trilioni di operazioni al secondo, consumando 1500 watt a pieno regime. Ma in pratica le GPU nei datacenter non lavorano mai al 100% — l'utilizzo medio e intorno al 10%, e il consumo effettivo circa il 70% del picco.</p>
+
+            <p>Facendo i conti: una query tipica richiede circa 0.05 secondi di computazione effettiva, che a 1050 watt (70% di 1500) significa circa 0.015 watt-ora. Aggiungi l'overhead del datacenter (raffreddamento, networking, ridondanza) e arrivi a circa 0.3 watt-ora.</p>
+
+            <h2>Il Problema del Contesto Lungo</h2>
+
+            <p>Ecco dove le cose si complicano. Il meccanismo di attenzione nei transformer scala quadraticamente con la lunghezza dell'input. Raddoppia l'input, quadruplica il costo computazionale dell'attenzione.</p>
+
+            <div class="highlight">
+            <p><strong>Costo per lunghezza input:</strong></p>
+            <ul>
+            <li>500 token input → ~0.3 Wh</li>
+            <li>10,000 token input → ~2.5 Wh</li>
+            <li>100,000 token input → ~40 Wh</li>
+            </ul>
+            </div>
+
+            <p>Questo significa che chi usa Claude o GPT per analizzare documenti lunghi, codice esteso, o conversazioni con molto contesto sta consumando ordini di grandezza piu energia di chi fa domande brevi.</p>
+
+            <p>I modelli di ragionamento come o1 e o3, che generano catene di pensiero interne molto lunghe, consumano ancora di piu — circa 2.5 volte tanto per la stessa domanda, perche generano molti piu token "dietro le quinte".</p>
+
+            <h2>Confronto: Umani vs Macchine</h2>
+
+            <p>Un confronto che circola spesso e quello tra il consumo energetico di un LLM e quello di un cervello umano. Il cervello consuma circa 20 watt in continuo — molto meno di una GPU. Ma il confronto e fuorviante.</p>
+
+            <p>Un LLM non "pensa" in continuo. Consuma energia solo quando genera risposte. E soprattutto, un LLM puo servire migliaia di utenti in parallelo, mentre un cervello umano puo pensare a una cosa alla volta.</p>
+
+            <p>Il confronto piu onesto e per unita di output. Quanto costa, in energia, produrre 1000 parole di testo ragionato?</p>
+
+            <table>
+            <tr><th>Fonte</th><th>Energia per 1000 parole</th></tr>
+            <tr><td>GPT-4o</td><td>~0.6 Wh</td></tr>
+            <tr><td>Cervello umano (30 min di scrittura)</td><td>~10 Wh</td></tr>
+            <tr><td>Cervello + laptop + luci + riscaldamento</td><td>~200 Wh</td></tr>
+            </table>
+
+            <p>Il contesto conta. Se l'alternativa a usare un LLM e un umano che lavora in un ufficio climatizzato, il bilancio energetico potrebbe sorprendere.</p>
+
+            <h2>La Scala del Problema</h2>
+
+            <p>Ma i numeri per singola query non raccontano tutta la storia. ChatGPT ha centinaia di milioni di utenti. Anche a 0.3 Wh per query, moltiplica per miliardi di query al giorno e i numeri diventano significativi.</p>
+
+            <p>Epoch AI stima che nel 2024 l'inferenza di tutti i modelli AI abbia consumato circa 15 TWh — circa lo 0.06% del consumo elettrico globale. E una frazione, ma sta crescendo rapidamente.</p>
+
+            <p>Il training e un'altra storia. Addestrare GPT-4 ha richiesto circa 50 GWh — l'equivalente del consumo annuale di 5000 famiglie americane. Ma il training si fa una volta, l'inferenza si fa miliardi di volte.</p>
+
+            <h2>L'Acqua Invisibile</h2>
+
+            <p>C'e un costo che spesso viene ignorato: l'acqua. I datacenter moderni usano enormi quantita di acqua per il raffreddamento evaporativo. Microsoft ha riportato che il suo consumo idrico e aumentato del 34% in un anno, in gran parte a causa dei carichi AI.</p>
+
+            <p>Si stima che una conversazione di 20-50 messaggi con GPT-4 consumi circa mezzo litro d'acqua. Non sembra molto, ma moltiplicato per miliardi di conversazioni, in regioni gia sotto stress idrico, diventa un problema serio.</p>
+
+            <h2>Il Training Futuro: Quanto Costera GPT-5?</h2>
+
+            <p>I modelli crescono. GPT-3 aveva 175 miliardi di parametri. GPT-4 ne ha oltre un trilione (anche se ne attiva solo una frazione). Le stime per i modelli futuri parlano di 10-100 trilioni di parametri.</p>
+
+            <p>Il costo del training scala quasi linearmente con i parametri e con i dati. Se GPT-4 e costato 50 GWh, GPT-5 potrebbe costare 500 GWh. E GPT-6? Forse 5 TWh — l'equivalente del consumo annuale di una piccola nazione.</p>
+
+            <p>Ma l'efficienza dell'hardware migliora. Le GPU di nuova generazione sono 2-3 volte piu efficienti delle precedenti. E i ricercatori stanno trovando modi per addestrare modelli con meno dati e meno compute. La corsa tra crescita dei modelli ed efficienza dell'hardware e aperta.</p>
+
+            <h2>Cosa Possiamo Fare</h2>
+
+            <p>Come utenti, alcune scelte riducono l'impatto:</p>
+
+            <p><strong>Preferisci modelli piu piccoli quando possibile.</strong> GPT-4o-mini consuma una frazione di GPT-4o. Per molte task, la differenza di qualita e minima.</p>
+
+            <p><strong>Evita contesti inutilmente lunghi.</strong> Non incollare interi codebase quando basta un file. Non trascinare conversazioni infinite quando potresti iniziarne una nuova.</p>
+
+            <p><strong>Batch le richieste.</strong> Dieci domande in un prompt consumano meno di dieci prompt separati, perche il setup ha un costo fisso.</p>
+
+            <p><strong>Scegli provider attenti all'ambiente.</strong> Alcuni datacenter usano energia rinnovabile, altri no. La trasparenza sta migliorando.</p>
+
+            <h2>La Prospettiva</h2>
+
+            <p>L'AI consuma energia. Questo e un fatto. Ma i numeri che circolano sono spesso gonfiati, le comparazioni fuorvianti, e il contesto ignorato.</p>
+
+            <p>Lo streaming video consuma piu energia dell'AI, oggi. Il mining di Bitcoin consuma molto di piu. L'industria del cemento emette piu CO2 di qualsiasi tecnologia digitale. Questo non significa che l'impatto dell'AI sia irrilevante — significa che va messo in prospettiva.</p>
+
+            <p>La domanda giusta non e "quanto consuma l'AI?" ma "quanto consuma rispetto a cosa sostituisce?" Se un LLM permette di evitare un volo per una riunione, il bilancio e positivo. Se viene usato per generare spam, e negativo. La tecnologia e neutra; l'uso no.</p>
+
+            <blockquote>
+            "Il problema non e l'energia che usiamo. E il valore che creiamo con quell'energia."
+            </blockquote>
+
+            <p>I numeri continueranno a crescere. Ma anche l'efficienza, e — si spera — la consapevolezza. Sapere quanto costa, in energia e risorse, ogni query che facciamo e il primo passo per usare questi strumenti in modo responsabile.</p>
+
+            <hr>
+
+            <p style="text-align: center; color: #999; margin-top: 40px;">
+            <em>Fonti: Epoch AI, Nature, ACM</em><br>
+            <em>Dicembre 2025</em>
+            </p>
+        </article>
+
+        <figure class="essay-image">
+            <img src="../../assets/images/ai-energy-footprint-03.webp" alt="Quanto Consuma ChatGPT?">
+        </figure>
+
+        <footer class="site-footer">
+            <div class="ai-disclosure">
+                Scritto da Giobi con Claude<br>
+                Dicembre 2025
+            </div>
+            <p style="margin-top: 1.5rem;">
+                <a href="../">Dragon Digest</a> · <a href="https://giobi.com">giobi.com</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
